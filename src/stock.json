@@ -1,0 +1,30 @@
+[
+{
+    "id": "001",
+    "pais": "Etiopia",
+    "nombre": "Sidamo",
+    "proceso": "Lavado",
+    "infoExtra": "",
+    "precio": 20,
+    "cantidad": 0
+},
+{
+    "id": "002",
+    "pais": "Nicaragua",
+    "nombre": "Colibrí Azul",
+    "proceso": "Lavado",
+    "infoExtra": "",
+    "precio": 20,
+    "cantidad": 0
+},
+{
+    "id": "003",
+    "pais": "Costa Rica",
+    "nombre": "Nacasepa",
+    "proceso": "Lavado",
+    "infoExtra": "Finca Monterosa",
+    "precio": 20,
+    "cantidad": 0
+}
+
+]
