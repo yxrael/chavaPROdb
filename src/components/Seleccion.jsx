@@ -6,6 +6,8 @@ import Swal from 'sweetalert2';
 
 const Seleccion = () => {
 
+    // TEST 
+
     const navigate = useNavigate();
 
     const { seleccion } = useSelector( state => state );
