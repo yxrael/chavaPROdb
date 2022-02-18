@@ -1,24 +1,26 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import ConfirmaEnvio from '../components/ConfirmaEnvio'
-import Header from '../components/Header'
 import Listado from '../components/Listado'
+import MenuLogin from '../components/MenuLogin'
 import Seleccion from '../components/Seleccion'
+
 
 const DashBoard = () => {
     
     return (
         <>
-            <Header />
+
+            <MenuLogin />
 
             <div className='container'>
 
                 <Routes>
-
-                    <Route path='/' element={<Listado />}/>
-                    <Route path='/confirma' element={<ConfirmaEnvio />}/>
-                    <Route path='/filtered' element={<Listado />}/>
-                    <Route path='/seleccion' element={<Seleccion />}/>
+                    
+                    <Route path='confirma' element={<ConfirmaEnvio />}/>
+                    <Route path='filtered' element={<Listado />}/>
+                    <Route path='seleccion' element={<Seleccion />}/>
+                    <Route path='/*' element={<Listado />}/>
 
                 </Routes>
                 
