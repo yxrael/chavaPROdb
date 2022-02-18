@@ -6,9 +6,9 @@ const MenuLogin = () => {
     <div className='bg-light'>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Usuario</a>
+                <a class="nav-link disabled alert-link" href="#">Usuario</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item alert-link">
                 <a class="nav-link" href="#">Salir</a>
             </li>
         </ul>

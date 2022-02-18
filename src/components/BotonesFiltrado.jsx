@@ -10,25 +10,25 @@ const BotonesFiltrado = () => {
 
         <div className='container d-flex justify-content-evenly'>
             <button 
-                className='btn btn-secondary mt-2'
+                className='btn btn-secondary mt-2 btn-sm'
                 onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
                 value=''>
                 TODOS
             </button>
             <button 
-                className='btn btn-secondary mt-2'
+                className='btn btn-secondary mt-2 btn-sm'
                 onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`) }
                 value='AMERICA'>
                 AMERICA
             </button>
             <button 
-                className='btn btn-secondary mt-2'
+                className='btn btn-secondary mt-2 btn-sm'
                 onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
                 value='AFRICA'>
                 AFRICA
             </button>
             <button 
-                className='btn btn-secondary mt-2'
+                className='btn btn-secondary mt-2 btn-sm'
                 onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
                 value='ASIA'>
                 ASIA
