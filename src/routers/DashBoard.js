@@ -5,7 +5,6 @@ import Listado from '../components/Listado'
 import MenuLogin from '../components/MenuLogin'
 import Seleccion from '../components/Seleccion'
 
-
 const DashBoard = () => {
     
     return (

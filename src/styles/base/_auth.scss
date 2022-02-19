@@ -4,7 +4,7 @@
 .auth__main {
     display: flex;
     align-items: center;
-    background-color: $primary;
+    background-color: $light-grey;
     justify-content: center;
     margin: 0px;
     height: 100vh;
@@ -59,4 +59,13 @@
     justify-content: center;
     margin-bottom: 10px;
     padding: 5px;
+}
+
+.auth__logout {
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }

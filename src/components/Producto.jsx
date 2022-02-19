@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState} from 'react'
-import { useSelector } from 'react-redux';
+
 import { useDispatch } from 'react-redux';
-import { addSeleccion, modificaCantidad } from '../actions/listadosActions';
-import { filtrarSeleccion } from '../actions/seleccionActions';
+import { modificaCantidad } from '../actions/listadosActions';
+
 
 
 const Producto = ( {producto } ) => {
@@ -60,7 +60,6 @@ const Producto = ( {producto } ) => {
                         <div className="col-sm-6 mb-2">
                             <input
                                 name={id}
-                                name='Brasilll'
                                 type="number"
                                 className="form-control"
                                 min="0"

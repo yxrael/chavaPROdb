@@ -1,15 +1,31 @@
-import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { startLogout } from "../actions/auth";
 
 const MenuLogin = () => {
+
+
+  const { name } = useSelector( state => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+        dispatch(startLogout());
+        navigate('/auth/login');
+  }
+
   return (
       
     <div className='bg-light'>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link disabled alert-link" href="#">Usuario</a>
+        <ul className="nav justify-content-end">
+
+            <li className="nav-item">
+                <p className="nav-link disabled alert-link">{name}</p>
             </li>
-            <li class="nav-item alert-link">
-                <a class="nav-link" href="#">Salir</a>
+            <li className="nav-item alert-link">
+                <p 
+                    className="nav-link auth__logout"
+                    onClick={ handleClick }>Salir</p>
             </li>
         </ul>
         

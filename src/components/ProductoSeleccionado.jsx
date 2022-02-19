@@ -1,17 +1,15 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { borrarSeleccion } from '../actions/seleccionActions';
-import { borraCafes} from '../helpers/borraCafes';
 
 const ProductoSeleccionado = ( {producto } ) => {
 
-    const { id, pais, nombre, proceso, precio, infoExtra, cantidad} = producto;
+    const { id, pais, nombre, proceso, precio, cantidad} = producto;
 
     const dispatch = useDispatch();
 
     const handleClick = (id) => {
-        const despuesDeBorrado = borraCafes(id);
-        // setListadoSeleccion(despuesDeBorrado);
+
         dispatch( borrarSeleccion( id ));
     }
 
@@ -22,7 +20,7 @@ const ProductoSeleccionado = ( {producto } ) => {
                 <div className="col-sm-6">
                     <div className="row mt-2">
                         <div className="col-sm-6 text-right">
-                            <p><strong>{pais}, {nombre}</strong></p>
+                            <p><strong>{pais}, {nombre}</strong>{' '}{proceso}</p>
                         </div>
                     </div>    
                 </div>

@@ -6,7 +6,10 @@ export const actualizadorLista = ( seleccion ) => {
 
     let precioTotal = 0;
 
-    seleccion.map( producto => {
+    // seleccion.map( producto => {
+    //     precioTotal = precioTotal + (producto.cantidad * producto.precio);
+    // })
+    seleccion.forEach( producto => {
         precioTotal = precioTotal + (producto.cantidad * producto.precio);
     })
 
