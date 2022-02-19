@@ -53,7 +53,8 @@ const RegisterScreen = () => {
 
   return (
     <>
-        <h3 className='auth__title'>Registrarse</h3>
+        {/* <h3 className='auth__title'>Registrarse</h3> */}
+        <img src="../images/logo.jpg" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         <form onSubmit={ handleRegister }>
 

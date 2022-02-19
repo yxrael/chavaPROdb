@@ -52,7 +52,8 @@ const LoginScreen = () => {
 
   return (
     <>
-        <h3 className='auth__title'>Entrar</h3>
+        <img src="../images/logo.jpg" alt="logo Mr Chava" className='img-fluid mb-3'></img>
+        {/* <h3 className='auth__title'>Entrar</h3> */}
 
         {
              (msgError) 
