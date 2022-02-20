@@ -1,0 +1,23 @@
+
+
+***VISTA ADMIN***
+
+listado de pedidos, botón marcar como enviado (on/off)
+
+accion en botón disponible on/off
+accion en botón eliminar
+
+añadir botón editar producto
+añadir botón nuevo producto
+
+incluir efectos slide para editar/borrar
+
+***VISTA CLIENTES***
+
+-mostrar precio total
+
+-mostrar label descafeinados
+
+-añadir opción filtrado por descafeinados
+
+-pestaña con los pedidos de un mismo cliente y si están marcados como enviados
