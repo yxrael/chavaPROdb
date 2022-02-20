@@ -1,6 +1,13 @@
 import { types } from "../types/types"
 
 
+// export const addSelection = ( pedido ) => (
+    
+//    {
+//       type: types.addSelection,
+//       payload: pedido
+//    }
+// );
 
 
 export const filtrarSeleccion = ( listado ) => (
@@ -17,3 +24,9 @@ export const borrarSeleccion = ( id ) => (
       payload: id
    }
 );
+
+// export const addSeleccion = ( seleccionado ) =>( 
+//     {
+//       type: types.addSelection,
+//       payload: seleccionado
+//    })

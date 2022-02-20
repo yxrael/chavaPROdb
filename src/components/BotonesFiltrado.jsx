@@ -8,7 +8,7 @@ const BotonesFiltrado = () => {
 
     return (
 
-        <div className='container d-flex justify-content-evenly'>
+        <div className='container d-flex justify-content-between mxwListados'>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
                 onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }

@@ -6,9 +6,9 @@ export const types = {
     removeProduct: '[List] Remove product',
     listProductInit: '[List] Product list initialization',
     modifyCant: '[List] Modify cant list',
+    filterAvailable: '[List] Filter available products',
 
-
-    addSelection: '[Selection] Add product',
+    // addSelection: '[Selection] Add product',
     removeSelection: '[Selection] Remove product',
     selectionSubmit: '[Selection] Submit selection list',
 
@@ -27,6 +27,9 @@ export const types = {
     notesUpdated: '[Notes] Update note saved',
     notesFileUrl: '[Notes] Updated image url',
     notesDelete: '[Notes] Delete note',
-    notesLogoutCleaning: '[Notes] Logout Cleaning'
+    notesLogoutCleaning: '[Notes] Logout Cleaning',
+
+    enviaPedido: '[Pedidos] Envia pedido',
+    cambiaEstadoPedido: '[Pedidos] Cambia estado pedido'
     
 }

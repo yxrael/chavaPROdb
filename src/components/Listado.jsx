@@ -8,16 +8,17 @@ import { store } from '../store/store';
 import BotonesFiltrado from './BotonesFiltrado';
 import Producto from './Producto';
 import queryString from 'query-string';
-
-
+import { filtraDisponibles } from '../actions/listadosActions';
 
 const Listado = () => {
 
     const dispatch = useDispatch();
+
     const location = useLocation();
     const navigate = useNavigate();
 
     const { listado } = useSelector( state => state );
+
     let listaFiltrada = listado;
     
     const { q } = queryString.parse(location.search);

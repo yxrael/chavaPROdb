@@ -49,6 +49,10 @@ export const listReducer = ( state = listadoInicio, action ) => {
         case types.removeProduct:
             
             return state.filter( producto => producto.id !== action.payload );
+
+        case types.filterAvailable:
+
+            return state.filter( producto => producto.disponible === true );
     
         default:
             return state;

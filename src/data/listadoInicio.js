@@ -9,7 +9,7 @@ export const listadoInicio = [
         "infoExtra": "fresa, caramelo, avellana, sidra",
         "precio": 23,
         "cantidad": 0,
-        "disponible": true,
+        "disponible": false,
         "descafeinado": false,
         "continente": "AMERICA",
     },

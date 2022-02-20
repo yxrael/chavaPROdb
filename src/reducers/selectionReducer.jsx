@@ -6,12 +6,12 @@ export const selectionReducer = ( state = [], action) => {
 
     switch ( action.type) {
 
-        case types.addSelection:
+        // case types.addSelection:
 
-            return [
-                ...state,
-                action.payload
-            ];
+        //     return [
+        //         ...state,
+        //         action.payload
+        //     ];
         
         case types.removeSelection:
             

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { startLogout } from "../actions/auth";
+import { inicializaListado } from "../actions/listadosActions";
 
 const MenuLogin = () => {
 
@@ -11,6 +12,7 @@ const MenuLogin = () => {
 
   const handleClick = () => {
         dispatch(startLogout());
+        dispatch( inicializaListado() );
         navigate('/auth/login');
   }
 

@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import { modificaCantidad } from '../actions/listadosActions';
 
 
-
-const Producto = ( {producto } ) => {
+const ProductoAdmin = ( {producto } ) => {
 
     const dispatch = useDispatch();
     
@@ -38,53 +37,10 @@ const Producto = ( {producto } ) => {
 
     return (
 
-        // <div  className="container card bg-light mb-3 ">
-        //     <div className="row">
-        //         <div className="col-sm-6">
-        //             <div className="row mt-2">
-        //                 <div className="col-sm-6 text-right">
-        //                     <p><strong>{pais}, {nombre}</strong></p>
-        //                 </div>
-        //                 <div className="col-sm-6 text-right">
-        //                     <p>{proceso}</p>
-        //                     <p>Precio: <b>{precio}€/kg</b></p>
-        //                 </div>
-        //             </div>    
-        //         </div>
-        //         <div className="col-sm-6">
-        //             <div className="row m-1 text-center d-flex">
-        //                 <div className="col-sm-6 text-right">
-        //                     <label htmlFor="cantidad">Cantidad:</label>
-                            
-        //                 </div>
-        //                 <div className="col-sm-6 mb-2">
-
-        //                     <input
-        //                         name={id}
-        //                         type="number"
-        //                         className="form-control"
-        //                         min="0"
-        //                         max="50"
-        //                         placeholder="Cantidad de kgs:"
-        //                         value={cantidadElegida}
-        //                         onChange={ handleCambioCantidad }
-        //                         />
-
-        //                         <p>Total: <b>{precioPorProducto}€/kg</b></p>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>     
-        //     <div className="text-center">
-        //         <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
-        //     </div>
-        // </div>
-
-
             <div  className="container card bg-light mb-3 d-flex justify-content-between mxwListados">
                 <div className="d-flex justify-content-between">
-                    <div className="">
-                        <div className="mt-2">
+                    <div className="mt-2">
+                        <div className="">
                             <div className="">
                                 <p><strong>{pais}, {nombre}</strong></p>
                             </div>
@@ -97,16 +53,43 @@ const Producto = ( {producto } ) => {
                             
                         </div>    
                     </div>
-                    <div>
-                        
-
-                    </div>
-                    <div className="">
+                    <div className="mt-2">
                         <div className="">
-                                <label htmlFor="cantidad">Cantidad:</label>       
+                            <p>Continente: <b>{continente}</b></p>       
                         </div>
                     </div>
-                    <div>
+                    <div className="mt-2">
+                        
+                                <p>Disponible: <strong>
+                                    {
+                                    disponible
+                                    ? (
+                                        <span className='text-success'>SI </span>   
+                                    )
+                                    :
+                                    (
+                                        <span className='text-danger'>NO </span>
+                                    )
+                                                        }       
+                                </strong></p>
+                                <button 
+                                    className='btn btn-info btn-sm m-2 d-block'
+                                    // onClick={ () => {handleClick(id)} }
+                                    >
+                                        Dispo: SI/NO
+                                </button>
+                                <div className="d-flex justify-content-center">
+                                    <button 
+                                        className='btn btn-danger btn-sm m-2 d-block'
+                                        // onClick={ () => {handleClick(id)} }
+                                        >
+                                            X
+                                    </button>
+                                </div>
+
+                    </div>
+                    
+                    {/* <div className="mt-2">
                         
                         <div className="mb-2">
                                 <input
@@ -121,7 +104,7 @@ const Producto = ( {producto } ) => {
                                 />
                         </div>
                         <p>Total: <b>{precioPorProducto}€/kg</b></p>
-                    </div>
+                    </div> */}
                 </div>   
                   
                 <div className="text-center">
@@ -136,4 +119,4 @@ const Producto = ( {producto } ) => {
 
 }
 
-export default Producto
+export default ProductoAdmin

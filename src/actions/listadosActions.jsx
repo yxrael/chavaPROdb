@@ -24,3 +24,10 @@ export const inicializaListado = () => {
       type: types.listProductInit
    }
 }
+
+export const filtraDisponibles = () => {
+
+   return {
+      type: types.filterAvailable
+   }
+}

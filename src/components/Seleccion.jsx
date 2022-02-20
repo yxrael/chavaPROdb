@@ -1,22 +1,41 @@
 import { useNavigate } from 'react-router-dom';
 import { actualizadorLista } from '../helpers/actualizadorLista';
 import ProductoSeleccionado from './ProductoSeleccionado';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
+import moment from 'moment';
+import { enviaPedido, incluyePedido } from '../actions/enviaPedidoActions';
+import { uniqueId } from '../helpers/creaIdAleatorio';
 
 const Seleccion = () => {
 
-    // TEST 
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const { seleccion } = useSelector( state => state );
+    const { uid } = useSelector( state => state.auth );
+    // const pedidos = useSelector( state => state.pedidos );
+    const seleccion = useSelector( state => state.seleccion );
+ 
+    const pedidoId = uniqueId('p_');
+    const date = moment( new Date() ).format('DD/MM/YYYY');  
+  
 
     const handleClick = () => {
         navigate( -1 );
     }
 
     const enviarPedido = () => {
+
+        const pedidoObj = {
+            date,
+            uid,
+            pedidoId,
+            completado: false,
+            seleccion
+          };
+
+        dispatch( enviaPedido( pedidoObj ));
  
         Swal.fire(
             '¡Gracias!',
