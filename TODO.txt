@@ -12,6 +12,8 @@ añadir botón nuevo producto
 
 incluir efectos slide para editar/borrar
 
+!!!en el listado de productos del admin no están apareciendo los no disponibles!!!
+
 ***VISTA CLIENTES***
 
 -mostrar precio total
