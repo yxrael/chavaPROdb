@@ -1,0 +1,34 @@
+
+
+ESTRUCTURA BASE DE DATOS:
+
+coleccion ( id pedido) >
+
+    datosPedido >
+
+        productos >
+            articulos>
+                id:
+                nombre:
+                pais:
+                proceso:
+                cantidad:
+                continente:
+        user:
+        fecha:
+        completado:
+
+
+PISTA!! ( para asíncrono )
+
+export const funcion = () => {
+    return ( dispatch, getState ) => (
+        const state = getState();
+        console.log( state );
+    )
+}
+
+
+CAMBIOS / PRUEBAS
+
+21/02 el reducer de pedidos no añade pedidos, solo incluye el último/actual
