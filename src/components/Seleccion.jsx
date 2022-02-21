@@ -4,8 +4,9 @@ import ProductoSeleccionado from './ProductoSeleccionado';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import { enviaPedido, incluyePedido } from '../actions/enviaPedidoActions';
+import { enviaPedido, enviaPedidoDB, incluyePedido } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
+
 
 const Seleccion = () => {
 
@@ -35,6 +36,8 @@ const Seleccion = () => {
             seleccion
           };
 
+
+
         dispatch( enviaPedido( pedidoObj ));
  
         Swal.fire(
@@ -43,8 +46,12 @@ const Seleccion = () => {
             'success'
           );
 
+        dispatch( enviaPedidoDB() );
+
         navigate('/confirma');
     }
+
+
 
     // const tempo = JSON.parse(localStorage.getItem('listadoCafes') );
     

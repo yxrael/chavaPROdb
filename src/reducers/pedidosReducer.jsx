@@ -23,9 +23,9 @@ export const pedidosReducer = ( state = [], action) => {
     switch (action.type) {
 
         case types.enviaPedido:
-            console.log(action.payload);
-            console.log(state);
-            return [...state, action.payload ];
+
+            return action.payload;
+            // return [...state, action.payload ];
     
         default:
             return state;
