@@ -33,6 +33,12 @@ const BotonesFiltrado = () => {
                 value='ASIA'>
                 ASIA
             </button>
+            <button 
+                className='btn btn-secondary mt-2 btn-sm'
+                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
+                value='DESCAFEINADO'>
+                DESCAFEINADO
+            </button>
         </div>
     )
 }
