@@ -6,36 +6,42 @@ const BotonesFiltrado = () => {
 
     const navigate = useNavigate();
 
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        navigate(`/filtered?q=${ e.target.value }`);
+    }
+
     return (
 
         <div className='container d-flex justify-content-between mxwListados'>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
-                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
+                onClick={ handleClick }
                 value=''>
                 TODOS
             </button>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
-                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`) }
+                onClick={ handleClick }
                 value='AMERICA'>
                 AMERICA
             </button>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
-                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
+                onClick={ handleClick }
                 value='AFRICA'>
                 AFRICA
             </button>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
-                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
+                onClick={ handleClick }
                 value='ASIA'>
                 ASIA
             </button>
             <button 
                 className='btn btn-secondary mt-2 btn-sm'
-                onClick={ (e) => navigate(`/filtered?q=${ e.target.value }`)  }
+                onClick={ handleClick }
                 value='DESCAFEINADO'>
                 DESCAFEINADO
             </button>

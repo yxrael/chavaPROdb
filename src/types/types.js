@@ -29,7 +29,11 @@ export const types = {
     notesDelete: '[Notes] Delete note',
     notesLogoutCleaning: '[Notes] Logout Cleaning',
 
-    enviaPedido: '[Pedidos] Envia pedido',
-    cambiaEstadoPedido: '[Pedidos] Cambia estado pedido'
+    enviaPedido: '[Pedido] Envia pedido',
+    cambiaEstadoPedido: '[Pedido] Cambia estado pedido',
+
+    pedidosPendientes: '[Pedidos] Pedidos pendientes',
+    pedidosPorCliente: '[Pedidos] Pedidos de un cliente',
+    cargaListaPedidos: '[Pedidos] Inicia la lista de pedidos'
     
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import ConfirmaEnvio from '../components/ConfirmaEnvio'
@@ -10,6 +10,7 @@ import AdministradorPedidos from '../components/AdministradorPedidos';
 import BotonesAdmin from '../components/BotonesAdmin'
 import { useDispatch } from 'react-redux'
 import { filtraDisponibles } from '../actions/listadosActions'
+import { cargaPedidos } from '../helpers/cargaPedidos'
 
 
 const DashBoard = () => {
@@ -20,12 +21,14 @@ const DashBoard = () => {
 
     if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
         isAdmin = true;
+
     } else {
         isAdmin = false;
     };
 
     const dispatch = useDispatch();
     dispatch( filtraDisponibles() );
+    cargaPedidos( dispatch );
     
     return (
         <>

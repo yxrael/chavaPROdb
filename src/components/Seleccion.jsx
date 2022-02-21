@@ -4,18 +4,16 @@ import ProductoSeleccionado from './ProductoSeleccionado';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import { enviaPedido, enviaPedidoDB, incluyePedido } from '../actions/enviaPedidoActions';
+import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
 
 
 const Seleccion = () => {
 
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const { uid } = useSelector( state => state.auth );
-    // const pedidos = useSelector( state => state.pedidos );
     const seleccion = useSelector( state => state.seleccion );
  
     const pedidoId = uniqueId('p_');
@@ -36,24 +34,17 @@ const Seleccion = () => {
             seleccion
           };
 
+        enviaPedido( pedidoObj );
+        enviaPedidoDB( pedidoObj );
 
-
-        dispatch( enviaPedido( pedidoObj ));
- 
         Swal.fire(
             '¡Gracias!',
             'Tu pedido ha sido enviado',
             'success'
           );
 
-        dispatch( enviaPedidoDB() );
-
         navigate('/confirma');
     }
-
-
-
-    // const tempo = JSON.parse(localStorage.getItem('listadoCafes') );
     
     const precioTotal = actualizadorLista( seleccion );
 

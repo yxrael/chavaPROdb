@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 import DashBoard from './DashBoard';
 
-
 const AppRouter = () => {
 
     const dispatch = useDispatch();
@@ -29,7 +28,12 @@ const AppRouter = () => {
             setChecking(false);
         });
 
-    }, [ dispatch, setChecking ])
+    }, [ dispatch, setChecking ]);
+
+ 
+    
+
+    
 
     if ( checking ) {
         return (

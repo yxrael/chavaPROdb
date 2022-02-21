@@ -88,9 +88,9 @@ export const listadoInicio = [
     {
         "id": "008",
         "pais": "Colombia",
-        "nombre": "Descafeinado",
+        "nombre": "",
         "proceso": "Swiss Water",
-        "infoExtra": "",
+        "infoExtra": "descafeinado",
         "precio": 23,
         "cantidad": 0,
         "disponible": true,
@@ -100,9 +100,9 @@ export const listadoInicio = [
     {
         "id": "009",
         "pais": "México",
-        "nombre": "Descafeinado",
+        "nombre": "",
         "proceso": "NSwiss Water",
-        "infoExtra": "",
+        "infoExtra": "descafeinado",
         "precio": 23,
         "cantidad": 0,
         "disponible": true,

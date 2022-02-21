@@ -26,7 +26,7 @@ ok-añadir opción filtrado por descafeinados
 
 
 
-ESTRUCTURA BASE DE DATOS:
+ESTRUCTURA BASE DE DATOS: (ha cambiado, corregir!!!)
 
 coleccion ( id pedido) >
 
@@ -47,14 +47,11 @@ coleccion ( id pedido) >
 
 PISTA!! ( para asíncrono )
 
-export const funcion = () => {
-    return ( dispatch, getState ) => (
-        const state = getState();
-        console.log( state );
-    )
-}
+
 
 
 CAMBIOS / PRUEBAS
 
 21/02 el reducer de pedidos no añade pedidos, solo incluye el último/actual
+
+hay que añadir el nombre, no solo el uid, y que muestre solo el nombre en la lista de pedidos

@@ -10,25 +10,28 @@ export const enviaPedido = ( pedido ) => (
     }
 );
 
+export const enviaPedidoDB = async (pedidoObj) => {
 
+        const { date, pedidoId, uid, completado, seleccion } = pedidoObj;
 
-export const enviaPedidoDB = () => {
-
-    return async ( dispatch, getState ) => {
-
-        const { uid } = getState().auth;
-        const { date, pedidoId } = getState().pedidos;
+        let seleccionShort = [];
+        seleccion.map( producto => {
+            seleccionShort = [...seleccionShort, {
+                nombre: producto.nombre,
+                pais: producto.pais,
+                proceso: producto.proceso,
+                cantidad: producto.cantidad
+            }]
+        });
 
         const pedidoDB = {
+            pedidoId,
             uid,
             date,
-            completado: false
+            completado: false,
+            seleccionShort
         };
 
-        const pedido = await db.collection(`${pedidoId}/datosPedido`).add( pedidoDB);
-
-        console.log(pedido);
-
-    }
+        const pedido = await db.collection(`pedidos`).add( pedidoDB );
 
 }

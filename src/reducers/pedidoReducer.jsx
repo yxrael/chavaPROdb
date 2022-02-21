@@ -18,14 +18,13 @@
 
 import { types } from "../types/types"
 
-export const pedidosReducer = ( state = [], action) => {
+export const pedidoReducer = ( state = [], action) => {
 
     switch (action.type) {
 
         case types.enviaPedido:
 
             return action.payload;
-            // return [...state, action.payload ];
     
         default:
             return state;
