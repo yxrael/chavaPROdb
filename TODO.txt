@@ -18,8 +18,8 @@ incluir efectos slide para editar/borrar
 
 -mostrar precio total
 
--mostrar label descafeinados
+ok-mostrar label descafeinados 
 
--añadir opción filtrado por descafeinados
+ok-añadir opción filtrado por descafeinados
 
 -pestaña con los pedidos de un mismo cliente y si están marcados como enviados
