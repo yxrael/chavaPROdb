@@ -17,6 +17,7 @@ export const enviaPedidoDB = async (pedidoObj) => {
         let seleccionShort = [];
         seleccion.map( producto => {
             seleccionShort = [...seleccionShort, {
+                id: producto.id,
                 nombre: producto.nombre,
                 pais: producto.pais,
                 proceso: producto.proceso,

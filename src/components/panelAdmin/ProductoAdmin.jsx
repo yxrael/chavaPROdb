@@ -1,4 +1,6 @@
 import React from 'react'
+import DetallePedido from './DetallePedido';
+
 
 const ProductoAdmin = ( producto ) => {
 
@@ -31,10 +33,42 @@ const ProductoAdmin = ( producto ) => {
                         <div>
                             <p>Unidades: <b>{unidades}</b></p>
                         </div>
+                        
                     </div>
+                        
 
-                </div>
-        </>
+
+                    <div>
+                        {seleccionShort.map( producto => {
+                            return (
+                                <DetallePedido
+                                    key={producto.id}
+                                    producto={producto}
+                                />
+                            )
+                        })
+                        }
+                    </div>
+                    <div className='d-flex justify-content-end'>
+                        <button 
+                            className='btn btn-success m-2'
+                            // onClick={ handleClick }
+                            >
+                            Enviado
+                        </button>
+                        <button 
+                            className='btn btn-warning m-2'
+                            // onClick={ handleClick }
+                            >
+                            Revisar
+                        </button>
+
+                    </div>
+                    
+
+        </div>
+        
+    </>
   )
 }
 
