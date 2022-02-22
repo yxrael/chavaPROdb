@@ -14,38 +14,50 @@ const BotonesFiltrado = () => {
 
     return (
 
-        <div className='container d-flex justify-content-between mxwListados'>
-            <button 
-                className='btn btn-secondary mt-2 btn-sm'
-                onClick={ handleClick }
-                value=''>
-                TODOS
-            </button>
-            <button 
-                className='btn btn-secondary mt-2 btn-sm'
-                onClick={ handleClick }
-                value='AMERICA'>
-                AMERICA
-            </button>
-            <button 
-                className='btn btn-secondary mt-2 btn-sm'
-                onClick={ handleClick }
-                value='AFRICA'>
-                AFRICA
-            </button>
-            <button 
-                className='btn btn-secondary mt-2 btn-sm'
-                onClick={ handleClick }
-                value='ASIA'>
-                ASIA
-            </button>
-            <button 
-                className='btn btn-secondary mt-2 btn-sm'
-                onClick={ handleClick }
-                value='DESCAFEINADO'>
-                DESCAFEINADO
-            </button>
-        </div>
+        <>
+        
+            <div className='container d-flex justify-content-around mxwListados'>
+    
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ handleClick }
+                    value='AMERICA'>
+                    AMERICA
+                </button>
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ handleClick }
+                    value='AFRICA'>
+                    AFRICA
+                </button>
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ handleClick }
+                    value='ASIA'>
+                    ASIA
+                </button>
+    
+            </div>
+
+            <div className='container d-flex justify-content-evenly mxwListados'>
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ handleClick }
+                    value=''>
+                    TODOS
+                </button>
+    
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ handleClick }
+                    value='DESCAFEINADO'>
+                    DESCAFEINADO
+                </button>
+            </div>
+        
+        </>
+
+
     )
 }
 
