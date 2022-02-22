@@ -13,13 +13,12 @@ const Seleccion = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { uid } = useSelector( state => state.auth );
+    const { uid, name } = useSelector( state => state.auth );
     const seleccion = useSelector( state => state.seleccion );
  
     const pedidoId = uniqueId('p_');
     const date = moment( new Date() ).format('DD/MM/YYYY');  
   
-
     const handleClick = () => {
         navigate( -1 );
     }
@@ -29,6 +28,7 @@ const Seleccion = () => {
         const pedidoObj = {
             date,
             uid,
+            name,
             pedidoId,
             completado: false,
             seleccion

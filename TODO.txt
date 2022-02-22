@@ -1,4 +1,7 @@
 
+AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pantalla
+
+
 
 ***VISTA ADMIN***
 
@@ -47,11 +50,8 @@ coleccion ( id pedido) >
 
 PISTA!! ( para asíncrono )
 
-
-
-
 CAMBIOS / PRUEBAS
 
 21/02 el reducer de pedidos no añade pedidos, solo incluye el último/actual
 
-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre en la lista de pedidos
+OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre en la lista de pedidos

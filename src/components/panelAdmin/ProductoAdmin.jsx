@@ -4,7 +4,7 @@ import DetallePedido from './DetallePedido';
 
 const ProductoAdmin = ( producto ) => {
 
-    const {pedidoId, date, uid, seleccionShort} = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort} = producto.producto;
     const unidades = seleccionShort.length;
 
   return (
@@ -24,7 +24,8 @@ const ProductoAdmin = ( producto ) => {
                                 </div>
 
                                 <div className="">
-                                    <p>Cliente: {uid}</p>
+                                    <p>ID Cliente: {uid}</p>
+                                    <p>Nombre cliente:{' '} {name} </p>
                                 </div>
                                 
                             </div>    
