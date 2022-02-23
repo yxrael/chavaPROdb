@@ -4,7 +4,7 @@ AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pant
 
 ***VISTA ADMIN***
 
-ok-listado de pedidos, botón marcar como enviado (on/off) >>> modificar estado del pedido
+ok 23/02/22 -listado de pedidos, botón marcar como enviado (on/off) >>> modificar estado del pedido
     en la base de datos
 
 accion en botón disponible on/off

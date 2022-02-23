@@ -9,10 +9,22 @@ const ProductoAdmin = ( producto ) => {
     const unidades = seleccionShort.length;
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
+    const [ toggleDetalle, setToggleDetalle ] = useState(false);
+    const [ muestraDetalle, setMuestraDetalle ] = useState('collapse');
+
 
     const handleClick = (e) => {
         e.preventDefault();
         setToogleCompletado( !toggleCompletado);
+    }
+
+    const handleDetalle = (e) => {
+        e.preventDefault();
+        setToggleDetalle( !toggleDetalle);
+
+        if(muestraDetalle === 'collapse') {
+            setMuestraDetalle('collapse.show')
+        } else { setMuestraDetalle('collapse')};
     }
 
   return (
@@ -44,10 +56,37 @@ const ProductoAdmin = ( producto ) => {
                         </div>
                         
                     </div>
+
+
+                    <div className='d-flex justify-content-center mb-2'>
+                    {  toggleDetalle
+                                ? (
+                                    <button 
+                                        className='btn btn-info m-2'
+                                        onClick={ handleDetalle }
+                                    >
+                                        Detalle{' '}
+                                        <i class="fa-solid fa-toggle-on"></i>
+                                    </button>
+                                )
+                                :
+                                (
+                                        <button 
+                                        className='btn btn-secondary m-2'
+                                        onClick={ handleDetalle }
+                                        >
+                                            Detalle{' '}
+                                            <i class="fa-solid fa-toggle-off"></i>   
+                                        </button>                 
+                                )
+                        }
+  
+
+                    </div>
                         
 
 
-                    <div>
+                    <div className={muestraDetalle}>
                         {seleccionShort.map( producto => {
                             return (
                                 <DetallePedido
@@ -59,6 +98,8 @@ const ProductoAdmin = ( producto ) => {
                         }
                     </div>
                     <div className='d-flex justify-content-end'>
+
+
 
                         {  toggleCompletado
                                 ? (
@@ -78,7 +119,6 @@ const ProductoAdmin = ( producto ) => {
                                             Enviar
                                     </button>
                                 )
-                            
                         }
                         
                         {/* <button 
