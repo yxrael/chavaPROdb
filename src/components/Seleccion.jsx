@@ -7,7 +7,6 @@ import moment from 'moment';
 import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
 
-
 const Seleccion = () => {
 
     const navigate = useNavigate();
@@ -59,11 +58,10 @@ const Seleccion = () => {
                                         <ProductoSeleccionado
                                             key={producto.id}
                                             producto={producto}
-
                                         />
                     ) )} 
 
-                <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€/kg</b></p>
+                <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
 
                     {
                         (seleccion.length === 0)

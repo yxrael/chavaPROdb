@@ -31,8 +31,8 @@ const ProductoSeleccionado = ( {producto } ) => {
                             <label htmlFor="cantidad">Cantidad:</label>
                         </div>
                         <div className="col-sm-6 mb-2">
-                            <p>{cantidad}</p>
-                            <p>Subtotal: <b>{precio * cantidad}€/kg</b></p>
+                            <p>{cantidad}{' '}kg</p>
+                            <p>Subtotal: <b>{precio * cantidad}{' '}€</b></p>
                         </div>
                     </div>
                 </div>
