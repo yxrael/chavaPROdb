@@ -7,15 +7,17 @@ AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pant
 ok 23/02/22 -listado de pedidos, botón marcar como enviado (on/off) >>> modificar estado del pedido
     en la base de datos
 
-accion en botón disponible on/off
-accion en botón eliminar
+ok 23/02/22 accion en botón disponible on/off
+OK 23/02/22 accion en botón eliminar
 
 añadir botón editar producto
 añadir botón nuevo producto
 
+FUNCIONALIDAD PARA BOTÓN GUARDAR EN LISTA DE PRODUCTOS (actualizar BD)
+
 incluir efectos slide para editar/borrar
 
-!!!en el listado de productos del admin no están apareciendo los no disponibles!!!
+ok 23/02/22 !!en el listado de productos del admin no están apareciendo los no disponibles!!!!
 
 ***VISTA CLIENTES***
 
@@ -27,7 +29,7 @@ ok-añadir opción filtrado por descafeinados
 
 -pestaña con los pedidos de un mismo cliente y si están marcados como enviados
 
-
+-mensaje confirmación antes de eliminar producto
 
 ESTRUCTURA BASE DE DATOS: (ha cambiado, corregir!!!)
 
