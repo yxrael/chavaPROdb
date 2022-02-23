@@ -2,10 +2,10 @@
 AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pantalla
 
 
-
 ***VISTA ADMIN***
 
-listado de pedidos, botón marcar como enviado (on/off)
+ok-listado de pedidos, botón marcar como enviado (on/off) >>> modificar estado del pedido
+    en la base de datos
 
 accion en botón disponible on/off
 accion en botón eliminar
@@ -54,4 +54,5 @@ CAMBIOS / PRUEBAS
 
 21/02 el reducer de pedidos no añade pedidos, solo incluye el último/actual
 
-OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre en la lista de pedidos
+OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre
+    en la lista de pedidos
