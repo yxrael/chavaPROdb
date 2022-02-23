@@ -13,29 +13,11 @@ const ConfirmaEnvio = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const seleccion = useSelector( state => state.seleccion );
-  // const { uid } = useSelector( state => state.auth );
-  // const pedidos = useSelector( state => state.pedidos );
-  // const pedidoId = uniqueId('p_');
-  // // const date = new Date();
-  // const date = moment( new Date() ).format('DD/MM/YYYY');  
-
-  // const pedidoObj = {
-  //   date,
-  //   uid,
-  //   pedidoId,
-  //   seleccion
-  // }
-
   const handleClick = () => {
-
-    // dispatch( incluyePedido( pedidoObj ));
-    // console.log( pedidos );
 
     dispatch( inicializaListado( ) );
     navigate('/');
 
-    
 }
 
   return (

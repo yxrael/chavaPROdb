@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState} from 'react'
+import Swal from 'sweetalert2';
 
 import { useDispatch } from 'react-redux';
 import { cambiaDisponibilidad, eliminaProducto, modificaCantidad } from '../../actions/listadosActions';
@@ -12,6 +13,7 @@ const ProductoStockAdmin = ( {producto } ) => {
 
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
     const [ precioPorProducto, setPrecioPorProducto ] = useState(precio);
+    // COMPROBAR POR QUÉ NO ESTÁN EN USO!!!!!
 
     const handleCambioCantidad = (e) => {
 
@@ -56,6 +58,26 @@ const ProductoStockAdmin = ( {producto } ) => {
 
     const handleEliminar = (e) => {
         e.preventDefault();
+
+        Swal.fire({
+            title: 'Estás seguro?',
+            text: "La eliminación no se podrá deshacer!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Sí, bórralo!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Borrado!',
+                'El producto ha sido eliminado.',
+                'success'
+              )
+            }
+          })
+
 
         dispatch( eliminaProducto(id) );
 
