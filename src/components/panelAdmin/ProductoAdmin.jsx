@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DetallePedido from './DetallePedido';
+
 
 
 const ProductoAdmin = ( producto ) => {
 
-    const {pedidoId, date, uid, name, seleccionShort} = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort, completado } = producto.producto;
     const unidades = seleccionShort.length;
+
+    const [ toggleCompletado, setToogleCompletado ] = useState(completado);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setToogleCompletado( !toggleCompletado);
+    }
 
   return (
     <>
@@ -51,18 +59,34 @@ const ProductoAdmin = ( producto ) => {
                         }
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <button 
-                            className='btn btn-success m-2'
-                            // onClick={ handleClick }
-                            >
-                            Enviado
-                        </button>
-                        <button 
+
+                        {  toggleCompletado
+                                ? (
+                                    <button 
+                                        className='btn btn-success m-2'
+                                        onClick={ handleClick }
+                                    >
+                                        Enviado
+                                    </button>
+                                )
+                                :
+                                (
+                                    <button 
+                                        className='btn btn-warning m-2'
+                                        onClick={ handleClick }
+                                        >
+                                            Enviar
+                                    </button>
+                                )
+                            
+                        }
+                        
+                        {/* <button 
                             className='btn btn-warning m-2'
                             // onClick={ handleClick }
                             >
                             Revisar
-                        </button>
+                        </button> */}
 
                     </div>
                     

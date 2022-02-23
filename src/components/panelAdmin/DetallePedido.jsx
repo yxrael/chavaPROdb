@@ -10,27 +10,23 @@ const DetallePedido = ( producto ) => {
     
         <div  className="container card bg-light mb-2 mxwListados">
                     
-                    <div className="d-flex justify-content-around mt-2">
+                    {/* <div className="d-flex justify-content-around mt-2"> */}
+                    <div className="row mt-2">
                         
                             
-                                <div className="">
+                                <div className="col">
                                     <p><strong>{nombre}</strong></p>
-                                </div>
-
-                                <div>
                                     <p>{pais}</p>
                                 </div>
 
-                                <div className="">
+                                <div className="col">
                                     <p>{proceso}</p>
+                                    <div className='d-flex justify-content-end'>
+                                        <p>Unidades: <b>{cantidad}</b></p>
+                                    </div>
+                                    
                                 </div>
                                 
-                               
-                        
-                    
-                        <div>
-                            <p>Unidades: <b>{cantidad}</b></p>
-                        </div>
                     </div>
 
                 </div>
