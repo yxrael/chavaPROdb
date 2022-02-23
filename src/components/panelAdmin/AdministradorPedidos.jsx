@@ -2,13 +2,11 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { cargaListaPedidos } from '../actions/listaPedidosAdmin';
-import { cargaPedidos } from '../helpers/cargaPedidos';
-import ProductoAdmin from './panelAdmin/ProductoAdmin';
+import { cargaPedidos } from '../../helpers/cargaPedidos';
+import ProductoAdmin from './ProductoAdmin';
 
 const AdministradorPedidos = () => {
 
- 
 
   // useEffect(() => {
 

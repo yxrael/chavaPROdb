@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import ConfirmaEnvio from '../components/ConfirmaEnvio'
 import Listado from '../components/Listado'
-import ListadoAdmin from '../components/ListadoAdmin'
+import ListadoAdmin from '../components/panelAdmin/ListadoAdmin'
 import MenuLogin from '../components/MenuLogin'
 import Seleccion from '../components/Seleccion';
-import AdministradorPedidos from '../components/AdministradorPedidos';
-import BotonesAdmin from '../components/BotonesAdmin'
+import AdministradorPedidos from '../components/panelAdmin/AdministradorPedidos';
+import BotonesAdmin from '../components/panelAdmin/BotonesAdmin'
 import { useDispatch } from 'react-redux'
-import { filtraDisponibles } from '../actions/listadosActions'
+import { inicializaListado } from '../actions/listadosActions'
 import { cargaPedidos } from '../helpers/cargaPedidos'
 
 
@@ -27,7 +27,7 @@ const DashBoard = () => {
     };
 
     const dispatch = useDispatch();
-    dispatch( filtraDisponibles() );
+    dispatch( inicializaListado() );
     cargaPedidos( dispatch );
     
     return (

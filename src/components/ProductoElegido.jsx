@@ -37,6 +37,6 @@ const Producto= ( { key, producto, listadoSeleccion} ) => {
         </div>
     )
 
-}
+
 
 export default Producto

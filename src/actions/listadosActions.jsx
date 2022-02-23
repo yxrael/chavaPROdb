@@ -30,4 +30,29 @@ export const filtraDisponibles = () => {
    return {
       type: types.filterAvailable
    }
+};
+
+export const eliminaProducto = ( id ) =>{ 
+
+   return {
+         type: types.removeProduct,
+         payload: id
+   }
 }
+
+export const filtraListadoClientesDisponible = ( listado ) => {
+
+   return listado.filter( producto => producto.disponible === true );
+}
+
+export const cambiaDisponibilidad = ( id, cafe ) =>{ 
+
+   return {
+      type: types.toggleDispo,
+      payload: {
+         id,
+         cafe
+      }
+}
+}
+

@@ -2,10 +2,9 @@ import React from 'react'
 import { useState} from 'react'
 
 import { useDispatch } from 'react-redux';
-import { modificaCantidad } from '../actions/listadosActions';
+import { cambiaDisponibilidad, eliminaProducto, modificaCantidad } from '../../actions/listadosActions';
 
-
-const ProductoAdmin = ( {producto } ) => {
+const ProductoStockAdmin = ( {producto } ) => {
 
     const dispatch = useDispatch();
     
@@ -32,6 +31,33 @@ const ProductoAdmin = ( {producto } ) => {
         };
 
         dispatch( modificaCantidad( id, cambioCafe ));
+
+    }
+
+    const handleCambioDispo = (e) => {
+        e.preventDefault();
+
+        const cambioCafe = {
+            "id": id,
+            "pais": pais,
+            "nombre": nombre,
+            "proceso": proceso,
+            "infoExtra": infoExtra,
+            "precio": precio,
+            "cantidad": cantidad,
+            "disponible": !disponible,
+            "continente": continente
+        };
+
+
+        dispatch( cambiaDisponibilidad( id, cambioCafe ) );
+
+    }
+
+    const handleEliminar = (e) => {
+        e.preventDefault();
+
+        dispatch( eliminaProducto(id) );
 
     }
 
@@ -70,18 +96,19 @@ const ProductoAdmin = ( {producto } ) => {
                                     (
                                         <span className='text-danger'>NO </span>
                                     )
-                                                        }       
+                                    }    
+
                                 </strong></p>
                                 <button 
                                     className='btn btn-info btn-sm m-2 d-block'
-                                    // onClick={ () => {handleClick(id)} }
+                                    onClick={ handleCambioDispo }
                                     >
                                         Dispo: SI/NO
                                 </button>
                                 <div className="d-flex justify-content-center">
                                     <button 
                                         className='btn btn-danger btn-sm m-2 d-block'
-                                        // onClick={ () => {handleClick(id)} }
+                                        onClick={ handleEliminar }
                                         >
                                             X
                                     </button>
@@ -119,4 +146,4 @@ const ProductoAdmin = ( {producto } ) => {
 
 }
 
-export default ProductoAdmin
+export default ProductoStockAdmin

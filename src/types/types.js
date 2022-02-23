@@ -7,6 +7,7 @@ export const types = {
     listProductInit: '[List] Product list initialization',
     modifyCant: '[List] Modify cant list',
     filterAvailable: '[List] Filter available products',
+    toggleDispo: '[List] Toggle dispo on/off',
 
     // addSelection: '[Selection] Add product',
     removeSelection: '[Selection] Remove product',

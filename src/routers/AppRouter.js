@@ -30,11 +30,6 @@ const AppRouter = () => {
 
     }, [ dispatch, setChecking ]);
 
- 
-    
-
-    
-
     if ( checking ) {
         return (
             <>

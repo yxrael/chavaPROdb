@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { filtrarSeleccion } from '../actions/seleccionActions';
-import { localStorageUpdater } from '../helpers/localStorageUpdater';
-import { store } from '../store/store';
-import ProductoAdmin from './ProductoAdmin';
+import { filtrarSeleccion } from '../../actions/seleccionActions';
+import { localStorageUpdater } from '../../helpers/localStorageUpdater';
+import { store } from '../../store/store';
+import ProductoStockAdmin from './ProductoStockAdmin';
 
 
 const ListadoAdmin = () => {
@@ -28,12 +28,16 @@ const ListadoAdmin = () => {
   //     navigate('/seleccion');
   // };
 
+  const guardarCambios = (e) => {
+    e.preventDefault();
+  }
+
 
   return (
 
-      <section id="cont-listado" className='container-fluid m-2'>
+      <div id="cont-listado" className='container-fluid m-2'>
 
-      <form 
+      <div 
           // onSubmit={ handleSubmit }
           className="contenido primario">
 
@@ -41,7 +45,7 @@ const ListadoAdmin = () => {
 
           {listado.map( producto => {
                   return (
-                      <ProductoAdmin
+                      <ProductoStockAdmin
                           key={producto.id}
                           producto={producto}
                       />
@@ -58,8 +62,19 @@ const ListadoAdmin = () => {
           </div>
           
 
-      </form>
-      </section>
+      </div>
+
+      <div className='d-flex justify-content-center'>
+        <button 
+            className='btn btn-success btn-sm m-2'
+            onClick={ guardarCambios }
+            >
+                Guardar cambios
+        </button>
+      </div>
+
+      
+      </div>
   )
 }
 

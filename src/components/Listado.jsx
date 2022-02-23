@@ -8,7 +8,7 @@ import { store } from '../store/store';
 import BotonesFiltrado from './BotonesFiltrado';
 import Producto from './Producto';
 import queryString from 'query-string';
-import { filtraDisponibles } from '../actions/listadosActions';
+import { filtraListadoClientesDisponible } from '../actions/listadosActions';
 
 const Listado = () => {
 
@@ -19,7 +19,7 @@ const Listado = () => {
 
     const { listado } = useSelector( state => state );
 
-    let listaFiltrada = listado;
+    let listaFiltrada = filtraListadoClientesDisponible( listado );
     
     const { q } = queryString.parse(location.search);
 

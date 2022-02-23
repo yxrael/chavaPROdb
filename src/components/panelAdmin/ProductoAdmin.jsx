@@ -58,7 +58,7 @@ const ProductoAdmin = ( producto ) => {
                     </div>
 
 
-                    <div className='d-flex justify-content-center mb-2'>
+                    <div className='d-flex justify-content-around mb-2'>
                     {  toggleDetalle
                                 ? (
                                     <button 
@@ -79,7 +79,27 @@ const ProductoAdmin = ( producto ) => {
                                             <i class="fa-solid fa-toggle-off"></i>   
                                         </button>                 
                                 )
-                        }
+                    }
+
+                    {  toggleCompletado
+                            ? (
+                                <button 
+                                    className='btn btn-success m-2'
+                                    onClick={ handleClick }
+                                >
+                                    Enviado
+                                </button>
+                            )
+                            :
+                            (
+                                <button 
+                                    className='btn btn-warning m-2'
+                                    onClick={ handleClick }
+                                    >
+                                        Enviar
+                                </button>
+                            )
+                    }
   
 
                     </div>
@@ -101,25 +121,7 @@ const ProductoAdmin = ( producto ) => {
 
 
 
-                        {  toggleCompletado
-                                ? (
-                                    <button 
-                                        className='btn btn-success m-2'
-                                        onClick={ handleClick }
-                                    >
-                                        Enviado
-                                    </button>
-                                )
-                                :
-                                (
-                                    <button 
-                                        className='btn btn-warning m-2'
-                                        onClick={ handleClick }
-                                        >
-                                            Enviar
-                                    </button>
-                                )
-                        }
+
                         
                         {/* <button 
                             className='btn btn-warning m-2'
