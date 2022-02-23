@@ -19,6 +19,9 @@ incluir efectos slide para editar/borrar
 
 ok 23/02/22 !!en el listado de productos del admin no están apareciendo los no disponibles!!!!
 
+añadir paginacion por CSS calculando el numero de cafés, divide entre 10 y genera las pestañas
+
+
 ***VISTA CLIENTES***
 
 -mostrar precio total
