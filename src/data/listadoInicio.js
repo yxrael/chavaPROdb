@@ -101,7 +101,7 @@ export const listadoInicio = [
         "id": "009",
         "pais": "México",
         "nombre": "",
-        "proceso": "NSwiss Water",
+        "proceso": "Swiss Water",
         "infoExtra": "descafeinado",
         "precio": 23,
         "cantidad": 0,

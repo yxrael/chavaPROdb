@@ -16,43 +16,64 @@ const BotonesFiltrado = () => {
 
         <>
         
-            <div className='container d-flex justify-content-around mxwListados'>
-    
-                <button 
-                    className='btn btn-secondary mt-2 btn-sm'
-                    onClick={ handleClick }
-                    value='AMERICA'>
-                    AMERICA
-                </button>
-                <button 
-                    className='btn btn-secondary mt-2 btn-sm'
-                    onClick={ handleClick }
-                    value='AFRICA'>
-                    AFRICA
-                </button>
-                <button 
-                    className='btn btn-secondary mt-2 btn-sm'
-                    onClick={ handleClick }
-                    value='ASIA'>
-                    ASIA
-                </button>
-    
-            </div>
+            {/* <div className='container d-flex justify-content-around mxwListados'> */}
+            <div className='container mxwListados'>
 
-            <div className='container d-flex justify-content-evenly mxwListados'>
-                <button 
-                    className='btn btn-secondary mt-2 btn-sm'
-                    onClick={ handleClick }
-                    value=''>
-                    TODOS
-                </button>
-    
-                <button 
-                    className='btn btn-secondary mt-2 btn-sm'
-                    onClick={ handleClick }
-                    value='DESCAFEINADO'>
-                    DESCAFEINADO
-                </button>
+            
+                <div className='row'>
+
+                    <div className='col-4'>
+                        <div className='d-flex justify-content-start'>
+                            <button 
+                                className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
+                                onClick={ handleClick }
+                                value='AMERICA'>
+                                AMERICA
+                            </button>
+                        </div>
+                        <div className='d-flex justify-content-start'>
+                            <button 
+                                className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
+                                onClick={ handleClick }
+                                value=''>
+                                TODOS
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div className='col-4'>
+                        <div className='d-flex justify-content-center'>
+                            <button 
+                                className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
+                                onClick={ handleClick }
+                                value='AFRICA'>
+                                AFRICA
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                    <div className='col-4'>
+                        <div className='d-flex justify-content-end'>
+                            <button 
+                                className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
+                                onClick={ handleClick }
+                                value='ASIA'>
+                                ASIA
+                            </button>
+                        </div>
+                        <div className='d-flex justify-content-end'>
+                            <button 
+                                className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
+                                onClick={ handleClick }
+                                value='DESCAFEINADO'>
+                                DESCAFEINADO
+                            </button>
+                        </div>
+                    </div>
+        
+                </div>
+
             </div>
         
         </>
