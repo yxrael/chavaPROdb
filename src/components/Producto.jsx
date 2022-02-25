@@ -2,7 +2,7 @@ import React from 'react'
 import { useState} from 'react'
 
 import { useDispatch } from 'react-redux';
-import { modificaCantidad } from '../actions/listadosActions';
+import { modificaProducto } from '../actions/listadosActions';
 
 
 
@@ -21,19 +21,11 @@ const Producto = ( {producto } ) => {
         setPrecioPorProducto( e.target.value * precio );
 
         const cambioCafe = {
-            "id": id,
-            "pais": pais,
-            "nombre": nombre,
-            "proceso": proceso,
-            "infoExtra": infoExtra,
-            "precio": precio,
-            "cantidad": parseInt(e.target.value),
-            "disponible": disponible,
-            "descafeinado": descafeinado,
-            "continente": continente
+            ...producto,
+            "cantidad": parseInt(e.target.value)
         };
 
-        dispatch( modificaCantidad( id, cambioCafe ));
+        dispatch( modificaProducto( id, cambioCafe ));
 
     }
 

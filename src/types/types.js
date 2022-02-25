@@ -5,9 +5,9 @@ export const types = {
     addProduct: '[List] Add product',
     removeProduct: '[List] Remove product',
     listProductInit: '[List] Product list initialization',
-    modifyCant: '[List] Modify cant list',
+    modifyProd: '[List] Modify product details',
     filterAvailable: '[List] Filter available products',
-    toggleDispo: '[List] Toggle dispo on/off',
+    // toggleDispo: '[List] Toggle dispo on/off',
 
     // addSelection: '[Selection] Add product',
     removeSelection: '[Selection] Remove product',

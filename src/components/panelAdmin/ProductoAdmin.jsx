@@ -59,6 +59,7 @@ const ProductoAdmin = ( producto ) => {
 
 
                     <div className='d-flex justify-content-around mb-2'>
+                    
                     {  toggleDetalle
                                 ? (
                                     <button 

@@ -7,10 +7,10 @@ export const addSeleccion = ( seleccionado ) => {
       }
    }
 
-export const modificaCantidad = ( id, cafe ) =>{ 
+export const modificaProducto = ( id, cafe ) =>{ 
 
    return {
-         type: types.modifyCant,
+         type: types.modifyProd,
          payload: {
             id,
             cafe
@@ -45,14 +45,14 @@ export const filtraListadoClientesDisponible = ( listado ) => {
    return listado.filter( producto => producto.disponible === true );
 }
 
-export const cambiaDisponibilidad = ( id, cafe ) =>{ 
+// export const cambiaDisponibilidad = ( id, cafe ) =>{ 
 
-   return {
-      type: types.toggleDispo,
-      payload: {
-         id,
-         cafe
-      }
-}
-}
+//    return {
+//       type: types.toggleDispo,
+//       payload: {
+//          id,
+//          cafe
+//       }
+// }
+// }
 

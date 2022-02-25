@@ -3,7 +3,7 @@ import { useState} from 'react'
 import Swal from 'sweetalert2';
 
 import { useDispatch } from 'react-redux';
-import { cambiaDisponibilidad, eliminaProducto, modificaCantidad } from '../../actions/listadosActions';
+import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 
 const ProductoStockAdmin = ( {producto } ) => {
 
@@ -15,44 +15,39 @@ const ProductoStockAdmin = ( {producto } ) => {
     const [ precioPorProducto, setPrecioPorProducto ] = useState(precio);
     // COMPROBAR POR QUÉ NO ESTÁN EN USO!!!!!
 
-    const handleCambioCantidad = (e) => {
+    // const handleCambioCantidad = (e) => {
 
-        setCantidadElegida(e.target.value);
-        setPrecioPorProducto( e.target.value * precio );
+    //     setCantidadElegida(e.target.value);
+    //     setPrecioPorProducto( e.target.value * precio );
 
-        const cambioCafe = {
-            "id": id,
-            "pais": pais,
-            "nombre": nombre,
-            "proceso": proceso,
-            "infoExtra": infoExtra,
-            "precio": precio,
-            "cantidad": parseInt(e.target.value),
-            "disponible": disponible,
-            "continente": continente
-        };
+    //     const cambioCafe = {
+    //         "id": id,
+    //         "pais": pais,
+    //         "nombre": nombre,
+    //         "proceso": proceso,
+    //         "infoExtra": infoExtra,
+    //         "precio": precio,
+    //         "cantidad": parseInt(e.target.value),
+    //         "disponible": disponible,
+    //         "continente": continente
+    //     };
 
-        dispatch( modificaCantidad( id, cambioCafe ));
+    //     dispatch( modificaCantidad( id, cambioCafe ));
 
-    }
+    // }
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
 
         const cambioCafe = {
-            "id": id,
-            "pais": pais,
-            "nombre": nombre,
-            "proceso": proceso,
-            "infoExtra": infoExtra,
-            "precio": precio,
-            "cantidad": cantidad,
-            "disponible": !disponible,
-            "continente": continente
+
+            ...producto,
+            "disponible": !disponible
+        
         };
 
 
-        dispatch( cambiaDisponibilidad( id, cambioCafe ) );
+        dispatch( modificaProducto( id, cambioCafe ) );
 
     }
 
@@ -90,7 +85,7 @@ const ProductoStockAdmin = ( {producto } ) => {
                     <div className="mt-2">
                         <div className="">
                             <div className="">
-                                <p><strong>{pais}, {nombre}</strong></p>
+                                <p><strong>{pais}. {nombre}</strong></p>
                             </div>
                             <div>
                                 <p>{proceso}</p>
@@ -103,7 +98,7 @@ const ProductoStockAdmin = ( {producto } ) => {
                     </div>
                     <div className="mt-2">
                         <div className="">
-                            <p>Continente: <b>{continente}</b></p>       
+                            <p><b>{continente}</b></p>       
                         </div>
                     </div>
                     <div className="mt-2">
