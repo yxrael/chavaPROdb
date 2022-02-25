@@ -25,7 +25,6 @@ export const actualizaListadoDB =  async ( listado ) => {
 
     // console.log(' listado enviado a DB' + seleccion);
    
-    console.log( seleccion)
     await db.collection(`/listado`).doc('lista').set( seleccion );
     
 
