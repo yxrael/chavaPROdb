@@ -56,3 +56,10 @@ export const filtraListadoClientesDisponible = ( listado ) => {
 // }
 // }
 
+export const cargaListaInicio = ( listado ) => {
+   
+   return {
+      type: types.ListInit,
+      payload: listado
+   }
+}

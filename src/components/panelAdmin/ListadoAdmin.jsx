@@ -16,26 +16,10 @@ const ListadoAdmin = () => {
 
   const { listado } = useSelector( state => state );
 
-
-  // const handleSubmit = (e) => {
-  //     e.preventDefault();
-
-  //     dispatch( filtrarSeleccion( listado ));
-
-  //     const {seleccion} = store.getState();
-
-  //     localStorageUpdater( seleccion );
-     
-  //     navigate('/seleccion');
-  // };
-
   const guardarCambios = (e) => {
     e.preventDefault();
 
-    console.log(listado);
-
     actualizaListadoDB( listado );
-
   }
 
 

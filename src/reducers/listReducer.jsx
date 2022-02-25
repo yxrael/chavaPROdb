@@ -25,7 +25,7 @@ import { listadoInicio } from "../data/listadoInicio";
 import { types } from "../types/types";
 
 
-export const listReducer = ( state = listadoInicio, action ) => {
+export const listReducer = ( state = [], action ) => {
 
     switch ( action.type) {
 
@@ -41,6 +41,9 @@ export const listReducer = ( state = listadoInicio, action ) => {
 
         case types.listProductInit:
             return listadoInicio;
+        
+        case types.ListInit:
+            return action.payload;
 
         case types.addProduct:
             return [

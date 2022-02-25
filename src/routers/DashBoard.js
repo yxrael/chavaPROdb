@@ -11,6 +11,7 @@ import BotonesAdmin from '../components/panelAdmin/BotonesAdmin'
 import { useDispatch } from 'react-redux'
 import { inicializaListado } from '../actions/listadosActions'
 import { cargaPedidos } from '../helpers/cargaPedidos'
+import { cargaListado } from '../helpers/cargaListado'
 
 
 const DashBoard = () => {
@@ -27,8 +28,9 @@ const DashBoard = () => {
     };
 
     const dispatch = useDispatch();
-    dispatch( inicializaListado() );
+    
     cargaPedidos( dispatch );
+    cargaListado( dispatch );
     
     return (
         <>

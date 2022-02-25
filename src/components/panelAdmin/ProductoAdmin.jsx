@@ -67,7 +67,7 @@ const ProductoAdmin = ( producto ) => {
                                         onClick={ handleDetalle }
                                     >
                                         Detalle{' '}
-                                        <i class="fa-solid fa-toggle-on"></i>
+                                        <i className="fa-solid fa-toggle-on"></i>
                                     </button>
                                 )
                                 :
@@ -77,7 +77,7 @@ const ProductoAdmin = ( producto ) => {
                                         onClick={ handleDetalle }
                                         >
                                             Detalle{' '}
-                                            <i class="fa-solid fa-toggle-off"></i>   
+                                            <i className="fa-solid fa-toggle-off"></i>   
                                         </button>                 
                                 )
                     }
