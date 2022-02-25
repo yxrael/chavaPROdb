@@ -1,19 +1,18 @@
 
 import { db } from '../firebase/firebase-config';
+import { firebase } from '../firebase/firebase-config';
 
 
 export const actualizaListadoDB =  async ( listado ) => {
 
     // const { date, pedidoId, uid, name, seleccion } = pedidoObj;
     // console.log(listado);
-    // let seleccion = [];
-    // listado.map( producto => {
-        
-    //     seleccion = [
-    //         ...seleccion, 
-    //         producto
-    //     ]
-    // });
+
+    let seleccion = {
+        listado: []
+    };
+
+    listado.map( producto => seleccion.listado.push(producto));
 
     // const pedidoDB = {
     //     pedidoId,
@@ -26,8 +25,8 @@ export const actualizaListadoDB =  async ( listado ) => {
 
     // console.log(' listado enviado a DB' + seleccion);
    
-
-    const listaGuardada = await db.collection(`/listado`).set( { prueba: 'hola'} );
-    console.log( listaGuardada );
+    console.log( seleccion)
+    await db.collection(`/listado`).doc('lista').set( seleccion );
+    
 
 }
