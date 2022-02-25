@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 
+
+
 const ProductoStockAdmin = ( {producto } ) => {
 
     const dispatch = useDispatch();

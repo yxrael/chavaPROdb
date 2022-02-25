@@ -5,6 +5,7 @@ import { filtrarSeleccion } from '../../actions/seleccionActions';
 import { localStorageUpdater } from '../../helpers/localStorageUpdater';
 import { store } from '../../store/store';
 import ProductoStockAdmin from './ProductoStockAdmin';
+import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 
 
 const ListadoAdmin = () => {
@@ -31,7 +32,10 @@ const ListadoAdmin = () => {
   const guardarCambios = (e) => {
     e.preventDefault();
 
-    
+    console.log(listado);
+
+    actualizaListadoDB( listado );
+
   }
 
 
