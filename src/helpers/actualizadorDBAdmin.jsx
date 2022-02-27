@@ -1,6 +1,6 @@
 
 import { db } from '../firebase/firebase-config';
-import { firebase } from '../firebase/firebase-config';
+// import { firebase } from '../firebase/firebase-config';
 
 
 export const actualizaListadoDB =  async ( listado ) => {
@@ -29,3 +29,12 @@ export const actualizaListadoDB =  async ( listado ) => {
     
 
 }
+
+// export const incluyeProductoBD = async ( producto ) => {
+
+//     const nuevoProducto = {...producto}
+
+//     await db.collection('/listado/lista/listado').set( nuevoProducto, { merge: true } );
+
+
+// }

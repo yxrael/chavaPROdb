@@ -63,3 +63,10 @@ export const cargaListaInicio = ( listado ) => {
       payload: listado
    }
 }
+
+export const nuevoProductoLista = ( producto ) => {
+   return {
+      type: types.addProduct,
+      payload: producto
+   }
+}

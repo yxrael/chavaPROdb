@@ -65,15 +65,7 @@ const RegisterScreen = () => {
                   </div>)
           }
           
-          <input
-            type='text'
-            placeholder='nombre'
-            name='name'
-            className='auth__input'
-            autoComplete='off'
-            value={ name }
-            onChange={ handleInputChange }
-          />
+           
 
           <input
             type='text'

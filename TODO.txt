@@ -11,7 +11,7 @@ ok 23/02/22 accion en botón disponible on/off
 OK 23/02/22 accion en botón eliminar
 
 añadir botón editar producto
-añadir botón nuevo producto
+añadir botón nuevo producto (formulario en creacion)
 
 ok 25/02/22 FUNCIONALIDAD PARA BOTÓN GUARDAR EN LISTA DE PRODUCTOS (actualizar BD)
 

@@ -15,28 +15,6 @@ const ProductoStockAdmin = ( {producto } ) => {
 
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
     const [ precioPorProducto, setPrecioPorProducto ] = useState(precio);
-    // COMPROBAR POR QUÉ NO ESTÁN EN USO!!!!!
-
-    // const handleCambioCantidad = (e) => {
-
-    //     setCantidadElegida(e.target.value);
-    //     setPrecioPorProducto( e.target.value * precio );
-
-    //     const cambioCafe = {
-    //         "id": id,
-    //         "pais": pais,
-    //         "nombre": nombre,
-    //         "proceso": proceso,
-    //         "infoExtra": infoExtra,
-    //         "precio": precio,
-    //         "cantidad": parseInt(e.target.value),
-    //         "disponible": disponible,
-    //         "continente": continente
-    //     };
-
-    //     dispatch( modificaCantidad( id, cambioCafe ));
-
-    // }
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -47,7 +25,6 @@ const ProductoStockAdmin = ( {producto } ) => {
             "disponible": !disponible
         
         };
-
 
         dispatch( modificaProducto( id, cambioCafe ) );
 
