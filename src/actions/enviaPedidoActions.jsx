@@ -34,6 +34,7 @@ export const enviaPedidoDB = async (pedidoObj) => {
             seleccionShort
         };
 
-        const pedido = await db.collection(`pedidos`).add( pedidoDB );
+        // const pedido = await db.collection(`pedidos`).add( pedidoDB );
+        const pedido = await db.collection(`pedidos`).doc(`${pedidoDB.pedidoId}`).set( pedidoDB );
 
 }

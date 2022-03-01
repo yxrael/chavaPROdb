@@ -38,3 +38,25 @@ export const actualizaListadoDB =  async ( listado ) => {
 
 
 // }
+
+export const actualizaPedidosDB = async ( nuevoEstado ) => {
+
+    // let newList = [];
+
+    console.log(nuevoEstado);
+    // pedidos.map( pedido => {
+
+    //     if(pedido.pedidoId === nuevoEstado.pedidoId) {
+    //         newList.push(nuevoEstado);
+    //     } else {
+    //         newList.push(pedido);
+    //     }
+    // })
+
+    await db.collection('/pedidos').doc(`${nuevoEstado.pedidoId}`).set( nuevoEstado );
+}
+
+
+
+
+   

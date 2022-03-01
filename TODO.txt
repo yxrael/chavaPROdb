@@ -36,7 +36,7 @@ ok-mostrar label descafeinados
 
 ok-añadir opción filtrado por descafeinados
 
--pestaña con los pedidos de un mismo cliente y si están marcados como enviados
+ok 01/03/22 -pestaña con los pedidos de un mismo cliente y si están marcados como enviados
 
 -mensaje confirmación antes de eliminar producto
 
@@ -68,5 +68,5 @@ CAMBIOS / PRUEBAS
 OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre
     en la lista de pedidos
 
-Quitar el botón de enviar en el listado de pedidos del cliente
+ok 01/03/22 Quitar el botón de enviar en el listado de pedidos del cliente
 añadiendo una variable global que diga si es ADMIN

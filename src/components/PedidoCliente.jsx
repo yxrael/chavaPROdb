@@ -1,48 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import DetallePedido from './DetallePedido';
-import { useSelector } from 'react-redux';
-import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
+import React, { useState } from 'react'
+import DetallePedido from './../components/panelAdmin/DetallePedido';
 
 
 
-
-const ProductoAdmin = ( producto ) => {
+const PedidoCliente = ( producto ) => {
 
     const {pedidoId, date, uid, name, seleccionShort, completado } = producto.producto;
     const unidades = seleccionShort.length;
-    const { pedidos } = useSelector( state => state );
+
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
     const [ toggleDetalle, setToggleDetalle ] = useState(false);
     const [ muestraDetalle, setMuestraDetalle ] = useState('collapse');
 
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        setToogleCompletado( !toggleCompletado);
-
-        // console.log(producto.producto);
-        // console.log( toggleCompletado);
-        // console.log(nuevoEstado);
-    }
-
-    useEffect(() => {
-      
-        const nuevoEstado = {
-            ...producto.producto,
-            completado: toggleCompletado
-        }
-
-        actualizaPedidosDB( nuevoEstado );
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     setToogleCompletado( !toggleCompletado);
 
 
-    }, [toggleCompletado])
-    
+    // }
 
     const handleDetalle = (e) => {
         e.preventDefault();
         setToggleDetalle( !toggleDetalle);
-
 
         if(muestraDetalle === 'collapse') {
             setMuestraDetalle('collapse.show')
@@ -104,11 +85,11 @@ const ProductoAdmin = ( producto ) => {
                                 )
                     }
 
-                    {  toggleCompletado
+                    {  completado
                             ? (
                                 <button 
                                     className='btn btn-success m-2'
-                                    onClick={ handleClick }
+                                    // onClick={ handleClick }
                                 >
                                     Enviado
                                 </button>
@@ -117,9 +98,9 @@ const ProductoAdmin = ( producto ) => {
                             (
                                 <button 
                                     className='btn btn-warning m-2'
-                                    onClick={ handleClick }
+                                    // onClick={ handleClick }
                                     >
-                                        Enviar
+                                        Sin enviar
                                 </button>
                             )
                     }
@@ -162,4 +143,4 @@ const ProductoAdmin = ( producto ) => {
   )
 }
 
-export default ProductoAdmin
+export default PedidoCliente

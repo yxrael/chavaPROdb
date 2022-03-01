@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cargaPedidosCliente } from '../helpers/cargaPedidos';
+import ConfirmaEnvio from './ConfirmaEnvio';
 import ProductoAdmin from './panelAdmin/ProductoAdmin';
+import PedidoCliente from './PedidoCliente';
+
+
 
 const ListadoPedidosCliente = () => {
 
@@ -40,11 +44,11 @@ const ListadoPedidosCliente = () => {
             <div 
                 className="contenido primario">
 
-                <h2 id="foco-listado" className="text-center m-3">Administrador de pedidos:</h2>
+                <h2 id="foco-listado" className="text-center m-3">Mis pedidos:</h2>
 
                 {listaFiltrada.map( producto => {
                         return (
-                            <ProductoAdmin
+                            <PedidoCliente
                                 key={producto.pedidoId}
                                 producto={producto}
                             />
@@ -59,6 +63,8 @@ const ListadoPedidosCliente = () => {
 
             </div>
         </section>
+
+        <ConfirmaEnvio />
     </>
     
     
