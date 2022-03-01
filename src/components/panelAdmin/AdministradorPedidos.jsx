@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { cargaPedidosCliente } from '../../helpers/cargaPedidos';
+import { cargaPedidos } from '../../helpers/cargaPedidos';
 import ProductoAdmin from './ProductoAdmin';
 
 const AdministradorPedidos = () => {
@@ -19,7 +19,7 @@ const AdministradorPedidos = () => {
 
   useEffect(() => {
   
-    const cargaListado = cargaPedidosCliente( dispatch );
+    const cargaListado = cargaPedidos( dispatch );
 
   }, [])
 

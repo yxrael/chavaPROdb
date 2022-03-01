@@ -58,6 +58,8 @@ coleccion ( id pedido) >
         fecha:
         completado:
 
+incluir documento en BD con los uid de los administradores para que se pueda hacer la comprobación al inicio
+
 
 PISTA!! ( para asíncrono )
 
@@ -65,3 +67,6 @@ CAMBIOS / PRUEBAS
 
 OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre
     en la lista de pedidos
+
+Quitar el botón de enviar en el listado de pedidos del cliente
+añadiendo una variable global que diga si es ADMIN

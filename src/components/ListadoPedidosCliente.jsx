@@ -35,14 +35,14 @@ const ListadoPedidosCliente = () => {
     <>
 
 
-      {/* <section id="cont-listado" className='container-fluid m-2'>
+      <section id="cont-listado" className='container-fluid m-2'>
 
             <div 
                 className="contenido primario">
 
                 <h2 id="foco-listado" className="text-center m-3">Administrador de pedidos:</h2>
 
-                {cargaListado.map( producto => {
+                {listaFiltrada.map( producto => {
                         return (
                             <ProductoAdmin
                                 key={producto.pedidoId}
@@ -58,7 +58,7 @@ const ListadoPedidosCliente = () => {
                 
 
             </div>
-        </section> */}
+        </section>
     </>
     
     

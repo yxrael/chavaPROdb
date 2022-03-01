@@ -29,10 +29,14 @@ export const cargaPedidosCliente = async ( uid, dispatch ) => {
         listado.push(snapHijo.data());
     });
 
-    listado.filter( pedido => pedido.uid === uid)
+    // console.log(listado);
 
-    dispatch( cargaListaPedidos(listado) );
+    const listadoCliente = listado.filter( pedido => pedido.uid === uid);
 
-    return listado;
+    // console.log( listadoCliente );
+
+    dispatch( cargaListaPedidos(listadoCliente) );
+
+    return listadoCliente;
 
 }
