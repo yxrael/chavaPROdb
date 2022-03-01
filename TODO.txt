@@ -7,11 +7,17 @@ AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pant
 ok 23/02/22 -listado de pedidos, botón marcar como enviado (on/off) >>> modificar estado del pedido
     en la base de datos
 
-ok 23/02/22 accion en botón disponible on/off
-OK 23/02/22 accion en botón eliminar
-
+  AÑADIR GUARDADO EN BD AL MODIFICAR  {
+    ok 23/02/22 accion en botón disponible on/off
+    OK 23/02/22 accion en botón eliminar
+    }
+    
 añadir botón editar producto
-añadir botón nuevo producto (formulario en creacion)
+
+añadir botón nuevo producto {
+    formulario casi terminado, añadir fondo translucido
+    añadir guardado automático (sin tener que hacerlo en el listado)
+}
 
 ok 25/02/22 FUNCIONALIDAD PARA BOTÓN GUARDAR EN LISTA DE PRODUCTOS (actualizar BD)
 

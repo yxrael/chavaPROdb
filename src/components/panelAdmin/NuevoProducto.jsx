@@ -18,6 +18,9 @@ const NuevoProducto = ( {setNuevoItem} ) => {
     const { msgError } = useSelector( state => state.ui );
     const listado = useSelector( state => state.listado );
 
+   
+    
+
     const [ formValues, handleInputChange ] = useForm({
         pais: '',
         nombre: '',
@@ -84,9 +87,10 @@ const NuevoProducto = ( {setNuevoItem} ) => {
 
   return (
 
-    <div className=''>
+    <div 
+        className=''>
 
-        <div className='container card bg-light mt-5 mb-5 p-4 mxwListados '> 
+        <div className='container card bg-light mt-5 mb-5 p-4 mxwListados'> 
             
                 <form>
 
@@ -107,6 +111,7 @@ const NuevoProducto = ( {setNuevoItem} ) => {
                                 autoComplete='off'
                                 value={ nombre }
                                 id='nombre'
+                                autoFocus='true'
                                 onChange={ handleInputChange }
                             />
                         </div>
