@@ -18,3 +18,21 @@ export const cargaPedidos = async ( dispatch ) => {
         return listado;
 
 }
+
+export const cargaPedidosCliente = async ( uid, dispatch ) => {
+
+    const listadoPedidos = await db.collection('pedidos').get();
+    let listado = [];
+
+    listadoPedidos.forEach( snapHijo => {
+
+        listado.push(snapHijo.data());
+    });
+
+    listado.filter( pedido => pedido.uid === uid)
+
+    dispatch( cargaListaPedidos(listado) );
+
+    return listado;
+
+}

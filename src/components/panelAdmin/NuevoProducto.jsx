@@ -88,7 +88,7 @@ const NuevoProducto = ( {setNuevoItem} ) => {
   return (
 
     <div 
-        className=''>
+        className='modal'>
 
         <div className='container card bg-light mt-5 mb-5 p-4 mxwListados'> 
             
@@ -111,7 +111,7 @@ const NuevoProducto = ( {setNuevoItem} ) => {
                                 autoComplete='off'
                                 value={ nombre }
                                 id='nombre'
-                                autoFocus='true'
+                                autoFocus={true}
                                 onChange={ handleInputChange }
                             />
                         </div>

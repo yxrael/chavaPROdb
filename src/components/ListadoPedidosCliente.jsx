@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { cargaPedidosCliente } from '../../helpers/cargaPedidos';
-import ProductoAdmin from './ProductoAdmin';
+import { cargaPedidosCliente } from '../helpers/cargaPedidos';
+import ProductoAdmin from './panelAdmin/ProductoAdmin';
 
-const AdministradorPedidos = () => {
+const ListadoPedidosCliente = () => {
 
 
   // useEffect(() => {
@@ -16,10 +16,13 @@ const AdministradorPedidos = () => {
   // }, []);
 
   const dispatch = useDispatch();
+  const { uid } = useSelector( state => state.auth );
+
+  const cargaListado = cargaPedidosCliente( uid, dispatch );
 
   useEffect(() => {
   
-    const cargaListado = cargaPedidosCliente( dispatch );
+    const cargaListado = cargaPedidosCliente( uid, dispatch );
 
   }, [])
 
@@ -31,14 +34,15 @@ const AdministradorPedidos = () => {
   return (
     <>
 
-      <section id="cont-listado" className='container-fluid m-2'>
+
+      {/* <section id="cont-listado" className='container-fluid m-2'>
 
             <div 
                 className="contenido primario">
 
                 <h2 id="foco-listado" className="text-center m-3">Administrador de pedidos:</h2>
 
-                {listaFiltrada.map( producto => {
+                {cargaListado.map( producto => {
                         return (
                             <ProductoAdmin
                                 key={producto.pedidoId}
@@ -54,11 +58,11 @@ const AdministradorPedidos = () => {
                 
 
             </div>
-        </section>
+        </section> */}
     </>
     
     
   )
 }
 
-export default AdministradorPedidos
+export default ListadoPedidosCliente

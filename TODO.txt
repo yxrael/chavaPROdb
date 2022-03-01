@@ -15,7 +15,7 @@ ok 23/02/22 -listado de pedidos, botón marcar como enviado (on/off) >>> modific
 añadir botón editar producto
 
 añadir botón nuevo producto {
-    formulario casi terminado, añadir fondo translucido
+    ok 01/03/22 formulario casi terminado, añadir fondo translucido
     añadir guardado automático (sin tener que hacerlo en el listado)
 }
 

@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { inicializaListado } from '../actions/listadosActions'
 import { cargaPedidos } from '../helpers/cargaPedidos'
 import { cargaListado } from '../helpers/cargaListado'
+import ListadoPedidosCliente from '../components/ListadoPedidosCliente'
 
 
 const DashBoard = () => {
@@ -71,6 +72,7 @@ const DashBoard = () => {
                             <Route path='confirma' element={<ConfirmaEnvio />}/>
                             <Route path='filtered' element={<Listado />}/>
                             <Route path='seleccion' element={<Seleccion />}/>
+                            <Route path='mispedidos' element={<ListadoPedidosCliente />}/>
                             <Route path='/*' element={<Listado />}/>
         
                         </Routes>
