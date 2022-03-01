@@ -46,10 +46,10 @@ const PedidoCliente = ( producto ) => {
                                     <p>Fecha: {date}</p>
                                 </div>
 
-                                <div className="">
+                                {/* <div className="">
                                     <p>ID Cliente: {uid}</p>
                                     <p>Nombre cliente:{' '} {name} </p>
-                                </div>
+                                </div> */}
                                 
                             </div>    
                         </div>
@@ -87,29 +87,23 @@ const PedidoCliente = ( producto ) => {
 
                     {  completado
                             ? (
-                                <button 
-                                    className='btn btn-success m-2'
-                                    // onClick={ handleClick }
+                                <div 
+                                    className='alert alert-success m-2'
                                 >
                                     Enviado
-                                </button>
+                                </div>
                             )
                             :
                             (
-                                <button 
-                                    className='btn btn-warning m-2'
-                                    // onClick={ handleClick }
+                                <div 
+                                    className='alert alert-warning m-2'
                                     >
                                         Sin enviar
-                                </button>
+                                </div>
                             )
-                    }
-  
-
+                    } 
                     </div>
                         
-
-
                     <div className={muestraDetalle}>
                         {seleccionShort.map( producto => {
                             return (
@@ -123,16 +117,6 @@ const PedidoCliente = ( producto ) => {
                     </div>
                     <div className='d-flex justify-content-end'>
 
-
-
-
-                        
-                        {/* <button 
-                            className='btn btn-warning m-2'
-                            // onClick={ handleClick }
-                            >
-                            Revisar
-                        </button> */}
 
                     </div>
                     
