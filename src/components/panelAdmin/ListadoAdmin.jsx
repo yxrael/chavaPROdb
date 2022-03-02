@@ -17,6 +17,7 @@ const ListadoAdmin = () => {
 
   const [nuevoItem, setNuevoItem] = useState(false);
   const [modoEdicion, setModoEdicion] = useState('');
+  const [cafeEdicion, setCafeEdicion] = useState({});
 
   const { listado } = useSelector( state => state );
 
@@ -51,6 +52,8 @@ const ListadoAdmin = () => {
                         setNuevoItem={setNuevoItem}
                         modoEdicion={modoEdicion}
                         setModoEdicion={setModoEdicion}
+                        cafeEdicion={cafeEdicion}
+                        setCafeEdicion={setCafeEdicion}
                     />
                 </div>
             )
@@ -82,6 +85,7 @@ const ListadoAdmin = () => {
                                     setNuevoItem={setNuevoItem}
                                     modoEdicion={modoEdicion}
                                     setModoEdicion={setModoEdicion}
+                                    setCafeEdicion={setCafeEdicion}
                                 />
                             )
                         })
