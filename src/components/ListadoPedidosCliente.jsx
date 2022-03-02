@@ -1,43 +1,27 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { cargaPedidosCliente } from '../helpers/cargaPedidos';
 import ConfirmaEnvio from './ConfirmaEnvio';
-import ProductoAdmin from './panelAdmin/ProductoAdmin';
 import PedidoCliente from './PedidoCliente';
 
 
 
 const ListadoPedidosCliente = () => {
 
-
-  // useEffect(() => {
-
-  //   const listaFiltrada = cargaPedidos();
-  //   // dispatch(cargaListaPedidos(listaFiltrada));
-
-  // }, []);
-
   const dispatch = useDispatch();
   const { uid } = useSelector( state => state.auth );
 
-  const cargaListado = cargaPedidosCliente( uid, dispatch );
-
   useEffect(() => {
   
-    const cargaListado = cargaPedidosCliente( uid, dispatch );
+    cargaPedidosCliente( uid, dispatch );
 
   }, [])
 
   const listaFiltrada = useSelector( state => state.pedidos );
-  // console.log( listaFiltrada );
-
-
 
   return (
     <>
-
 
       <section id="cont-listado" className='container-fluid m-2'>
 
@@ -59,14 +43,12 @@ const ListadoPedidosCliente = () => {
                 <div className='d-flex justify-content-center m-3'>
 
                 </div>
-                
-
+              
             </div>
         </section>
 
         <ConfirmaEnvio />
     </>
-    
     
   )
 }
