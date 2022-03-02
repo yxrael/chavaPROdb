@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState} from 'react'
 import Swal from 'sweetalert2';
+import { store } from '../../store/store';
 
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
+import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 
 
 
-const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicion } ) => {
+const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion, setCafeEdicion } ) => {
 
     const dispatch = useDispatch();
     
@@ -27,6 +29,9 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
         };
 
         dispatch( modificaProducto( id, cambioCafe ) );
+
+        const actual = store.getState();
+        actualizaListadoDB( actual.listado );
 
     }
 
@@ -54,6 +59,9 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
 
 
         dispatch( eliminaProducto(id) );
+        
+        const actual = store.getState();
+        actualizaListadoDB( actual.listado );
 
     }
 
@@ -61,9 +69,9 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
         e.preventDefault();
 
         setModoEdicion(producto.id);
-        console.log(producto.id);
+        setCafeEdicion(producto);
+        
         setNuevoItem(true);
-        console.log('editar producto');
     }
 
     return (

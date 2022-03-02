@@ -5,30 +5,45 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch } from 'react-redux';
-import { nuevoProductoLista } from '../../actions/listadosActions';
+import { modificaProducto, nuevoProductoLista } from '../../actions/listadosActions';
 import { calculaMaximoNumeroProducto } from '../../helpers/calculaMaximoNumeroProducto';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
 
 
-const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion } ) => {
+const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion, setCafeEdicion } ) => {
 
     const dispatch = useDispatch();
     const { msgError } = useSelector( state => state.ui );
     const listado = useSelector( state => state.listado );
 
-    const [ formValues, handleInputChange ] = useForm({
-        pais: '',
-        nombre: '',
-        continente: '',
-        precio: 0,
-        proceso: '',
-        descafeinado: false,
-        infoExtra: ''
-    });
+    let preRelleno = {}
 
+    if(modoEdicion !== '' ) {
+        preRelleno = {
+            pais: cafeEdicion.pais,
+            nombre: cafeEdicion.nombre,
+            continente: cafeEdicion.continente,
+            precio: cafeEdicion.precio,
+            proceso: cafeEdicion.proceso,
+            descafeinado: cafeEdicion.descafeinado,
+            infoExtra: cafeEdicion.infoExtra
+        };
+
+    } else {
+            preRelleno = {
+                pais: '',
+                nombre: '',
+                continente: '',
+                precio: 0,
+                proceso: '',
+                descafeinado: false,
+                infoExtra: ''
+                }
+        }
     
+    const [ formValues, handleInputChange ] = useForm( preRelleno );
 
     const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra } = formValues;
 
@@ -41,48 +56,54 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion } ) => {
 
             if(modoEdicion !== ''){
 
-                id = modoEdicion;
+                const nuevoCafe = {
+                    id: cafeEdicion.id,
+                    pais,
+                    nombre,
+                    continente,
+                    precio,
+                    proceso,
+                    disponible: cafeEdicion.disponible,
+                    descafeinado,
+                    infoExtra,
+                    cantidad: 0
+                };
+
+                dispatch( modificaProducto( cafeEdicion.id, nuevoCafe ));
         
             } else {
         
                 id = calculaMaximoNumeroProducto( listado );
+
+                const nuevoCafe = {
+                    id,
+                    pais,
+                    nombre,
+                    continente,
+                    precio,
+                    proceso,
+                    disponible: true,
+                    descafeinado,
+                    infoExtra,
+                    cantidad: 0
+                };
+
+                dispatch( nuevoProductoLista( nuevoCafe ));
                 
-        
             };
 
-            setNuevoItem(false);
-
-            const nuevoCafe = {
-                id,
-                pais,
-                nombre,
-                continente,
-                precio,
-                proceso,
-                disponible: true,
-                descafeinado,
-                infoExtra,
-                cantidad: 0
-            };
-    
-            dispatch( nuevoProductoLista( nuevoCafe ));
-    
             const actual = store.getState();
-            actualizaListadoDB( actual. listado );
-            // console.log( actual.listado );
-            // incluyeProductoBD( nuevoCafe );
-    
-            // **********HACER DISPATCH Y ENVIO A BD ***********
+            actualizaListadoDB( actual.listado );
         } 
-
+        
+        setModoEdicion('');
+        setNuevoItem(false);
         
     }
 
     const handleCancel = () => {
-
-        // borrar datos del formulario ***********
-
-        setModoEdicion(false);
+        
+        setModoEdicion('');
         setNuevoItem(false);
     }
 
@@ -97,19 +118,13 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion } ) => {
 
     }
 
-    const enviaDatosFormulario = () => {
-
-
-
-    }
-
   return (
 
     <div 
         className='modal'>
 
         <div className='container card bg-light mt-5 mb-5 p-4 mxwListados'> 
-            
+                
                 <form>
 
                         {
