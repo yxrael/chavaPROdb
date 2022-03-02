@@ -15,7 +15,8 @@ const ListadoAdmin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [nuevoItem, setNuevoItem] = useState(false); 
+  const [nuevoItem, setNuevoItem] = useState(false);
+  const [modoEdicion, setModoEdicion] = useState('');
 
   const { listado } = useSelector( state => state );
 
@@ -48,6 +49,8 @@ const ListadoAdmin = () => {
 
                     <NuevoProducto
                         setNuevoItem={setNuevoItem}
+                        modoEdicion={modoEdicion}
+                        setModoEdicion={setModoEdicion}
                     />
                 </div>
             )
@@ -76,6 +79,9 @@ const ListadoAdmin = () => {
                                 <ProductoStockAdmin
                                     key={producto.id}
                                     producto={producto}
+                                    setNuevoItem={setNuevoItem}
+                                    modoEdicion={modoEdicion}
+                                    setModoEdicion={setModoEdicion}
                                 />
                             )
                         })

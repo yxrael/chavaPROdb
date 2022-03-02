@@ -7,7 +7,7 @@ import { eliminaProducto, modificaProducto } from '../../actions/listadosActions
 
 
 
-const ProductoStockAdmin = ( {producto } ) => {
+const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicion } ) => {
 
     const dispatch = useDispatch();
     
@@ -55,6 +55,15 @@ const ProductoStockAdmin = ( {producto } ) => {
 
         dispatch( eliminaProducto(id) );
 
+    }
+
+    const handleEditar = (e) => {
+        e.preventDefault();
+
+        setModoEdicion(producto.id);
+        console.log(producto.id);
+        setNuevoItem(true);
+        console.log('editar producto');
     }
 
     return (
@@ -107,6 +116,14 @@ const ProductoStockAdmin = ( {producto } ) => {
                                         onClick={ handleEliminar }
                                         >
                                             X
+                                    </button>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <button 
+                                        className='btn btn-warning btn-sm m-2 d-block'
+                                        onClick={ handleEditar }
+                                        >
+                                            Editar
                                     </button>
                                 </div>
 

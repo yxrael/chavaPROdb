@@ -3,27 +3,19 @@ import DetallePedido from './DetallePedido';
 import { useSelector } from 'react-redux';
 import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
 
-
-
-
 const ProductoAdmin = ( producto ) => {
 
     const {pedidoId, date, uid, name, seleccionShort, completado } = producto.producto;
     const unidades = seleccionShort.length;
-    const { pedidos } = useSelector( state => state );
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
     const [ toggleDetalle, setToggleDetalle ] = useState(false);
     const [ muestraDetalle, setMuestraDetalle ] = useState('collapse');
 
-
     const handleClick = (e) => {
         e.preventDefault();
         setToogleCompletado( !toggleCompletado);
 
-        // console.log(producto.producto);
-        // console.log( toggleCompletado);
-        // console.log(nuevoEstado);
     }
 
     useEffect(() => {

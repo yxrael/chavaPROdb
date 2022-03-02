@@ -12,14 +12,11 @@ import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
 
 
-const NuevoProducto = ( {setNuevoItem} ) => {
+const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion } ) => {
 
     const dispatch = useDispatch();
     const { msgError } = useSelector( state => state.ui );
     const listado = useSelector( state => state.listado );
-
-   
-    
 
     const [ formValues, handleInputChange ] = useForm({
         pais: '',
@@ -31,16 +28,30 @@ const NuevoProducto = ( {setNuevoItem} ) => {
         infoExtra: ''
     });
 
+    
+
     const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
 
+    let id = '';
+
         if( isFormValid ) {
 
+            if(modoEdicion !== ''){
+
+                id = modoEdicion;
+        
+            } else {
+        
+                id = calculaMaximoNumeroProducto( listado );
+                
+        
+            };
+
             setNuevoItem(false);
-            const id = calculaMaximoNumeroProducto( listado );
-    
+
             const nuevoCafe = {
                 id,
                 pais,
@@ -71,6 +82,7 @@ const NuevoProducto = ( {setNuevoItem} ) => {
 
         // borrar datos del formulario ***********
 
+        setModoEdicion(false);
         setNuevoItem(false);
     }
 
@@ -82,6 +94,12 @@ const NuevoProducto = ( {setNuevoItem} ) => {
         }
         dispatch( setError('todos los campos deben estar rellenos'));
         return false;
+
+    }
+
+    const enviaDatosFormulario = () => {
+
+
 
     }
 
