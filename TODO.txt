@@ -16,7 +16,7 @@ añadir botón editar producto
 
 añadir botón nuevo producto {
     ok 01/03/22 formulario casi terminado, añadir fondo translucido
-    añadir guardado automático (sin tener que hacerlo en el listado)
+    ok 02/03/22 añadir guardado automático (sin tener que hacerlo en el listado)
 }
 
 ok 25/02/22 FUNCIONALIDAD PARA BOTÓN GUARDAR EN LISTA DE PRODUCTOS (actualizar BD)
@@ -38,30 +38,15 @@ ok-añadir opción filtrado por descafeinados
 
 ok 01/03/22 -pestaña con los pedidos de un mismo cliente y si están marcados como enviados
 
--mensaje confirmación antes de eliminar producto
+ok-mensaje confirmación antes de eliminar producto
 
 ESTRUCTURA BASE DE DATOS: (ha cambiado, corregir!!!)
 
-coleccion ( id pedido) >
-
-    datosPedido >
-
-        productos >
-            articulos>
-                id:
-                nombre:
-                pais:
-                proceso:
-                cantidad:
-                continente:
-        user:
-        fecha:
-        completado:
-
 incluir documento en BD con los uid de los administradores para que se pueda hacer la comprobación al inicio
 
+al volver atrás desde la selección después de borrar alguno la pantalla muestra todos
 
-PISTA!! ( para asíncrono )
+el listado de pedidos del cliente no se actualiza automáticamente
 
 CAMBIOS / PRUEBAS
 

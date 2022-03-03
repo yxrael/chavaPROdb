@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
-// import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import { useForm } from '../hooks/useForm';
 import { removeError, setError } from '../actions/ui';
 import { startLoginEmailPassword, startGoogleLogin } from '../actions/auth';
@@ -52,8 +51,7 @@ const LoginScreen = () => {
 
   return (
     <>
-        <img src="../images/logo.jpg" alt="logo Mr Chava" className='img-fluid mb-3'></img>
-        {/* <h3 className='auth__title'>Entrar</h3> */}
+        <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         {
              (msgError) 

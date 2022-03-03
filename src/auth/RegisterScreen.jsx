@@ -14,11 +14,11 @@ const RegisterScreen = () => {
   const { msgError } = useSelector( state => state.ui );
 
   const [ formValues, handleInputChange ] = useForm({
-    name: 'Hernando',
-    establecimiento: 'Cafetería López',
-    email: 'nando@gmail.com',
-    password: '123456',
-    password2: '123456'
+    name: '',
+    establecimiento: '',
+    email: '',
+    password: '',
+    password2: ''
   });
 
   const { name, establecimiento,  email, password, password2 } = formValues;
@@ -53,8 +53,8 @@ const RegisterScreen = () => {
 
   return (
     <>
-        {/* <h3 className='auth__title'>Registrarse</h3> */}
-        <img src="../images/logo.jpg" alt="logo Mr Chava" className='img-fluid mb-3'></img>
+  
+        <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         <form onSubmit={ handleRegister }>
 
@@ -65,8 +65,6 @@ const RegisterScreen = () => {
                   </div>)
           }
           
-           
-
           <input
             type='text'
             placeholder='establecimiento'

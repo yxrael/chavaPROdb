@@ -5,9 +5,18 @@ import { inicializaListado } from "../actions/listadosActions";
 
 const MenuLogin = () => {
 
-  const { name } = useSelector( state => state.auth);
+  const { name, uid } = useSelector( state => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  let isAdmin = false;
+
+    if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
+        isAdmin = true;
+
+    } else {
+        isAdmin = false;
+    };
 
   const handleClick = () => {
         dispatch(startLogout());
@@ -27,11 +36,17 @@ const MenuLogin = () => {
             <li className="nav-item">
                 <p className="nav-link disabled alert-link">{name}</p>
             </li>
-            <li className="nav-item alert-link">
+
+            {
+              !isAdmin
+              &&
+              <li className="nav-item alert-link">
                 <p 
                     className="nav-link auth__logout"
                     onClick={ handlePedidos }>Mis pedidos</p>
-            </li>
+              </li>
+            }
+
             <li className="nav-item alert-link">
                 <p 
                     className="nav-link auth__logout"

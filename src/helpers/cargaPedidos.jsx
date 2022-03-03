@@ -5,7 +5,7 @@ import { db } from '../firebase/firebase-config'
 
 export const cargaPedidos = async ( dispatch ) => {
 
-        const listadoPedidos = await db.collection('pedidos').get();
+        const listadoPedidos = await db.collection('pedidos').orderBy('date', 'desc').get();
         let listado = [];
 
         listadoPedidos.forEach( snapHijo => {
@@ -21,7 +21,7 @@ export const cargaPedidos = async ( dispatch ) => {
 
 export const cargaPedidosCliente = async ( uid, dispatch ) => {
 
-    const listadoPedidos = await db.collection('pedidos').get();
+    const listadoPedidos = await db.collection('pedidos').orderBy('date', 'desc').get();
     let listado = [];
 
     listadoPedidos.forEach( snapHijo => {
