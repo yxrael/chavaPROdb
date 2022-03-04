@@ -59,19 +59,19 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
             confirmButtonText: 'Sí, bórralo!'
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Borrado!',
-                'El producto ha sido eliminado.',
-                'success'
-              )
+
+                dispatch( eliminaProducto(id) );
+        
+                const actual = store.getState();
+                actualizaListadoDB( actual.listado );
+
+                Swal.fire(
+                    'Borrado!',
+                    'El producto ha sido eliminado.',
+                    'success'
+                )
             }
           })
-
-
-        dispatch( eliminaProducto(id) );
-        
-        const actual = store.getState();
-        actualizaListadoDB( actual.listado );
 
     }
 
@@ -119,7 +119,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
 
                     <div className='row'>
 
-                        <div className='col-1 bg-warning fas fa-edit text-light d-flex align-items-center'>
+                        <div className='col-1 bg-warning fas fa-edit text-light d-flex align-items-center justify-content-center'>
 
                         </div>
 
@@ -212,7 +212,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
                                     
                             </div>
 
-                        <div className='col-1 bg-danger fas fa-trash-alt text-light d-flex align-items-center'>    
+                        <div className='col-1 bg-danger fas fa-trash-alt text-light d-flex align-items-center justify-content-center'>    
 
                         </div>
 
