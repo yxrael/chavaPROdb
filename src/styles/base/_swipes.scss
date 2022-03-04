@@ -1,0 +1,23 @@
+
+
+.swipes__leading {
+    display: flex;
+    background-color: orange;
+    padding-right: 1rem;
+    justify-content: right;
+    align-items: center;
+    color: white;
+    font-size: large;
+    margin-bottom: 1rem;
+}
+
+.swipes__trail {
+    display: flex;
+    background-color: red;
+    padding-left: 1rem;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    font-size: large;
+    margin-bottom: 1rem;
+}

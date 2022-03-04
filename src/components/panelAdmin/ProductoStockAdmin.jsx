@@ -3,6 +3,16 @@ import { useState} from 'react'
 import Swal from 'sweetalert2';
 import { store } from '../../store/store';
 
+import {
+    LeadingActions,
+    SwipeableList,
+    SwipeableListItem,
+    SwipeAction,
+    TrailingActions,
+  } from 'react-swipeable-list';
+  import 'react-swipeable-list/dist/styles.css';
+
+
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
@@ -36,7 +46,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
     }
 
     const handleEliminar = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         Swal.fire({
             title: 'Estás seguro?',
@@ -66,7 +76,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
     }
 
     const handleEditar = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         setModoEdicion(producto.id);
         setCafeEdicion(producto);
@@ -74,92 +84,147 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
         setNuevoItem(true);
     }
 
+
+    const leadingActions = () => (
+        <LeadingActions>
+          <SwipeAction onClick={handleEditar}>
+            <div className='swipes__leading font-weight-bold'>
+                <p>EDITAR</p>
+            </div>
+          </SwipeAction>
+        </LeadingActions>
+      );
+      
+      const trailingActions = () => (
+        <TrailingActions>
+          <SwipeAction
+            onClick={handleEliminar}
+          >
+              <div className='swipes__trail font-weight-bold'>
+                <p>BORRAR</p>
+              </div>
+          </SwipeAction>
+        </TrailingActions>
+      );
+
     return (
 
-            <div  className="container card bg-light mb-3 d-flex justify-content-between mxwListados">
-                <div className="d-flex justify-content-between">
-                    <div className="mt-2">
-                        <div className="">
-                            <div className="">
-                                <p><strong>{pais}. {nombre}</strong></p>
-                            </div>
-                            <div>
-                                <p>{proceso}</p>
-                            </div>
-                            <div className="">
-                                <p>Precio: <b>{precio}€/kg</b></p>
-                            </div>
-                            
-                        </div>    
-                    </div>
-                    <div className="mt-2">
-                        <div className="">
-                            <p><b>{continente}</b></p>       
-                        </div>
-                    </div>
-                    <div className="mt-2">
-                        
-                                <p>Disponible: <strong>
-                                    {
-                                    disponible
-                                    ? (
-                                        <span className='text-success'>SI </span>   
-                                    )
-                                    :
-                                    (
-                                        <span className='text-danger'>NO </span>
-                                    )
-                                    }    
+        <SwipeableList>
+            <SwipeableListItem
+            leadingActions={leadingActions()}
+            trailingActions={trailingActions()}
+            >
 
-                                </strong></p>
-                                <button 
-                                    className='btn btn-info btn-sm m-2 d-block'
-                                    onClick={ handleCambioDispo }
-                                    >
-                                        Dispo: SI/NO
-                                </button>
-                                <div className="d-flex justify-content-center">
-                                    <button 
-                                        className='btn btn-danger btn-sm m-2 d-block'
-                                        onClick={ handleEliminar }
-                                        >
-                                            X
-                                    </button>
+                <div  className="container card bg-light mb-3 d-flex justify-content-between mxwListados">
+
+                    <div className='row'>
+
+                        <div className='col-1 bg-warning fas fa-edit text-light d-flex align-items-center'>
+
+                        </div>
+
+                            <div className='col-10'>
+
+                                <div className="d-flex justify-content-between">
+                                    <div className="mt-2">
+                                        <div className="">
+                                            <div className="">
+                                                <p><strong>{pais}. {nombre}</strong></p>
+                                            </div>
+                                                
+                                            <div className="">
+                                                <p>Precio: <b>{precio}€/kg</b></p>
+                                            </div>
+                                                
+                                        </div>    
+                                    </div>
+
+                                    <div className="mt-2">
+                                        <div className="">
+                                            <p><b>{continente}</b></p>       
+                                        </div>
+                                        <div>
+                                            <p>{proceso}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-2">
+                                        
+                                                <p>Disponible: <strong>
+                                                    {
+                                                    disponible
+                                                    ? (
+                                                        <span className='text-success'>SI </span>   
+                                                    )
+                                                    :
+                                                    (
+                                                        <span className='text-danger'>NO </span>
+                                                    )
+                                                    }    
+
+                                                </strong></p>
+                                                <button 
+                                                    className='btn btn-info btn-sm m-2 d-block'
+                                                    onClick={ handleCambioDispo }
+                                                    >
+                                                        Dispo: SI/NO
+                                                </button>
+                                                {/* <div className="d-flex justify-content-center">
+                                                    <button 
+                                                        className='btn btn-danger btn-sm m-2 d-block'
+                                                        onClick={ handleEliminar }
+                                                        >
+                                                            X
+                                                    </button>
+                                                </div>
+                                                <div className="d-flex justify-content-center">
+                                                    <button 
+                                                        className='btn btn-warning btn-sm m-2 d-block'
+                                                        onClick={ handleEditar }
+                                                        >
+                                                            Editar
+                                                    </button>
+                                                </div> */}
+
+                                    </div>
+                                        
+                                        {/* <div className="mt-2">
+                                            
+                                            <div className="mb-2">
+                                                    <input
+                                                        name={id}
+                                                        type="number"
+                                                        className="form-control"
+                                                        min="0"
+                                                        max="50"
+                                                        placeholder="Cantidad de kgs:"
+                                                        value={cantidadElegida}
+                                                        onChange={ handleCambioCantidad }
+                                                    />
+                                            </div>
+                                            <p>Total: <b>{precioPorProducto}€/kg</b></p>
+                                        </div> */}
+                                </div>   
+                                    
+                                <div className="text-center">
+                                    <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
                                 </div>
-                                <div className="d-flex justify-content-center">
-                                    <button 
-                                        className='btn btn-warning btn-sm m-2 d-block'
-                                        onClick={ handleEditar }
-                                        >
-                                            Editar
-                                    </button>
-                                </div>
+                                    
+                            </div>
+
+                        <div className='col-1 bg-danger fas fa-trash-alt text-light d-flex align-items-center'>    
+
+                        </div>
 
                     </div>
-                    
-                    {/* <div className="mt-2">
-                        
-                        <div className="mb-2">
-                                <input
-                                    name={id}
-                                    type="number"
-                                    className="form-control"
-                                    min="0"
-                                    max="50"
-                                    placeholder="Cantidad de kgs:"
-                                    value={cantidadElegida}
-                                    onChange={ handleCambioCantidad }
-                                />
-                        </div>
-                        <p>Total: <b>{precioPorProducto}€/kg</b></p>
-                    </div> */}
-                </div>   
-                  
-                <div className="text-center">
-                    <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
+
                 </div>
-            </div>
+                    
 
+
+                    
+            </SwipeableListItem>
+        </SwipeableList>
 
 
 

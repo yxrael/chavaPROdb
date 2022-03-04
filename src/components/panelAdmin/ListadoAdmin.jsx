@@ -102,14 +102,14 @@ const ListadoAdmin = () => {
 
                 </div>
 
-                <div className='d-flex justify-content-center'>
+                {/* <div className='d-flex justify-content-center'>
                 <button 
                     className='btn btn-success btn-sm m-2'
                     onClick={ guardarCambios }
                     >
                         Guardar cambios
                 </button>
-                </div>
+                </div> */}
 
 
                 </div>
