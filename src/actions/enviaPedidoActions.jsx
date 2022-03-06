@@ -12,7 +12,7 @@ export const enviaPedido = ( pedido ) => (
 
 export const enviaPedidoDB = async (pedidoObj) => {
 
-        const { date, pedidoId, uid, name, seleccion } = pedidoObj;
+        const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones } = pedidoObj;
 
         let seleccionShort = [];
         seleccion.map( producto => {
@@ -30,6 +30,8 @@ export const enviaPedidoDB = async (pedidoObj) => {
             uid,
             name,
             date,
+            total: precioTotal,
+            observaciones,
             completado: false,
             seleccionShort
         };

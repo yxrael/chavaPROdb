@@ -21,7 +21,7 @@ añadir botón nuevo producto {
 
 ok 25/02/22 FUNCIONALIDAD PARA BOTÓN GUARDAR EN LISTA DE PRODUCTOS (actualizar BD)
 
-incluir efectos slide para editar/borrar
+ok 04/03/22 incluir efectos slide para editar/borrar
 
 ok 23/02/22 !!en el listado de productos del admin no están apareciendo los no disponibles!!!!
 
@@ -30,7 +30,7 @@ añadir paginacion por CSS calculando el numero de cafés, divide entre 10 y gen
 
 ***VISTA CLIENTES***
 
--mostrar precio total
+ok 06/03/22 -mostrar precio total
 
 ok-mostrar label descafeinados 
 
@@ -55,3 +55,5 @@ OK-hay que añadir el nombre, no solo el uid, y que muestre solo el nombre
 
 ok 01/03/22 Quitar el botón de enviar en el listado de pedidos del cliente
 añadiendo una variable global que diga si es ADMIN
+
+ok 06/03/22 AÑADIR campo observaciones al pedido!06/03/22

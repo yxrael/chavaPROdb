@@ -6,6 +6,10 @@ import Swal from 'sweetalert2';
 import moment from 'moment';
 import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
+import { cargaListado } from '../helpers/cargaListado';
+import { useForm } from '../hooks/useForm';
+
+
 
 const Seleccion = () => {
 
@@ -17,9 +21,17 @@ const Seleccion = () => {
  
     const pedidoId = uniqueId('p_');
     const date = moment( new Date() ).format('DD/MM/YYYY');  
+
+    const observacionesInit = {
+        observaciones: ''
+    }
+
+    const [ formValues, handleInputChange ] = useForm( observacionesInit);
+    const { observaciones } = formValues;
   
     const handleClick = () => {
-        navigate( -1 );
+        navigate('/filtered');
+        
     }
 
     const enviarPedido = () => {
@@ -29,6 +41,8 @@ const Seleccion = () => {
             uid,
             name,
             pedidoId,
+            precioTotal,
+            observaciones,
             completado: false,
             seleccion
           };
@@ -49,51 +63,83 @@ const Seleccion = () => {
 
     return (
 
-        <div id="cont-seleccion" className='container-fluid m-2'>
+        <>
 
-                <h2 id="foco-listado" className="text-center m-3">Productos seleccionados:</h2>
+            <div id="cont-seleccion" className='container-fluid m-2'>
 
-                    { seleccion.map( producto => (
+                    <h2 id="foco-listado" className="text-center m-3">Productos seleccionados:</h2>
 
-                                        <ProductoSeleccionado
-                                            key={producto.id}
-                                            producto={producto}
-                                        />
-                    ) )} 
+                        { seleccion.map( producto => (
 
-                <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
+                                            <ProductoSeleccionado
+                                                key={producto.id}
+                                                producto={producto}
+                                            />
+                        ) )} 
 
-                    {
-                        (seleccion.length === 0)
-                            && (
-                                <div className='d-flex justify-content-around m-5'>
-                                    <p>No tienes ningún producto seleccionado</p>
-                                </div>
-                                )
-                    }
+                    <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
 
-                <div className='d-flex justify-content-around m-5'>
-        
-                    <button 
-                        className='btn btn-secondary '
-                        onClick={ handleClick }>
-                        Atrás
-                    </button>
+                        {
+                            (seleccion.length === 0)
+                                && (
+                                    <div className='d-flex justify-content-around m-5'>
+                                        <p>No tienes ningún producto seleccionado</p>
+                                    </div>
+                                    )
+                        }
+
+                    
 
                     {
                         (seleccion.length > 0)
-                            && (
-                                <button 
-                                    className='btn btn-primary '
-                                    onClick={ enviarPedido }>
-                                    Confirmar Pedido
-                                </button>
-                            )
+                        &&
+                        (
+                            <div className="container card bg-light mb-3 p-3">
+                                <form>
+                                <div className='form-group'>
+                                            <label htmlFor='nombre'>Observaciones:</label>
+                                            <input
+                                                type='textarea'
+                                                placeholder='Indica cualquier comentario, sugerencia o asunto relacionado con este pedido'
+                                                name='observaciones'
+                                                className='form-control'
+                                                autoComplete='off'
+                                                value={ observaciones }
+                                                id='observaciones'
+                                                autoFocus={true}
+                                                onChange={ handleInputChange }
+                                            />
+                                        </div>
+                                </form>
+                            </div>
+                        )
                     }
-                    
-                </div>
- 
-        </div>
+
+                    <div className='d-flex justify-content-around m-5'>
+            
+                        <button 
+                            className='btn btn-secondary '
+                            onClick={ handleClick }>
+                            Atrás
+                        </button>
+
+                        {
+                            (seleccion.length > 0)
+                                && (
+                                    <button 
+                                        className='btn btn-primary '
+                                        onClick={ enviarPedido }>
+                                        Confirmar Pedido
+                                    </button>
+                                )
+                        }
+                        
+                    </div>
+    
+            </div>
+
+            
+        </>
 
     )
 

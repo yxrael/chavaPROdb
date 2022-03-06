@@ -5,7 +5,7 @@ import DetallePedido from './../components/panelAdmin/DetallePedido';
 
 const PedidoCliente = ( producto ) => {
 
-    const {pedidoId, date, uid, name, seleccionShort, completado } = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort, completado, total } = producto.producto;
     const unidades = seleccionShort.length;
 
 
@@ -56,6 +56,7 @@ const PedidoCliente = ( producto ) => {
                     
                         <div>
                             <p>Unidades: <b>{unidades}</b></p>
+                            <p><b>Total: { total }€</b></p>
                         </div>
                         
                     </div>

@@ -5,7 +5,7 @@ import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
 
 const ProductoAdmin = ( producto ) => {
 
-    const {pedidoId, date, uid, name, seleccionShort, completado } = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones } = producto.producto;
     const unidades = seleccionShort.length;
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
@@ -67,6 +67,7 @@ const ProductoAdmin = ( producto ) => {
                     
                         <div>
                             <p>Unidades: <b>{unidades}</b></p>
+                            <p><b>Total: { total }€</b></p>
                         </div>
                         
                     </div>
@@ -132,6 +133,20 @@ const ProductoAdmin = ( producto ) => {
                         })
                         }
                     </div>
+
+                    {
+                        observaciones
+                        && (
+                            <div className={muestraDetalle}>
+                                <div className="container card bg-light mb-2 mxwListados">
+                                    <p><b>Observaciones:</b></p>
+                                    <p>{observaciones}</p>
+                                </div>
+                            </div>
+                        )
+                    }
+                    
+
                     <div className='d-flex justify-content-end'>
 
 
