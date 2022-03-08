@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import ConfirmaEnvio from '../components/ConfirmaEnvio'
@@ -8,12 +8,10 @@ import MenuLogin from '../components/MenuLogin'
 import Seleccion from '../components/Seleccion';
 import AdministradorPedidos from '../components/panelAdmin/AdministradorPedidos';
 import BotonesAdmin from '../components/panelAdmin/BotonesAdmin'
-import { useDispatch } from 'react-redux'
-import { inicializaListado } from '../actions/listadosActions'
+import { useDispatch } from 'react-redux';
 import { cargaPedidos } from '../helpers/cargaPedidos'
 import { cargaListado } from '../helpers/cargaListado'
 import ListadoPedidosCliente from '../components/ListadoPedidosCliente'
-
 
 const DashBoard = () => {
 
@@ -48,7 +46,6 @@ const DashBoard = () => {
 
                     <Routes>
                         
-                        {/* <Route path='confirma' element={<ConfirmaEnvio />}/> */}
                         <Route path='pedidos' element={<AdministradorPedidos />}/>
                         <Route path='administrar' element={<ListadoAdmin />}/>
                         <Route path='/*' element={<AdministradorPedidos />}/>

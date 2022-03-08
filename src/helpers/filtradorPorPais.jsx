@@ -6,8 +6,6 @@ const filtradorPorPais = ( listado, continente ) => {
         return listado;
     };
 
-
-
     return listado.filter( cafe => cafe.continente === continente );
 
 }

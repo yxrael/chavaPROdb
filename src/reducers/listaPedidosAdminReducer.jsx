@@ -1,7 +1,5 @@
 import { types } from "../types/types";
 
-
-
 export const listaPedidosAdminReducer = ( state = [], action) => {
     
     switch (action.type) {

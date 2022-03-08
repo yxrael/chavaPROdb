@@ -55,7 +55,6 @@ const AppRouter = () => {
                                 path='/*'
                                 element={ <DashBoard /> }
                             />
-                            {/* <Redirect to='/' /> */}
                         </>
                     )
                     :

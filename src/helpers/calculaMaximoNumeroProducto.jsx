@@ -10,7 +10,7 @@ export const calculaMaximoNumeroProducto = ( listado ) => {
             maximo = cafe.id
         }
          
-    })
+    });
 
     return maximo + 1
 

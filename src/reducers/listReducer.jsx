@@ -58,16 +58,6 @@ export const listReducer = ( state = [], action ) => {
         case types.filterAvailable:
 
             return state.filter( producto => producto.disponible === true );
-
-        // case types.toggleDispo:
-
-        //     let pedidoActualizadoDispo = [];
-            
-        //     state.map( cafe => cafe.id === action.payload.id
-        //         ? ( pedidoActualizadoDispo = [ ...pedidoActualizadoDispo, action.payload.cafe])
-        //         : ( pedidoActualizadoDispo = [ ...pedidoActualizadoDispo, cafe]) );
-            
-        //     return pedidoActualizadoDispo;
     
         default:
             return state;

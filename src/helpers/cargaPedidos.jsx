@@ -1,7 +1,5 @@
-
 import { cargaListaPedidos } from '../actions/listaPedidosAdmin';
 import { db } from '../firebase/firebase-config'
-
 
 export const cargaPedidos = async ( dispatch ) => {
 
@@ -29,11 +27,7 @@ export const cargaPedidosCliente = async ( uid, dispatch ) => {
         listado.push(snapHijo.data());
     });
 
-    // console.log(listado);
-
     const listadoCliente = listado.filter( pedido => pedido.uid === uid);
-
-    // console.log( listadoCliente );
 
     dispatch( cargaListaPedidos(listadoCliente) );
 
