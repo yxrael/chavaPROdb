@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { filtrarSeleccion } from '../../actions/seleccionActions';
-import { localStorageUpdater } from '../../helpers/localStorageUpdater';
-import { store } from '../../store/store';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import NuevoProducto from './NuevoProducto';
-import Swal from 'sweetalert2';
-
+// import Swal from 'sweetalert2';
 
 const ListadoAdmin = () => {
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [nuevoItem, setNuevoItem] = useState(false);
   const [modoEdicion, setModoEdicion] = useState('');
@@ -21,18 +13,18 @@ const ListadoAdmin = () => {
 
   const { listado } = useSelector( state => state );
 
-  const guardarCambios = (e) => {
-    e.preventDefault();
+//   const guardarCambios = (e) => {
+//     e.preventDefault();
 
-    Swal.fire({
-        icon: 'success',
-        title: 'Cambios guardados',
-        showConfirmButton: false,
-        timer: 1000
-      })
+//     Swal.fire({
+//         icon: 'success',
+//         title: 'Cambios guardados',
+//         showConfirmButton: false,
+//         timer: 1000
+//       })
 
-    actualizaListadoDB( listado );
-  }
+//     actualizaListadoDB( listado );
+//   }
 
   const abreVentana = () => {
       setNuevoItem(true);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import DetallePedido from './DetallePedido';
-import { useSelector } from 'react-redux';
 import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
 
 const ProductoAdmin = ( producto ) => {
@@ -26,7 +25,6 @@ const ProductoAdmin = ( producto ) => {
         }
 
         actualizaPedidosDB( nuevoEstado );
-
 
     }, [toggleCompletado])
     
@@ -116,11 +114,8 @@ const ProductoAdmin = ( producto ) => {
                                 </button>
                             )
                     }
-  
 
                     </div>
-                        
-
 
                     <div className={muestraDetalle}>
                         {seleccionShort.map( producto => {
@@ -144,24 +139,11 @@ const ProductoAdmin = ( producto ) => {
                                 </div>
                             </div>
                         )
-                    }
-                    
+                    }   
 
                     <div className='d-flex justify-content-end'>
 
-
-
-
-                        
-                        {/* <button 
-                            className='btn btn-warning m-2'
-                            // onClick={ handleClick }
-                            >
-                            Revisar
-                        </button> */}
-
-                    </div>
-                    
+                    </div>        
 
         </div>
         

@@ -2,7 +2,6 @@ import React from 'react'
 
 const DetallePedido = ( producto ) => {
 
-
     const { nombre, pais, proceso, cantidad } = producto.producto;
 
   return (
@@ -10,7 +9,6 @@ const DetallePedido = ( producto ) => {
     
         <div  className="container card bg-light mb-2 mxwListados">
                     
-                    {/* <div className="d-flex justify-content-around mt-2"> */}
                     <div className="row mt-2">
                         
                             

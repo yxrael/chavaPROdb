@@ -1,25 +1,13 @@
 import React, { useState } from 'react'
 import DetallePedido from './../components/panelAdmin/DetallePedido';
 
-
-
 const PedidoCliente = ( producto ) => {
 
-    const {pedidoId, date, uid, name, seleccionShort, completado, total } = producto.producto;
+    const {pedidoId, date, seleccionShort, completado, total } = producto.producto;
     const unidades = seleccionShort.length;
 
-
-    const [ toggleCompletado, setToogleCompletado ] = useState(completado);
     const [ toggleDetalle, setToggleDetalle ] = useState(false);
     const [ muestraDetalle, setMuestraDetalle ] = useState('collapse');
-
-
-    // const handleClick = (e) => {
-    //     e.preventDefault();
-    //     setToogleCompletado( !toggleCompletado);
-
-
-    // }
 
     const handleDetalle = (e) => {
         e.preventDefault();
@@ -45,11 +33,6 @@ const PedidoCliente = ( producto ) => {
                                 <div>
                                     <p>Fecha: {date}</p>
                                 </div>
-
-                                {/* <div className="">
-                                    <p>ID Cliente: {uid}</p>
-                                    <p>Nombre cliente:{' '} {name} </p>
-                                </div> */}
                                 
                             </div>    
                         </div>
@@ -60,7 +43,6 @@ const PedidoCliente = ( producto ) => {
                         </div>
                         
                     </div>
-
 
                     <div className='d-flex justify-content-around mb-2'>
                     
@@ -118,10 +100,8 @@ const PedidoCliente = ( producto ) => {
                     </div>
                     <div className='d-flex justify-content-end'>
 
-
                     </div>
                     
-
         </div>
         
     </>

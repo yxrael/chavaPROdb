@@ -1,19 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { cargaPedidos } from '../../helpers/cargaPedidos';
 import ProductoAdmin from './ProductoAdmin';
 
 const AdministradorPedidos = () => {
-
-
-  // useEffect(() => {
-
-  //   const listaFiltrada = cargaPedidos();
-  //   // dispatch(cargaListaPedidos(listaFiltrada));
-
-  // }, []);
 
   const dispatch = useDispatch();
 
@@ -24,9 +15,6 @@ const AdministradorPedidos = () => {
   }, [])
 
   const listaFiltrada = useSelector( state => state.pedidos );
-  // console.log( listaFiltrada );
-
-
 
   return (
     <>
@@ -56,7 +44,6 @@ const AdministradorPedidos = () => {
             </div>
         </section>
     </>
-    
     
   )
 }

@@ -68,7 +68,6 @@ const Listado = () => {
                     </button>
                 </div>
                 
-
             </form>
         </section>
     )

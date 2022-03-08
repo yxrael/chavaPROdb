@@ -29,6 +29,14 @@ export const funcion = () => {
 }
 
 
+const variable = await funcion();
+
+
+--------------------
+
+
 CAMBIOS / PRUEBAS
 
 21/02 el reducer de pedidos no añade pedidos, solo incluye el último/actual
+
+Revisar el Swal de <ListadoAdmin />

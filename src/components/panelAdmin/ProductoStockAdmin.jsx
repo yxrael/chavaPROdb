@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState} from 'react'
 import Swal from 'sweetalert2';
 import { store } from '../../store/store';
 
@@ -12,21 +11,15 @@ import {
   } from 'react-swipeable-list';
   import 'react-swipeable-list/dist/styles.css';
 
-
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 
-
-
-const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion, setCafeEdicion } ) => {
+const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdicion } ) => {
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, disponible, continente} = producto;
-
-    const [cantidadElegida, setCantidadElegida] = useState(cantidad);
-    const [ precioPorProducto, setPrecioPorProducto ] = useState(precio);
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente} = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -46,7 +39,6 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
     }
 
     const handleEliminar = (e) => {
-        // e.preventDefault();
 
         Swal.fire({
             title: 'Estás seguro?',
@@ -76,14 +68,12 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
     }
 
     const handleEditar = (e) => {
-        // e.preventDefault();
 
         setModoEdicion(producto.id);
         setCafeEdicion(producto);
         
         setNuevoItem(true);
     }
-
 
     const leadingActions = () => (
         <LeadingActions>
@@ -138,10 +128,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
                                                 </div>
                                                     
                                             </div>    
-                                        </div>
-
-
-                                       
+                                        </div>            
                                             
                                         </div>
                                             <div className="mt-2">
@@ -158,8 +145,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
                                 <div className="d-flex justify-content-center">
                                     <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
                                 </div> 
-                                    
-                                                
+                                                    
                                 <div className=" d-flex align-items-center justify-content-between">
                                             
                                     <p className='m-2'>Disponible: <strong>
@@ -183,9 +169,6 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
                                     </button>
 
                                 </div>
-
-
-
                                     
                             </div>
 
@@ -195,14 +178,9 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, modoEdicion, setModoEdicio
                     </div>
 
                 </div>
-                    
-
-
-                    
+                          
             </SwipeableListItem>
         </SwipeableList>
-
-
 
     )
 

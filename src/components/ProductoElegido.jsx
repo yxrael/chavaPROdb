@@ -6,7 +6,6 @@ const Producto= ( { key, producto, listadoSeleccion} ) => {
     const { id, pais, nombre, proceso, precio, infoExtra, cantidad, disponible} = producto;
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
 
-
     }
 
     return (
@@ -36,7 +35,5 @@ const Producto= ( { key, producto, listadoSeleccion} ) => {
             </div>
         </div>
     )
-
-
 
 export default Producto

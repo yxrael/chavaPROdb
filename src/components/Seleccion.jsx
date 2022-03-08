@@ -1,20 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { actualizadorLista } from '../helpers/actualizadorLista';
 import ProductoSeleccionado from './ProductoSeleccionado';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import moment from 'moment';
 import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
-import { cargaListado } from '../helpers/cargaListado';
 import { useForm } from '../hooks/useForm';
-
-
 
 const Seleccion = () => {
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const { uid, name } = useSelector( state => state.auth );
     const seleccion = useSelector( state => state.seleccion );

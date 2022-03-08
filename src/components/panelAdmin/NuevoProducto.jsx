@@ -1,6 +1,3 @@
-
-
-
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
@@ -12,7 +9,7 @@ import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
 
 
-const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion, setCafeEdicion } ) => {
+const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion } ) => {
 
     const dispatch = useDispatch();
     const { msgError } = useSelector( state => state.ui );
@@ -89,7 +86,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
                 };
 
                 dispatch( nuevoProductoLista( nuevoCafe ));
-                
             };
 
             const actual = store.getState();
@@ -98,7 +94,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
         
         setModoEdicion('');
         setNuevoItem(false);
-        
     }
 
     const handleCancel = () => {
@@ -115,7 +110,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
         }
         dispatch( setError('todos los campos deben estar rellenos'));
         return false;
-
     }
 
   return (
@@ -175,10 +169,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
                                     id='proceso'
                                     onChange={ handleInputChange }
                                 />
-
-                                
+    
                             </div>
-
 
                             <div className='form-group col-md-6'>
 
@@ -208,11 +200,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
 
                             </div>
 
-
                         </div>
                         
-                        
-
                         <div className='form-group'>
                             <label htmlFor='matices'>Matices:</label>
                             <input
@@ -259,18 +248,11 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion,
                             
                         </div>
 
-                    
-
                 </form>
-
-            
-
-
 
         </div>
 
     </div>
-
 
   )
 }

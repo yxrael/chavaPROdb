@@ -5,8 +5,6 @@ import { cargaPedidosCliente } from '../helpers/cargaPedidos';
 import ConfirmaEnvio from './ConfirmaEnvio';
 import PedidoCliente from './PedidoCliente';
 
-
-
 const ListadoPedidosCliente = () => {
 
   const dispatch = useDispatch();

@@ -4,8 +4,6 @@ import { useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { modificaProducto } from '../actions/listadosActions';
 
-
-
 const Producto = ( {producto } ) => {
 
     const dispatch = useDispatch();
@@ -99,8 +97,6 @@ const Producto = ( {producto } ) => {
 
             </div>
         </>
-
-
 
     )
 
