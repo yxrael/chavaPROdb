@@ -14,12 +14,12 @@ const AdministradorPedidos = () => {
   
     cargaPedidosSinDispatch()
       .then((cargaListado) => {
-        dispatch( cargaListaPedidos(cargaListado) );
-      }).catch((err) => {
+        dispatch( cargaListaPedidos(cargaListado) );})
+      .catch((err) => {
         console.log(err)
       });
 
-  }, [ dispatch ])
+  }, [])
 
   const listaFiltrada = useSelector( state => state.pedidos );
 

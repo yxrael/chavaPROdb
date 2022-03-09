@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import DetallePedido from './DetallePedido';
 import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
+import { useDispatch } from 'react-redux';
+import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
+import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
+
+
+
 
 const PedidoAdmin = ( producto ) => {
+
+    const dispatch = useDispatch();
 
     const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones } = producto.producto;
     const unidades = seleccionShort.length;
@@ -24,8 +32,13 @@ const PedidoAdmin = ( producto ) => {
     
         actualizaPedidosDB( nuevoEstado )
             .then( () => {
-                console.log('actualizar producto');
-            }).catch((err) => {
+                cargaPedidosSinDispatch()
+                    .then((cargaListado) => {
+                        dispatch( cargaListaPedidos(cargaListado) );})
+                    .catch((err) => {
+                        console.log(err)
+                    })})
+            .catch((err) => {
                 console.log(err);
             });
 
