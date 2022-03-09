@@ -10,6 +10,7 @@ import AdministradorPedidos from '../components/panelAdmin/AdministradorPedidos'
 import BotonesAdmin from '../components/panelAdmin/BotonesAdmin'
 import { useDispatch } from 'react-redux';
 import { cargaPedidosSinDispatch } from '../helpers/cargaPedidos'
+import moment from 'moment';
 
 import ListadoPedidosCliente from '../components/ListadoPedidosCliente'
 import { cargaListadosinDispatch } from '../helpers/cargaListado'
@@ -23,6 +24,10 @@ const DashBoard = () => {
     const { uid } = useSelector( state => state.auth );
     const [ vista, setVista ] = useState ('');
     
+    const date = moment( new Date() ).format('DD/MM/YYYY');
+    
+    const [ fechasFiltrado, setFechasFiltrado ] = useState( [ '01/01/2020', date]);
+    console.log( fechasFiltrado );
 
     if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
         isAdmin = true;
@@ -61,6 +66,8 @@ const DashBoard = () => {
                 <BotonesAdmin
                     vista={vista}
                     setVista={setVista}
+                    fechasFiltrado={fechasFiltrado}
+                    setFechasFiltrado={setFechasFiltrado}
                 />
 
                 <div className='container'>
@@ -70,6 +77,8 @@ const DashBoard = () => {
                         <Route path='pedidos' element={<AdministradorPedidos
                             vista={vista}
                             setVista={setVista}
+                            fechasFiltrado={fechasFiltrado}
+                            setFechasFiltrado={setFechasFiltrado}
                         />}/>
                         <Route path='administrar' element={<ListadoAdmin
                             vista={vista}
@@ -78,6 +87,8 @@ const DashBoard = () => {
                         <Route path='/*' element={<AdministradorPedidos
                             vista={vista}
                             setVista={setVista}
+                            fechasFiltrado={fechasFiltrado}
+                            setFechasFiltrado={setFechasFiltrado}
                         />}/>
 
                     </Routes>

@@ -15,7 +15,7 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
   useEffect(() => {
     setVista('productos');
-  }, []);
+  }, [ setVista ]);
   
 
 //   const guardarCambios = (e) => {

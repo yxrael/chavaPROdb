@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from '../../hooks/useForm';
 
 
-const BotonesFiltradoPedidosAdmin = () => {
 
-    const [ formValues, handleInputChange ] = useForm( [] );
+const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, setFechasFiltrado }) => {
+
+    const iniciaFechas = {
+        inicioFecha: fechasFiltrado[0],
+        finFecha: fechasFiltrado[1]
+    }
+    const [ formValues, handleInputChange ] = useForm( iniciaFechas );
+    console.log(fechasFiltrado);
     const { inicioFecha, finFecha } = formValues;
+    console.log(inicioFecha);
+    console.log(finFecha);
+
+    
+    useEffect(() => {
+
+        // setFechasFiltrado([ inicioFecha, finFecha ]);
+        console.log(fechasFiltrado);
+
+    }, [inicioFecha, finFecha]);
+    
 
   return (
     <>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import BotonesFiltradoPedidosAdmin from './BotonesFiltradoPedidosAdmin';
 
-const BotonesAdmin = ( {vista, setVista} ) => {
+const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) => {
 
     const navigate = useNavigate();
 
@@ -26,7 +26,10 @@ const BotonesAdmin = ( {vista, setVista} ) => {
             {
                 (vista === 'pedidos')
                 &&
-                <BotonesFiltradoPedidosAdmin />
+                <BotonesFiltradoPedidosAdmin
+                    fechasFiltrado={fechasFiltrado}
+                    setFechasFiltrado={setFechasFiltrado}
+                 />
             }
             {
                 (vista === 'productos')

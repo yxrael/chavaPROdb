@@ -6,7 +6,7 @@ import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
 import PedidoAdmin from './PedidoAdmin';
 
 
-const AdministradorPedidos = ( {vista, setVista} ) => {
+const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) => {
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const AdministradorPedidos = ( {vista, setVista} ) => {
         console.log(err)
       });
 
-  }, [ dispatch ])
+  }, [ dispatch, setVista ])
 
   const listaFiltrada = useSelector( state => state.pedidos );
 
