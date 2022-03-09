@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { cargaPedidos, cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
+import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
 import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
 import PedidoAdmin from './PedidoAdmin';
 
 
-const AdministradorPedidos = () => {
+const AdministradorPedidos = ( {vista, setVista} ) => {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+
+    setVista('pedidos')
   
     cargaPedidosSinDispatch()
       .then((cargaListado) => {
@@ -19,7 +21,7 @@ const AdministradorPedidos = () => {
         console.log(err)
       });
 
-  }, [])
+  }, [ dispatch ])
 
   const listaFiltrada = useSelector( state => state.pedidos );
 

@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import NuevoProducto from './NuevoProducto';
 // import Swal from 'sweetalert2';
 
-const ListadoAdmin = () => {
+
+const ListadoAdmin = ( {vista, setVista }) => {
 
   const [nuevoItem, setNuevoItem] = useState(false);
   const [modoEdicion, setModoEdicion] = useState('');
   const [cafeEdicion, setCafeEdicion] = useState({});
 
   const { listado } = useSelector( state => state );
+
+  useEffect(() => {
+    setVista('productos');
+  }, []);
+  
 
 //   const guardarCambios = (e) => {
 //     e.preventDefault();

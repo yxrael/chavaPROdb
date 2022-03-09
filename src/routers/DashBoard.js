@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import ConfirmaEnvio from '../components/ConfirmaEnvio'
@@ -16,12 +16,13 @@ import { cargaListadosinDispatch } from '../helpers/cargaListado'
 import { cargaListaPedidos } from '../actions/listaPedidosAdmin'
 import { cargaListaInicio } from '../actions/listadosActions'
 
-
 const DashBoard = () => {
 
     let isAdmin = false;
 
     const { uid } = useSelector( state => state.auth );
+    const [ vista, setVista ] = useState ('');
+    
 
     if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
         isAdmin = true;
@@ -57,15 +58,27 @@ const DashBoard = () => {
                     <>
 
                 <MenuLogin />
-                <BotonesAdmin />
+                <BotonesAdmin
+                    vista={vista}
+                    setVista={setVista}
+                />
 
                 <div className='container'>
 
                     <Routes>
                         
-                        <Route path='pedidos' element={<AdministradorPedidos />}/>
-                        <Route path='administrar' element={<ListadoAdmin />}/>
-                        <Route path='/*' element={<AdministradorPedidos />}/>
+                        <Route path='pedidos' element={<AdministradorPedidos
+                            vista={vista}
+                            setVista={setVista}
+                        />}/>
+                        <Route path='administrar' element={<ListadoAdmin
+                            vista={vista}
+                            setVista={setVista}
+                        />}/>
+                        <Route path='/*' element={<AdministradorPedidos
+                            vista={vista}
+                            setVista={setVista}
+                        />}/>
 
                     </Routes>
                     
