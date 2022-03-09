@@ -44,15 +44,21 @@ const Seleccion = () => {
           };
 
         enviaPedido( pedidoObj );
-        enviaPedidoDB( pedidoObj );
+        enviaPedidoDB( pedidoObj )
+            .then(() => {
 
-        Swal.fire(
-            '¡Gracias!',
-            'Tu pedido ha sido enviado',
-            'success'
-          );
+                Swal.fire(
+                    '¡Gracias!',
+                    'Tu pedido ha sido enviado',
+                    'success'
+                  );
+        
+                navigate('/confirma');
 
-        navigate('/confirma');
+            }).catch((err) => {
+                console.log(err)
+            });
+
     }
     
     const precioTotal = actualizadorLista( seleccion );

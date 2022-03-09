@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DetallePedido from './DetallePedido';
 import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
 
-const ProductoAdmin = ( producto ) => {
+const PedidoAdmin = ( producto ) => {
 
     const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones } = producto.producto;
     const unidades = seleccionShort.length;
@@ -13,7 +13,21 @@ const ProductoAdmin = ( producto ) => {
 
     const handleClick = (e) => {
         e.preventDefault();
+
         setToogleCompletado( !toggleCompletado);
+
+        const nuevoEstado = {
+            ...producto.producto,
+            completado: toggleCompletado
+        }
+
+    
+        actualizaPedidosDB( nuevoEstado )
+            .then( () => {
+                console.log('actualizar producto');
+            }).catch((err) => {
+                console.log(err);
+            });
 
     }
 
@@ -26,13 +40,12 @@ const ProductoAdmin = ( producto ) => {
 
         actualizaPedidosDB( nuevoEstado );
 
-    }, [toggleCompletado])
+    }, [toggleCompletado, producto])
     
 
     const handleDetalle = (e) => {
         e.preventDefault();
         setToggleDetalle( !toggleDetalle);
-
 
         if(muestraDetalle === 'collapse') {
             setMuestraDetalle('collapse.show')
@@ -151,4 +164,4 @@ const ProductoAdmin = ( producto ) => {
   )
 }
 
-export default ProductoAdmin
+export default PedidoAdmin

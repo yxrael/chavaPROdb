@@ -14,7 +14,7 @@ const ListadoPedidosCliente = () => {
   
     cargaPedidosCliente( uid, dispatch );
 
-  }, [])
+  }, [ uid, dispatch ])
 
   const listaFiltrada = useSelector( state => state.pedidos );
 

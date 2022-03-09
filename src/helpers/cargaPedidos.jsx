@@ -1,19 +1,33 @@
 import { cargaListaPedidos } from '../actions/listaPedidosAdmin';
 import { db } from '../firebase/firebase-config'
 
-export const cargaPedidos = async ( dispatch ) => {
+// export const cargaPedidos = async ( dispatch ) => {
 
-        const listadoPedidos = await db.collection('pedidos').orderBy('date', 'desc').get();
-        let listado = [];
+//         const listadoPedidos = await db.collection('pedidos').orderBy('date', 'desc').get();
+//         let listado = [];
 
-        listadoPedidos.forEach( snapHijo => {
+//         listadoPedidos.forEach( snapHijo => {
 
-            listado.push(snapHijo.data());
-        });
+//             listado.push(snapHijo.data());
+//         });
 
-        dispatch( cargaListaPedidos(listado) );
+//         dispatch( cargaListaPedidos(listado) );
 
-        return listado;
+//         return listado;
+
+// }
+
+export const cargaPedidosSinDispatch = async () => {
+
+    const listadoPedidos = await db.collection('pedidos').orderBy('date', 'desc').get();
+    let listado = [];
+
+    listadoPedidos.forEach( snapHijo => {
+
+        listado.push(snapHijo.data());
+    });
+
+    return listado;
 
 }
 

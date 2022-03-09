@@ -17,3 +17,18 @@ export const cargaListado = async ( dispatch ) => {
         return listado[0];
 
 }
+
+export const cargaListadosinDispatch = async ( dispatch ) => {
+
+    const listadoPedidos = await db.collection('listado').get();
+    let listado = [];
+
+    listadoPedidos.forEach( snapHijo => {
+
+        listado.push(snapHijo.data().listado);
+
+    });
+
+    return listado[0];
+
+}

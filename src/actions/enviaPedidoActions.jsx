@@ -15,7 +15,18 @@ export const enviaPedidoDB = async (pedidoObj) => {
         const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones } = pedidoObj;
 
         let seleccionShort = [];
-        seleccion.map( producto => {
+        
+        // seleccion.map( producto => {
+        //     seleccionShort = [...seleccionShort, {
+        //         id: producto.id,
+        //         nombre: producto.nombre,
+        //         pais: producto.pais,
+        //         proceso: producto.proceso,
+        //         cantidad: producto.cantidad
+        //     }]
+        // });
+
+        seleccion.forEach(producto => {
             seleccionShort = [...seleccionShort, {
                 id: producto.id,
                 nombre: producto.nombre,
@@ -24,6 +35,7 @@ export const enviaPedidoDB = async (pedidoObj) => {
                 cantidad: producto.cantidad
             }]
         });
+
 
         const pedidoDB = {
             pedidoId,
@@ -37,6 +49,7 @@ export const enviaPedidoDB = async (pedidoObj) => {
         };
 
         // const pedido = await db.collection(`pedidos`).add( pedidoDB );
-        const pedido = await db.collection(`pedidos`).doc(`${pedidoDB.pedidoId}`).set( pedidoDB );
+        // const pedido = await db.collection(`pedidos`).doc(`${pedidoDB.pedidoId}`).set( pedidoDB );
+        db.collection(`pedidos`).doc(`${pedidoDB.pedidoId}`).set( pedidoDB );
 
 }

@@ -8,7 +8,7 @@ const Producto = ( {producto } ) => {
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, disponible, descafeinado, continente} = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado } = producto;
 
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
     const [ precioPorProducto, setPrecioPorProducto ] = useState(0);

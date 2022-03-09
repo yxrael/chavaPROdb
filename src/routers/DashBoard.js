@@ -9,9 +9,13 @@ import Seleccion from '../components/Seleccion';
 import AdministradorPedidos from '../components/panelAdmin/AdministradorPedidos';
 import BotonesAdmin from '../components/panelAdmin/BotonesAdmin'
 import { useDispatch } from 'react-redux';
-import { cargaPedidos } from '../helpers/cargaPedidos'
-import { cargaListado } from '../helpers/cargaListado'
+import { cargaPedidosSinDispatch } from '../helpers/cargaPedidos'
+
 import ListadoPedidosCliente from '../components/ListadoPedidosCliente'
+import { cargaListadosinDispatch } from '../helpers/cargaListado'
+import { cargaListaPedidos } from '../actions/listaPedidosAdmin'
+import { cargaListaInicio } from '../actions/listadosActions'
+
 
 const DashBoard = () => {
 
@@ -27,9 +31,22 @@ const DashBoard = () => {
     };
 
     const dispatch = useDispatch();
-    
-    cargaPedidos( dispatch );
-    cargaListado( dispatch );
+
+    cargaPedidosSinDispatch()
+      .then((listado) => {
+        dispatch( cargaListaPedidos(listado) );
+      }).catch((err) => {
+        console.log(err)
+      });
+    // cargaPedidos( dispatch );
+
+    cargaListadosinDispatch()
+    .then((listado) => {
+        dispatch( cargaListaInicio(listado) );
+      }).catch((err) => {
+        console.log(err)
+      });
+    // cargaListado( dispatch );
     
     return (
         <>

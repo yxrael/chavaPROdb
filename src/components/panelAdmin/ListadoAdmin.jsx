@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
-import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import NuevoProducto from './NuevoProducto';
 // import Swal from 'sweetalert2';
 

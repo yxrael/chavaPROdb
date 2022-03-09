@@ -15,6 +15,8 @@ export const actualizaListadoDB =  async ( listado ) => {
 export const actualizaPedidosDB = async ( nuevoEstado ) => {
 
     await db.collection('/pedidos').doc(`${nuevoEstado.pedidoId}`).set( nuevoEstado );
+    
+
 }
 
 

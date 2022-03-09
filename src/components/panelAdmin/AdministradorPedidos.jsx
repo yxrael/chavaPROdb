@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { cargaPedidos } from '../../helpers/cargaPedidos';
-import ProductoAdmin from './ProductoAdmin';
+import { cargaPedidos, cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
+import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
+import PedidoAdmin from './PedidoAdmin';
+
 
 const AdministradorPedidos = () => {
 
@@ -10,9 +12,14 @@ const AdministradorPedidos = () => {
 
   useEffect(() => {
   
-    const cargaListado = cargaPedidos( dispatch );
+    cargaPedidosSinDispatch()
+      .then((cargaListado) => {
+        dispatch( cargaListaPedidos(cargaListado) );
+      }).catch((err) => {
+        console.log(err)
+      });
 
-  }, [])
+  }, [ dispatch ])
 
   const listaFiltrada = useSelector( state => state.pedidos );
 
@@ -28,7 +35,7 @@ const AdministradorPedidos = () => {
 
                 {listaFiltrada.map( producto => {
                         return (
-                            <ProductoAdmin
+                            <PedidoAdmin
                                 key={producto.pedidoId}
                                 producto={producto}
                             />
