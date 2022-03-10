@@ -1,29 +1,41 @@
 import React, { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
 import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
 import PedidoAdmin from './PedidoAdmin';
-
+import moment from 'moment';
+import queryString from 'query-string';
+import { filtradorPedidosPorFecha } from '../../helpers/filtradores';
 
 const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) => {
 
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  let listadoPedidos = [];
 
   useEffect(() => {
 
-    setVista('pedidos')
+    setVista('pedidos');
   
-    cargaPedidosSinDispatch()
+    cargaPedidosSinDispatch( )
       .then((cargaListado) => {
         dispatch( cargaListaPedidos(cargaListado) );})
       .catch((err) => {
         console.log(err)
-      });
+      });   
 
-  }, [ dispatch, setVista ])
+  }, [ dispatch, setVista, fechasFiltrado ]);
 
-  const listaFiltrada = useSelector( state => state.pedidos );
+      listadoPedidos = useSelector( state => state.pedidos )
+
+      const { q } = queryString.parse(location.search);
+
+      if(q !== undefined) {
+        listadoPedidos = filtradorPedidosPorFecha( listadoPedidos, q[0], q[1]);
+      }
 
   return (
     <>
@@ -35,7 +47,7 @@ const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltra
 
                 <h2 id="foco-listado" className="text-center m-3">Administrador de pedidos:</h2>
 
-                {listaFiltrada.map( producto => {
+                {listadoPedidos.map( producto => {
                         return (
                             <PedidoAdmin
                                 key={producto.pedidoId}

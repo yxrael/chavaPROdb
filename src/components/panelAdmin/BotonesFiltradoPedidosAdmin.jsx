@@ -1,35 +1,41 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import moment from 'moment';
+
 
 
 
 const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, setFechasFiltrado }) => {
+
+    const navigate = useNavigate();
+
+    const dateActual = moment( new Date() ).format('DD/MM/YYYY');
 
     const iniciaFechas = {
         inicioFecha: fechasFiltrado[0],
         finFecha: fechasFiltrado[1]
     }
     const [ formValues, handleInputChange ] = useForm( iniciaFechas );
-    console.log(fechasFiltrado);
     const { inicioFecha, finFecha } = formValues;
-    console.log(inicioFecha);
-    console.log(finFecha);
 
-    
     useEffect(() => {
 
-        // setFechasFiltrado([ inicioFecha, finFecha ]);
-        console.log(fechasFiltrado);
+        const date1 = moment( inicioFecha ).format('DD/MM/YYYY');
+        const date2 = moment( finFecha ).format('DD/MM/YYYY');
 
-    }, [inicioFecha, finFecha]);
+        if(date1 < date2 && date1 < dateActual){
+            navigate(`/pedidos?q=${ date1 }&q=${ date2 }`);
+        }
+
+    }, [ inicioFecha, finFecha]);
     
-
   return (
     <>
-        <div className='container mxwListados'>
+        <div className='container mxwListados justify-content-start'>
 
             
-            <div className='form m-2'>
+            <div className='form card bg-light mt-3 p-3 w-50'>
 
                 <div className=''>
                     <div className='d-flex justify-content-start mt-2'>

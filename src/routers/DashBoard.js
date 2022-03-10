@@ -24,10 +24,9 @@ const DashBoard = () => {
     const { uid } = useSelector( state => state.auth );
     const [ vista, setVista ] = useState ('');
     
-    const date = moment( new Date() ).format('DD/MM/YYYY');
+    const date = moment( new Date() ).format('YYYY-MM-DD');
     
-    const [ fechasFiltrado, setFechasFiltrado ] = useState( [ '01/01/2020', date]);
-    console.log( fechasFiltrado );
+    const [ fechasFiltrado, setFechasFiltrado ] = useState( [ '2020-01-01', date]);
 
     if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
         isAdmin = true;

@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { filtrarSeleccion } from '../actions/seleccionActions';
-import filtradorPorPais from '../helpers/filtradorPorPais';
+import {filtradorPorPais} from '../helpers/filtradores';
 import { localStorageUpdater } from '../helpers/localStorageUpdater';
 import { store } from '../store/store';
 import BotonesFiltrado from './BotonesFiltrado';
@@ -20,6 +20,7 @@ const Listado = () => {
     const { listado } = useSelector( state => state );
 
     let listaFiltrada = filtraListadoClientesDisponible( listado );
+    console.log(listado);
     
     const { q } = queryString.parse(location.search);
 
