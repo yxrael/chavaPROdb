@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import moment from 'moment';
 
-
-
-
-const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, setFechasFiltrado }) => {
+const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, toggleEstado, setToggleEstado }) => {
 
     const navigate = useNavigate();
 
@@ -25,17 +22,23 @@ const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, setFechasFiltrado }) => 
         const date2 = moment( finFecha ).format('DD/MM/YYYY');
 
         if(date1 < date2 && date1 < dateActual){
-            navigate(`/pedidos?q=${ date1 }&q=${ date2 }`);
+            navigate(`/pedidos?q=${ date1 }&q=${ date2 }&q=${ toggleEstado }`);
         }
 
-    }, [ inicioFecha, finFecha]);
+    }, [ inicioFecha, finFecha, toggleEstado]);
+
+    const handleEstado = (e) => {
+        e.preventDefault();
+        setToggleEstado( !toggleEstado);
+    }
     
   return (
-    <>
-        <div className='container mxwListados justify-content-start'>
+    <div className='container mxwListados d-flex justify-content-center'>
+
+        {/* <div className='container  justify-content-start'> */}
 
             
-            <div className='form card bg-light mt-3 p-3 w-50'>
+            <div className='form card bg-light m-3 mt-4 p-3 w-50'>
 
                 <div className=''>
                     <div className='d-flex justify-content-start mt-2'>
@@ -89,14 +92,45 @@ const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, setFechasFiltrado }) => 
                     </div>
                     
                 </div>
+
+                {
+                    toggleEstado
+                    ?
+                    (
+                        <button 
+                    className='btn btn-success mt-4'
+                    onClick={ handleEstado }
+                    >
+                    Enviados{' '}
+                    <i className="fa-solid fa-toggle-on"></i>
+                </button>
+                    )
+                    :
+                    (
+                        <button 
+                    className='btn btn-warning mt-4'
+                    onClick={ handleEstado }
+                    >
+                    No enviados{' '}
+                    <i className="fa-solid fa-toggle-off"></i>
+                </button>
+                    )
+                }
+
+                
                 
 
             </div>
+ 
+            
 
-        </div>
+        {/* </div> */}
+ 
+                
 
 
-    </>
+
+    </div>
 
     
   )

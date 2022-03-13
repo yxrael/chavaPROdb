@@ -5,9 +5,6 @@ import { useDispatch } from 'react-redux';
 import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
 import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
 
-
-
-
 const PedidoAdmin = ( producto ) => {
 
     const dispatch = useDispatch();

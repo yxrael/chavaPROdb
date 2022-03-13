@@ -20,7 +20,6 @@ const Listado = () => {
     const { listado } = useSelector( state => state );
 
     let listaFiltrada = filtraListadoClientesDisponible( listado );
-    console.log(listado);
     
     const { q } = queryString.parse(location.search);
 

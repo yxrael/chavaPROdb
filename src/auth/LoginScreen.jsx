@@ -1,13 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import { useForm } from '../hooks/useForm';
 import { removeError, setError } from '../actions/ui';
-import { startLoginEmailPassword, startGoogleLogin } from '../actions/auth';
+import { startLoginEmailPassword } from '../actions/auth';
 
 const LoginScreen = () => {
-
   
   const dispatch = useDispatch();
   const { loading } = useSelector( state => state.ui );
@@ -29,10 +27,10 @@ const LoginScreen = () => {
 
   };
 
-  const handleGoogleLogin = () => {
+  // const handleGoogleLogin = () => {
 
-    dispatch( startGoogleLogin() );
-  }
+  //   dispatch( startGoogleLogin() );
+  // }
 
   const isFormValid = () => {
 
@@ -92,7 +90,7 @@ const LoginScreen = () => {
           </button>
           
           <hr />
-          <div className='auth__social-networks'>
+          {/* <div className='auth__social-networks'>
             <p>Entrar con redes sociales:</p>
             <div 
               className="google-btn"
@@ -105,12 +103,15 @@ const LoginScreen = () => {
                 <b>Entrar con Google</b>
                 </p>
               </div>
-          </div>
+          </div> */}
 
-            <Link to='/auth/register'
+            {/* <Link to='/auth/register'
                   className='enlace'>
               Crear cuenta nueva
-            </Link>
+            </Link> */}
+
+            <p><b>Solicita tu cuenta:</b></p>
+            <p>mrchavamicrotostador@gmail.com</p>
             
         </form>
     </>
@@ -118,3 +119,4 @@ const LoginScreen = () => {
 }
 
 export default LoginScreen
+

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoginScreen from '../auth/LoginScreen'
-import RegisterScreen from '../auth/RegisterScreen'
 
 const AuthRouter = () => {
 
@@ -10,9 +9,7 @@ const AuthRouter = () => {
         <div className='auth__box-container'>
         
             <Routes >
-
-                <Route path='register'
-                        element={<RegisterScreen />} />
+                
                 <Route path='login'
                         element={<LoginScreen />} />
                 <Route path='/*'

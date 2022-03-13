@@ -16,6 +16,7 @@ import ListadoPedidosCliente from '../components/ListadoPedidosCliente'
 import { cargaListadosinDispatch } from '../helpers/cargaListado'
 import { cargaListaPedidos } from '../actions/listaPedidosAdmin'
 import { cargaListaInicio } from '../actions/listadosActions'
+import RegisterScreen from '../auth/RegisterScreen'
 
 const DashBoard = () => {
 
@@ -23,6 +24,7 @@ const DashBoard = () => {
 
     const { uid } = useSelector( state => state.auth );
     const [ vista, setVista ] = useState ('');
+    const [ toggleEstado, setToggleEstado ] = useState(false);
     
     const date = moment( new Date() ).format('YYYY-MM-DD');
     
@@ -67,6 +69,8 @@ const DashBoard = () => {
                     setVista={setVista}
                     fechasFiltrado={fechasFiltrado}
                     setFechasFiltrado={setFechasFiltrado}
+                    toggleEstado={toggleEstado}
+                    setToggleEstado={setToggleEstado}
                 />
 
                 <div className='container'>
@@ -78,16 +82,25 @@ const DashBoard = () => {
                             setVista={setVista}
                             fechasFiltrado={fechasFiltrado}
                             setFechasFiltrado={setFechasFiltrado}
+                            toggleEstado={toggleEstado}
+                            setToggleEstado={setToggleEstado}
                         />}/>
                         <Route path='administrar' element={<ListadoAdmin
                             vista={vista}
                             setVista={setVista}
                         />}/>
+                        <Route path='register'
+                        element={<RegisterScreen
+                            vista={vista}
+                            setVista={setVista}                        
+                        />} />
                         <Route path='/*' element={<AdministradorPedidos
                             vista={vista}
                             setVista={setVista}
                             fechasFiltrado={fechasFiltrado}
                             setFechasFiltrado={setFechasFiltrado}
+                            toggleEstado={toggleEstado}
+                            setToggleEstado={setToggleEstado}
                         />}/>
 
                     </Routes>

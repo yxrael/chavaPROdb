@@ -60,7 +60,7 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
                 <div className='d-flex justify-content-center'>
                 <button 
-                    className='btn btn-success btn-sm m-2'
+                    className='btn btn-success btn-sm mt-4'
                     onClick={ abreVentana }
                     >
                         Nuevo Producto

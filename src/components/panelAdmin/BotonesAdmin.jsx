@@ -4,7 +4,7 @@ import BotonesFiltradoPedidosAdmin from './BotonesFiltradoPedidosAdmin';
 import BotonesFiltradoProductosAdmin from './BotonesFiltradoProductosAdmin';
 
 
-const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) => {
+const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado, toggleEstado, setToggleEstado} ) => {
 
     const navigate = useNavigate();
 
@@ -23,6 +23,12 @@ const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) =>
                     value='PRODUCTOS'>
                     PRODUCTOS
                 </button>
+                <button 
+                    className='btn btn-secondary mt-2 btn-sm'
+                    onClick={ () => navigate('/register')  }
+                    value='USUARIOS'>
+                    USUARIOS
+                </button>
             </div>
 
             {
@@ -31,13 +37,15 @@ const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) =>
                 <BotonesFiltradoPedidosAdmin
                     fechasFiltrado={fechasFiltrado}
                     setFechasFiltrado={setFechasFiltrado}
+                    toggleEstado={toggleEstado}
+                    setToggleEstado={setToggleEstado}
                  />
             }
-            {
+            {/* {
                 (vista === 'productos')
                 &&
                 <BotonesFiltradoProductosAdmin />      
-            }
+            } */}
 
         </>
     )

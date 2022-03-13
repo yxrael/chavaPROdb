@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
 import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
 import PedidoAdmin from './PedidoAdmin';
-import moment from 'moment';
 import queryString from 'query-string';
 import { filtradorPedidosPorFecha } from '../../helpers/filtradores';
 
-const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltrado} ) => {
+const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, toggleEstado, setToggleEstado} ) => {
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -34,7 +33,7 @@ const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltra
       const { q } = queryString.parse(location.search);
 
       if(q !== undefined) {
-        listadoPedidos = filtradorPedidosPorFecha( listadoPedidos, q[0], q[1]);
+        listadoPedidos = filtradorPedidosPorFecha( listadoPedidos, q[0], q[1], toggleEstado );
       }
 
   return (
@@ -52,6 +51,8 @@ const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, setFechasFiltra
                             <PedidoAdmin
                                 key={producto.pedidoId}
                                 producto={producto}
+                                toggleEstado={toggleEstado}
+                                setToggleEstado={setToggleEstado}
                             />
                         )
                     })

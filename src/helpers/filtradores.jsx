@@ -10,14 +10,14 @@ export const filtradorPorPais = ( listado, continente ) => {
 
 }
 
-export const filtradorPedidosPorFecha = ( listado, fechaInicio, fechaFin ) => {
+export const filtradorPedidosPorFecha = ( listado, fechaInicio, fechaFin, estado ) => {
 
 
     if( fechaInicio === '' || fechaFin === ''){
         return listado;
     };
 
-    const filtrado = listado.filter( pedido => pedido.date >= fechaInicio && pedido.date <= fechaFin );
+    const filtrado = listado.filter( pedido => pedido.date >= fechaInicio && pedido.date <= fechaFin && pedido.completado === estado );
    
     return filtrado;
 
