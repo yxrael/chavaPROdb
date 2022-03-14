@@ -12,7 +12,7 @@ const Seleccion = () => {
 
     const navigate = useNavigate();
 
-    const { uid, name } = useSelector( state => state.auth );
+    const { uid, name, tipoCliente } = useSelector( state => state.auth );
     const seleccion = useSelector( state => state.seleccion );
  
     const pedidoId = uniqueId('p_');
@@ -38,6 +38,7 @@ const Seleccion = () => {
             name,
             pedidoId,
             precioTotal,
+            tipoCliente,
             observaciones,
             completado: false,
             seleccion

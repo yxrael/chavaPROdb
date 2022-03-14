@@ -27,11 +27,12 @@ const DashBoard = () => {
     const [ toggleEstado, setToggleEstado ] = useState(false);
     
     const date = moment( new Date() ).format('YYYY-MM-DD');
+    const inicioDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
     
-    const [ fechasFiltrado, setFechasFiltrado ] = useState( [ '2020-01-01', date]);
+    const [ fechasFiltrado, setFechasFiltrado ] = useState( [ inicioDate, date]);
 
-    // if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
-    if( tipoCliente === '333333333' ){
+    // if( uid === 'Qmop2uO3UXZxPKTiYrYW0pcIHYO2' ){
+    if( tipoCliente === 'admin' ){
         isAdmin = true;
 
     } else {
@@ -117,8 +118,6 @@ const DashBoard = () => {
                     <MenuLogin />
         
                     <div className='container'>
-
-                        <p>{tipoCliente}</p>
         
                         <Routes>
                             

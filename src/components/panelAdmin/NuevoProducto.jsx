@@ -25,7 +25,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             precio: cafeEdicion.precio,
             proceso: cafeEdicion.proceso,
             descafeinado: cafeEdicion.descafeinado,
-            infoExtra: cafeEdicion.infoExtra
+            infoExtra: cafeEdicion.infoExtra,
+            tipoCliente: cafeEdicion.tipoCliente
         };
 
     } else {
@@ -36,13 +37,14 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 precio: 0,
                 proceso: '',
                 descafeinado: false,
-                infoExtra: ''
+                infoExtra: '',
+                tipoCliente: ''
                 }
         }
     
     const [ formValues, handleInputChange ] = useForm( preRelleno );
 
-    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra } = formValues;
+    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -63,6 +65,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     disponible: cafeEdicion.disponible,
                     descafeinado,
                     infoExtra,
+                    tipoCliente,
                     cantidad: 0
                 };
 
@@ -82,6 +85,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     disponible: true,
                     descafeinado,
                     infoExtra,
+                    tipoCliente,
                     cantidad: 0
                 };
 
@@ -104,7 +108,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
     const isFormValid = () => {
 
-        if( pais !== '' && nombre !== '' && continente !== '' && precio !== 0 && proceso !== '' ){
+        if( pais !== '' && nombre !== '' && continente !== '' && precio !== 0 && proceso !== '' && tipoCliente !=='' ){
             dispatch( removeError());
              return true
         }
@@ -197,6 +201,15 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     id='precio'
                                     onChange={ handleInputChange }
                                 />
+
+                                <select name='tipoCliente'
+                                    className='custom-select form-control mt-2'
+                                    // value={ password2 }
+                                    onChange={ handleInputChange } >
+                                    <option defaultValue={ tipoCliente }>Tipo cliente</option>
+                                    <option value='tostado'>Tostado</option>
+                                    <option value='verde'>Verde</option>
+                                </select>
 
                             </div>
 

@@ -1,12 +1,12 @@
 
 
-export const filtradorPorPais = ( listado, continente ) => {
+export const filtradorPorPais = ( listado, continente, tipoCliente ) => {
 
     if(continente === ''){
-        return listado;
+        return listado.filter( cafe => cafe.tipoCliente === tipoCliente);
     };
 
-    return listado.filter( cafe => cafe.continente === continente );
+    return listado.filter( cafe => cafe.continente === continente && cafe.tipoCliente === tipoCliente);
 
 }
 

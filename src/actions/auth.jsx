@@ -15,10 +15,9 @@ export const startLoginEmailPassword = (email, password) => {
         firebase.auth().signInWithEmailAndPassword( email, password )
             .then( ({ user }) => {
                 dispatch(
-                    login( user.uid, user.displayName )
+                    login( user.uid, user.displayName, user.photoURL )
                 );
                  dispatch( finishLoading() );
-                 console.log(user);
             })
             .catch( e => {
                 dispatch( finishLoading() );
@@ -32,8 +31,9 @@ export const startRegisterWithEmailPasswordName = ( name, establecimiento, email
     return ( dispatch ) => {
 
         firebase.auth().createUserWithEmailAndPassword( email, password )
+        // firebase.auth().createUser( {email: email, password: password, phoneNumber: tipoCliente} )
             .then( async({ user }) => {
-                await user.updateProfile({ displayName: name + ' - ' + establecimiento, phoneNumber: tipoCliente});
+                await user.updateProfile({ displayName: name + ' - ' + establecimiento, photoURL: tipoCliente});
 
                 // Swal.fire(
                 //     'Ok!',
@@ -42,7 +42,7 @@ export const startRegisterWithEmailPasswordName = ( name, establecimiento, email
                 //   );
 
                 dispatch(
-                    login( user.uid, user.displayName, tipoCliente )
+                    login( user.uid, user.displayName, user.photoURL )
                 );
             })
             .catch( e => {

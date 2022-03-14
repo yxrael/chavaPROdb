@@ -12,7 +12,7 @@ const MenuLogin = () => {
   let isAdmin = false;
 
     // if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
-    if( tipoCliente === '333333333' ){
+    if( tipoCliente === 'admin' ){
         isAdmin = true;
 
     } else {

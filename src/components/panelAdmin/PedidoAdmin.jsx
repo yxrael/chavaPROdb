@@ -9,7 +9,7 @@ const PedidoAdmin = ( producto ) => {
 
     const dispatch = useDispatch();
 
-    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones } = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones, tipoCliente } = producto.producto;
     const unidades = seleccionShort.length;
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
@@ -81,6 +81,7 @@ const PedidoAdmin = ( producto ) => {
                                 <div className="">
                                     <p>ID Cliente: {uid}</p>
                                     <p>Nombre cliente:{' '} {name} </p>
+                                    <p>Tarifa: {' '}{ tipoCliente}</p>
                                 </div>
                                 
                             </div>    

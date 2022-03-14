@@ -1,6 +1,9 @@
 
-AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pantalla
+VISTA USUARIOS ADMIN, listar los actuales y botón de eliminar
+VISTA PEDIDOS ADMIN, el filtro por fecha no muestra los pedidos antiguos
 
+
+AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pantalla
 
 ***VISTA ADMIN***
 

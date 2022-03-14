@@ -12,7 +12,7 @@ export const enviaPedido = ( pedido ) => (
 
 export const enviaPedidoDB = async (pedidoObj) => {
 
-        const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones } = pedidoObj;
+        const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones, tipoCliente } = pedidoObj;
 
         let seleccionShort = [];
         
@@ -44,6 +44,7 @@ export const enviaPedidoDB = async (pedidoObj) => {
             date,
             total: precioTotal,
             observaciones,
+            tipoCliente,
             completado: false,
             seleccionShort
         };

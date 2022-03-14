@@ -19,7 +19,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente} = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente, tipoCliente} = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -125,6 +125,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                                     
                                                 <div className="">
                                                     <p>Precio: <b>{precio}€/kg</b></p>
+                                                    <p>Tipo cliente: {tipoCliente}</p>
                                                 </div>
                                                     
                                             </div>    

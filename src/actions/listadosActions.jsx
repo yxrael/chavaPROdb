@@ -40,9 +40,9 @@ export const eliminaProducto = ( id ) =>{
    }
 }
 
-export const filtraListadoClientesDisponible = ( listado ) => {
+export const filtraListadoClientesDisponible = ( listado, tipoCliente ) => {
 
-   return listado.filter( producto => producto.disponible === true );
+   return listado.filter( producto => producto.disponible === true && producto.tipoCliente === tipoCliente );
 }
 
 // export const cambiaDisponibilidad = ( id, cafe ) =>{ 

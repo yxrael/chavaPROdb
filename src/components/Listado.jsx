@@ -17,14 +17,14 @@ const Listado = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { listado } = useSelector( state => state );
+    const { listado, auth } = useSelector( state => state );
 
-    let listaFiltrada = filtraListadoClientesDisponible( listado );
+    let listaFiltrada = filtraListadoClientesDisponible( listado, auth.tipoCliente );
     
     const { q } = queryString.parse(location.search);
 
     if(q !== undefined) {
-        listaFiltrada = filtradorPorPais( listado, q);
+        listaFiltrada = filtradorPorPais( listado, q, auth.tipoCliente);
     }
 
     const handleSubmit = (e) => {
