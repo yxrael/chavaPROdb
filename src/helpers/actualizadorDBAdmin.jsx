@@ -19,6 +19,21 @@ export const actualizaPedidosDB = async ( nuevoEstado ) => {
 
 }
 
+// export const nuevoClienteDB = async ( nuevoCliente) => {
+
+//     const cliente = {
+
+//         name: nuevoCliente.name,
+//         establecimiento: nuevoCliente.establecimiento,
+//         email: nuevoCliente.email,         
+//         tipoCliente: nuevoCliente.tipoCliente
+//     }
+
+//     console.log(cliente);
+
+//     await db.collection('clientes').doc(`${nuevoCliente.uid}`).set( cliente );
+// }
+
 
 
 

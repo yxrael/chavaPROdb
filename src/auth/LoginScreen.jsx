@@ -22,6 +22,8 @@ const LoginScreen = () => {
     e.preventDefault();
 
     if ( isFormValid() ) {
+
+      // buscar en BD por uid y añadir tipo de cliente
       dispatch( startLoginEmailPassword(email , password));
     }
 

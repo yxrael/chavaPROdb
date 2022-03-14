@@ -34,7 +34,7 @@ const RegisterScreen = ( {setVista} ) => {
 
     if( isFormValid() ){
 
-      dispatch(startRegisterWithEmailPasswordName( name, establecimiento, email, password ));
+      dispatch(startRegisterWithEmailPasswordName( name, establecimiento, email, password, tipoCliente ));
       // startRegisterWithEmailPasswordNameAdmin( name, establecimiento, email, password );
       navigate('/register');
     }
@@ -134,8 +134,9 @@ const RegisterScreen = ( {setVista} ) => {
               // value={ password2 }
               onChange={ handleInputChange } >
               <option defaultValue='Tipo cliente'>Tipo cliente</option>
-              <option value='tostado'>Tostado</option>
-              <option value='verde'>Verde</option>
+              <option value='111111111'>Tostado</option>
+              <option value='222222222'>Verde</option>
+              <option value='333333333'>Administrador</option>
             </select>
             
             <div>

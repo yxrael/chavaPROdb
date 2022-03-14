@@ -22,7 +22,7 @@ const DashBoard = () => {
 
     let isAdmin = false;
 
-    const { uid } = useSelector( state => state.auth );
+    const { tipoCliente } = useSelector( state => state.auth );
     const [ vista, setVista ] = useState ('');
     const [ toggleEstado, setToggleEstado ] = useState(false);
     
@@ -30,7 +30,8 @@ const DashBoard = () => {
     
     const [ fechasFiltrado, setFechasFiltrado ] = useState( [ '2020-01-01', date]);
 
-    if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
+    // if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
+    if( tipoCliente === '333333333' ){
         isAdmin = true;
 
     } else {
@@ -116,6 +117,8 @@ const DashBoard = () => {
                     <MenuLogin />
         
                     <div className='container'>
+
+                        <p>{tipoCliente}</p>
         
                         <Routes>
                             

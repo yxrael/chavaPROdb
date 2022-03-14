@@ -5,13 +5,14 @@ import { inicializaListado } from "../actions/listadosActions";
 
 const MenuLogin = () => {
 
-  const { name, uid } = useSelector( state => state.auth);
+  const { name, uid, tipoCliente } = useSelector( state => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let isAdmin = false;
 
-    if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
+    // if( uid === 'mHDUnKJe98OtEBYi4siKY43VoEq2' ){
+    if( tipoCliente === '333333333' ){
         isAdmin = true;
 
     } else {
