@@ -161,6 +161,20 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     id='pais'
                                     onChange={ handleInputChange }
                                 />
+
+                                <div>
+                                    <label htmlFor='continente'>Continente:</label>
+                                    <select name='continente'
+                                        className='custom-select form-control'
+                                        // value={ password2 }
+                                        onChange={ handleInputChange } >
+                                        <option defaultValue={ continente }>{ continente }</option>
+                                        <option value='AMERICA'>América</option>
+                                        <option value='AFRICA'>África</option>
+                                        <option value='ASIA'>Asia</option>
+                                        <option value='DESCAFEINADO'>*descafeinado*</option>
+                                    </select>
+                                </div>
                                     
                                 <label htmlFor='proceso'>Proceso:</label>
                                 <input
@@ -178,7 +192,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
                             <div className='form-group col-md-6'>
 
-                                <label htmlFor='continente'>Continente:</label>
+                                {/* <label htmlFor='continente'>Continente:</label>
                                 <input
                                     type='text'
                                     placeholder='continente'
@@ -188,7 +202,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     value={ continente }
                                     id='continente'
                                     onChange={ handleInputChange }
-                                />
+                                /> */}
+                                
 
                                 <label htmlFor='precio'>Precio:</label>
                                 <input
@@ -201,15 +216,17 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     id='precio'
                                     onChange={ handleInputChange }
                                 />
-
-                                <select name='tipoCliente'
-                                    className='custom-select form-control mt-2'
-                                    // value={ password2 }
-                                    onChange={ handleInputChange } >
-                                    <option defaultValue={ tipoCliente }>Tipo cliente</option>
-                                    <option value='tostado'>Tostado</option>
-                                    <option value='verde'>Verde</option>
-                                </select>
+                                <div>
+                                    <label htmlFor='tipoCliente'>Tarifa:</label>
+                                    <select name='tipoCliente'
+                                        className='custom-select form-control'
+                                        // value={ password2 }
+                                        onChange={ handleInputChange } >
+                                        <option defaultValue={ tipoCliente }>{ tipoCliente }</option>
+                                        <option value='tostado'>Tostado</option>
+                                        <option value='verde'>Verde</option>
+                                    </select>
+                                </div>
 
                             </div>
 
