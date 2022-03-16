@@ -3,8 +3,9 @@ import { useState} from 'react'
 
 import { useDispatch } from 'react-redux';
 import { modificaProducto } from '../actions/listadosActions';
+import PopUpResumen from './PopUpResumen';
 
-const Producto = ( {producto } ) => {
+const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionado, setCafeSeleccionado } ) => {
 
     const dispatch = useDispatch();
     
@@ -25,6 +26,12 @@ const Producto = ( {producto } ) => {
 
         dispatch( modificaProducto( id, cambioCafe ));
 
+    }
+
+    const handleDetalle = (e) => {
+        e.preventDefault();
+        setCafeSeleccionado({nombre});
+        setMuestraDetalle(true)
     }
 
     return (
@@ -77,6 +84,27 @@ const Producto = ( {producto } ) => {
                         </div>
                         
                     </div>
+                </div>
+
+                <div className="text-center mb-2">
+
+                    <button
+                        // className='btn btn-primary'
+                        className='badge rounded-pill bg-info  text-light'
+                        onClick={ handleDetalle }
+                        type='submit'>
+                            Detalle
+                    </button>
+                    {
+                        muestraDetalle
+                        &&
+                        <PopUpResumen
+                            muestraDetalle={muestraDetalle}
+                            setMuestraDetalle={setMuestraDetalle}
+                            cafeSeleccionado={cafeSeleccionado}
+                            setCafeSeleccionado={setCafeSeleccionado}
+                        />
+                    }
                 </div>
 
                 < div className="text-center">

@@ -18,6 +18,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAqvi-nOjXIENfyto3VaZxwug-Rj7sc5js",
   authDomain: "chavapro-9a967.firebaseapp.com",
   projectId: "chavapro-9a967",
+  databaseURL: 'gs://chavapro-9a967.appspot.com',
   storageBucket: "chavapro-9a967.appspot.com",
   messagingSenderId: "705461988689",
   appId: "1:705461988689:web:2ad708cf6ec30c47367770",
@@ -31,8 +32,11 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
+const storage = firebase.storage();
+
 export {
     db,
     googleAuthProvider,
-    firebase
+    firebase,
+    storage
 }

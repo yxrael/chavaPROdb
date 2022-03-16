@@ -1,6 +1,7 @@
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useState }from 'react';
 import { filtrarSeleccion } from '../actions/seleccionActions';
 import {filtradorPorPais} from '../helpers/filtradores';
 import { localStorageUpdater } from '../helpers/localStorageUpdater';
@@ -10,6 +11,7 @@ import Producto from './Producto';
 import queryString from 'query-string';
 import { filtraListadoClientesDisponible } from '../actions/listadosActions';
 
+
 const Listado = () => {
 
     const dispatch = useDispatch();
@@ -18,6 +20,8 @@ const Listado = () => {
     const navigate = useNavigate();
 
     const { listado, auth } = useSelector( state => state );
+    const [ muestraDetalle, setMuestraDetalle ] = useState(false);
+    const [ cafeSeleccionado, setCafeSeleccionado ] = useState('');
 
     let listaFiltrada = filtraListadoClientesDisponible( listado, auth.tipoCliente );
     
@@ -55,6 +59,10 @@ const Listado = () => {
                             <Producto
                                 key={producto.id}
                                 producto={producto}
+                                muestraDetalle={muestraDetalle}
+                                setMuestraDetalle={setMuestraDetalle}
+                                cafeSeleccionado={cafeSeleccionado}
+                                setCafeSeleccionado={setCafeSeleccionado}
                             />
                         )
                     })
