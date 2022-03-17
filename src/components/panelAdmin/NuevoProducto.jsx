@@ -7,6 +7,8 @@ import { calculaMaximoNumeroProducto } from '../../helpers/calculaMaximoNumeroPr
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
+import { subeImagenDetalles } from '../../helpers/subeImagenDetalles';
+
 
 
 const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion } ) => {
@@ -26,7 +28,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             proceso: cafeEdicion.proceso,
             descafeinado: cafeEdicion.descafeinado,
             infoExtra: cafeEdicion.infoExtra,
-            tipoCliente: cafeEdicion.tipoCliente
+            tipoCliente: cafeEdicion.tipoCliente,
+            resumenURL: cafeEdicion.resumenURL
         };
 
     } else {
@@ -38,13 +41,14 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 proceso: '',
                 descafeinado: false,
                 infoExtra: '',
-                tipoCliente: ''
+                tipoCliente: '',
+                resumenURL: ''
                 }
         }
     
     const [ formValues, handleInputChange ] = useForm( preRelleno );
 
-    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente } = formValues;
+    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, resumenURL } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -52,6 +56,11 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
     let id = '';
 
         if( isFormValid ) {
+
+            // sube la imagen a cloud y devuelve la url
+            subeImagenDetalles( resumenURL );
+
+            // mete la url de la imagen en resumenURL
 
             if(modoEdicion !== ''){
 
@@ -66,6 +75,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
+                    resumenURL,
                     cantidad: 0
                 };
 
@@ -86,6 +96,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
+                    resumenURL,
                     cantidad: 0
                 };
 
@@ -227,6 +238,17 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                         <option value='verde'>Verde</option>
                                     </select>
                                 </div>
+                                <label htmlFor='precio'>Gráfica resumen:</label>
+                                <input
+                                    type='file'
+                                    placeholder='resumen'
+                                    name='resumenURL'
+                                    className='form-control'
+                                    autoComplete='off'
+                                    value={ resumenURL }
+                                    id='precio'
+                                    onChange={ handleInputChange }
+                                />
 
                             </div>
 
