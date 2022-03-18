@@ -64,6 +64,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
             if(modoEdicion !== ''){
 
+                const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
+
                 const nuevoCafe = {
                     id: cafeEdicion.id,
                     pais,
@@ -75,15 +77,19 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    resumenURL,
+                    resumenURL: enlace,
                     cantidad: 0
                 };
+
+                // sube la imagen a cloud y devuelve la url
+                subeImagenDetalles( resumenURL );
 
                 dispatch( modificaProducto( cafeEdicion.id, nuevoCafe ));
         
             } else {
         
                 id = calculaMaximoNumeroProducto( listado );
+                const enlace = await subeImagenDetalles( resumenURL, id, nombre );
 
                 const nuevoCafe = {
                     id,
@@ -96,12 +102,19 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    resumenURL,
+                    resumenURL: enlace,
                     cantidad: 0
                 };
 
+                // sube la imagen a cloud y devuelve la url
+                subeImagenDetalles( resumenURL );                
+
                 dispatch( nuevoProductoLista( nuevoCafe ));
             };
+
+            
+
+            // mete la url de la imagen en resumenURL
 
             const actual = store.getState();
             actualizaListadoDB( actual.listado );
