@@ -60,3 +60,8 @@ ok 01/03/22 Quitar el botón de enviar en el listado de pedidos del cliente
 añadiendo una variable global que diga si es ADMIN
 
 ok 06/03/22 AÑADIR campo observaciones al pedido!06/03/22
+
+
+la vista de pedidos inicia en blanco
+
+borrar de cloudinary cuando se elimine un producto

@@ -9,7 +9,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado } = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado, rutaURL } = producto;
 
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
     const [ precioPorProducto, setPrecioPorProducto ] = useState(0);
@@ -103,6 +103,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                             setMuestraDetalle={setMuestraDetalle}
                             cafeSeleccionado={cafeSeleccionado}
                             setCafeSeleccionado={setCafeSeleccionado}
+                            rutaURL={rutaURL}
                         />
                     }
                 </div>

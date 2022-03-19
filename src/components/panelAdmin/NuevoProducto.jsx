@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch } from 'react-redux';
@@ -17,7 +17,14 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
     const { msgError } = useSelector( state => state.ui );
     const listado = useSelector( state => state.listado );
 
-    let preRelleno = {}
+    let rutaIMAGENAwait = '';
+    const [ rutaImagen, SetRutaImagen ] = useState('');
+
+    let preRelleno = {};
+
+    // chava-pro
+    // https://api.cloudinary.com/v1_1/dtm3z7jee/upload
+    // https://<API_KEY>:<API_SECRET>@api.cloudinary.com/v1_1/<CLOUD_NAME>/upload
 
     if(modoEdicion !== '' ) {
         preRelleno = {
@@ -29,7 +36,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             descafeinado: cafeEdicion.descafeinado,
             infoExtra: cafeEdicion.infoExtra,
             tipoCliente: cafeEdicion.tipoCliente,
-            resumenURL: cafeEdicion.resumenURL
+            rutaURL: cafeEdicion.rutaURL
         };
 
     } else {
@@ -42,30 +49,31 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 descafeinado: false,
                 infoExtra: '',
                 tipoCliente: '',
-                resumenURL: ''
+                rutaURL: ''
                 }
         }
     
     const [ formValues, handleInputChange ] = useForm( preRelleno );
 
-    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, resumenURL } = formValues;
+    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaURL } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
 
-    let id = '';
+        let id = '';
 
         if( isFormValid ) {
 
             // sube la imagen a cloud y devuelve la url
-            subeImagenDetalles( resumenURL );
+            // subeImagenDetalles( resumenURL );
 
             // mete la url de la imagen en resumenURL
 
             if(modoEdicion !== ''){
 
-                const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
+                // const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
 
+                
                 const nuevoCafe = {
                     id: cafeEdicion.id,
                     pais,
@@ -77,19 +85,20 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    resumenURL: enlace,
+                    rutaURL,
                     cantidad: 0
                 };
-
-                // sube la imagen a cloud y devuelve la url
-                subeImagenDetalles( resumenURL );
 
                 dispatch( modificaProducto( cafeEdicion.id, nuevoCafe ));
         
             } else {
         
                 id = calculaMaximoNumeroProducto( listado );
-                const enlace = await subeImagenDetalles( resumenURL, id, nombre );
+
+                // if( rutaURL) {
+                //     rutaIMAGEN = subeImagenDetalles( rutaURL );
+                //     console.log( rutaURL );
+                // }
 
                 const nuevoCafe = {
                     id,
@@ -102,19 +111,12 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    resumenURL: enlace,
+                    rutaURL: rutaImagen,
                     cantidad: 0
                 };
 
-                // sube la imagen a cloud y devuelve la url
-                subeImagenDetalles( resumenURL );                
-
                 dispatch( nuevoProductoLista( nuevoCafe ));
             };
-
-            
-
-            // mete la url de la imagen en resumenURL
 
             const actual = store.getState();
             actualizaListadoDB( actual.listado );
@@ -123,6 +125,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
         setModoEdicion('');
         setNuevoItem(false);
     }
+
+
 
     const handleCancel = () => {
         
@@ -138,6 +142,27 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
         }
         dispatch( setError('todos los campos deben estar rellenos'));
         return false;
+    }
+
+    const handleInputFile = async (e) => {
+
+        handleInputChange( e );
+        const file = e.target.files[0];
+
+        
+        if(file){
+
+            rutaIMAGENAwait = await subeImagenDetalles( file );
+            SetRutaImagen(rutaIMAGENAwait);
+
+            // const handleFile = {
+            //     name: 'rutaURL',
+            //     value: 'file'
+            // };
+            // console.log( handleFile );
+            
+        }
+    
     }
 
   return (
@@ -251,17 +276,32 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                         <option value='verde'>Verde</option>
                                     </select>
                                 </div>
-                                <label htmlFor='precio'>Gráfica resumen:</label>
-                                <input
-                                    type='file'
-                                    placeholder='resumen'
-                                    name='resumenURL'
-                                    className='form-control'
-                                    autoComplete='off'
-                                    value={ resumenURL }
-                                    id='precio'
-                                    onChange={ handleInputChange }
-                                />
+
+
+
+                                {
+                                   ( modoEdicion === '') 
+                                    &&
+                                    (
+                                        <div>
+                                            <label htmlFor='rutaURL'>Gráfica resumen:</label>
+                                            <input
+                                                type='file'
+                                                placeholder='resumen'
+                                                name='rutaURL'
+                                                className='form-control'
+                                                autoComplete='off'
+                                                value={ rutaURL }
+                                                id='rutaURL'
+                                                onChange={ handleInputFile }
+                                            />
+                                        </div>
+
+                                    )
+                                    
+                                }
+                                
+                                
 
                             </div>
 
