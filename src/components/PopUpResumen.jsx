@@ -1,6 +1,6 @@
 
 
-const PopUpResumen = ( { rutaURL, muestraDetalle, setMuestraDetalle, cafeSeleccionado, setCafeSeleccionado} ) => {
+const PopUpResumen = ( { muestraDetalle, setMuestraDetalle, cafeSeleccionado, setCafeSeleccionado} ) => {
 
     const handleCerrar = (e) => {
         e.preventDefault();
@@ -10,21 +10,28 @@ const PopUpResumen = ( { rutaURL, muestraDetalle, setMuestraDetalle, cafeSelecci
 
     return (
 
-        <div className='modal d-flex flex-colum'>
-            <div className="d-flex justify-content-end">
-                <button
-                    className='btn btn-danger'
-                    onClick={ handleCerrar }
-                    type='submit'>
-                    X
-                </button>
+        <div className='modal'>
+            <div className="d-flex justify-content-between">
+                
+                <div className="p-4">
+                    <img 
+                        className="img-fluid"
+                        src={ cafeSeleccionado.rutaURL }>
+                    </img>
+                    <div className="d-flex justify-content-end  p-4">
+                    <button
+                        className='btn btn-danger btn-sm'
+                        onClick={ handleCerrar }
+                        type='submit'>
+                        X
+                    </button>
+                    </div>
+                    <p>Foto/PDF Resumen</p>
+                    <p>{ cafeSeleccionado.nombre }</p> 
+                </div>
+
             </div>
-            <div>
-                <img src={ rutaURL }>
-                </img>
-                <p>Foto/PDF Resumen</p>
-                <p>{ cafeSeleccionado.nombre }</p>
-            </div>
+            
             
         </div>
 

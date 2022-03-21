@@ -8,6 +8,8 @@ import PopUpResumen from './PopUpResumen';
 const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionado, setCafeSeleccionado } ) => {
 
     const dispatch = useDispatch();
+
+    
     
     const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado, rutaURL } = producto;
 
@@ -30,7 +32,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
 
     const handleDetalle = (e) => {
         e.preventDefault();
-        setCafeSeleccionado({nombre});
+        setCafeSeleccionado(producto);
         setMuestraDetalle(true)
     }
 
@@ -87,14 +89,22 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                 </div>
 
                 <div className="text-center mb-2">
+                    
+                    {
+                        rutaURL
+                        &&
+                        (
+                            <button
+                                // className='btn btn-primary'
+                                className='badge rounded-pill bg-info  text-light'
+                                onClick={ handleDetalle }
+                                type='submit'>
+                                    Detalle
+                            </button>
+                        )
+                    }
 
-                    <button
-                        // className='btn btn-primary'
-                        className='badge rounded-pill bg-info  text-light'
-                        onClick={ handleDetalle }
-                        type='submit'>
-                            Detalle
-                    </button>
+                    
                     {
                         muestraDetalle
                         &&
@@ -103,7 +113,6 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                             setMuestraDetalle={setMuestraDetalle}
                             cafeSeleccionado={cafeSeleccionado}
                             setCafeSeleccionado={setCafeSeleccionado}
-                            rutaURL={rutaURL}
                         />
                     }
                 </div>
