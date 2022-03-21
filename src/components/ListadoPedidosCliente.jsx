@@ -28,6 +28,10 @@ const ListadoPedidosCliente = () => {
 
                 <h2 id="foco-listado" className="text-center m-3">Mis pedidos:</h2>
 
+                <div className='d-flex justify-content-center'>
+                        <p>*IVA y gastos de envío no incluídos en los totales</p>
+                    </div>
+
                 {listaFiltrada.map( producto => {
                         return (
                             <PedidoCliente

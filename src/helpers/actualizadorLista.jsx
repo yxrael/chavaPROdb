@@ -9,3 +9,14 @@ export const actualizadorLista = ( seleccion ) => {
 
     return precioTotal;
 }
+
+export const actualizadorUnidadesLista = ( seleccion ) => {
+
+    let unidadesTotal = 0;
+
+    seleccion.forEach( producto => {
+        unidadesTotal = unidadesTotal + producto.cantidad;
+    })
+
+    return unidadesTotal;
+}

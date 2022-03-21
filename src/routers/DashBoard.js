@@ -27,7 +27,8 @@ const DashBoard = () => {
     const [ toggleEstado, setToggleEstado ] = useState(false);
     
     const date = moment( new Date() ).format('YYYY-MM-DD');
-    const inicioDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
+    // const inicioDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
+    const inicioDate = '2022-01-01';
     
     const [ fechasFiltrado, setFechasFiltrado ] = useState( [ inicioDate, date]);
 

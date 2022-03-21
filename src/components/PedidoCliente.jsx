@@ -98,10 +98,7 @@ const PedidoCliente = ( producto ) => {
                         })
                         }
                     </div>
-                    <div className='d-flex justify-content-end'>
-
-                    </div>
-                    
+  
         </div>
         
     </>

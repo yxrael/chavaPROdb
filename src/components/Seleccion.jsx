@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { actualizadorLista } from '../helpers/actualizadorLista';
+import { actualizadorLista, actualizadorUnidadesLista } from '../helpers/actualizadorLista';
 import ProductoSeleccionado from './ProductoSeleccionado';
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ const Seleccion = () => {
     const seleccion = useSelector( state => state.seleccion );
  
     const pedidoId = uniqueId('p_');
-    const date = moment( new Date() ).format('DD/MM/YYYY');  
+    const date = moment( new Date() ).format('DD/MM/YYYY');
 
     const observacionesInit = {
         observaciones: ''
@@ -62,7 +62,16 @@ const Seleccion = () => {
 
     }
     
+    let granTotal = 0;
     const precioTotal = actualizadorLista( seleccion );
+    const unidadesTotal = actualizadorUnidadesLista( seleccion );
+    
+
+    if(unidadesTotal < 6){
+        granTotal = precioTotal + 6;
+    }
+    
+    
 
     return (
 
@@ -82,14 +91,38 @@ const Seleccion = () => {
 
                     <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
 
-                        {
-                            (seleccion.length === 0)
-                                && (
-                                    <div className='d-flex justify-content-around m-5'>
-                                        <p>No tienes ningún producto seleccionado</p>
-                                    </div>
-                                    )
-                        }
+                    {
+                        (granTotal !== 0)
+                        ?
+                        (
+                            <div className="container card bg-light mb-3 p-3 w-50">
+                                <p>Pedidos menos de 10kg</p>
+                                <p>6€ gastos de envío</p>
+                                <p className='d-flex justify-content-center'><b>Total + envío: {granTotal}€</b></p>
+                            </div>
+                            
+                        )
+                        :
+                        (
+                            <div className="container card bg-light mb-3 p-3 w-50">
+                                <p>Envío gratuito a partir de 10kg. Resto de envíos 6€</p>
+                                <p className='d-flex justify-content-center'><b>El envío de este pedido es gratuíto</b></p>
+                            </div>
+                            
+                            
+                        )
+                    }
+
+                    <p className='d-flex justify-content-center m-3'><b>IVA no incluído</b></p>
+
+                    {
+                        (seleccion.length === 0)
+                            && (
+                                <div className='d-flex justify-content-around m-5'>
+                                    <p>No tienes ningún producto seleccionado</p>
+                                </div>
+                                )
+                    }
 
                     
 

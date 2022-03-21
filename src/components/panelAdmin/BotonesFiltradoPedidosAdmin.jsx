@@ -22,6 +22,7 @@ const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, toggleEstado, setToggleE
         const date2 = moment( finFecha ).format('DD/MM/YYYY');
 
         if(date1 < date2 && date1 < dateActual){
+
             navigate(`/pedidos?q=${ date1 }&q=${ date2 }&q=${ toggleEstado }`);
         }
 
