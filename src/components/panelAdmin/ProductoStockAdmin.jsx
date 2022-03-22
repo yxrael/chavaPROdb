@@ -14,14 +14,14 @@ import {
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
-import { borraImagenDetalles } from '../../helpers/gestionCloudinary';
+// import { borraImagenDetalles } from '../../helpers/gestionCloudinary';
 
 
 const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdicion } ) => {
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente, tipoCliente, fileName} = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente, tipoCliente } = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -54,7 +54,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
           }).then((result) => {
             if (result.isConfirmed) {
 
-                borraImagenDetalles( fileName );
+                // borraImagenDetalles( fileName );
 
                 dispatch( eliminaProducto(id) );
         

@@ -29,33 +29,32 @@ export const subeImagenDetalles = async ( rutaFile ) => {
 
 }
 
-export const borraImagenDetalles = async ( idImagen ) => {
+// export const borraImagenDetalles = async ( idImagen ) => {
     
-    const cloudURL = 'https://api.cloudinary.com/v1_1/dtm3z7jee/image/destroy';
+//     const cloudURL = 'https://api.cloudinary.com/v1_1/dtm3z7jee/image/destroy';
 
-    const formData = new FormData();
-    // formData.append('upload_preset','chava-pro');
-    formData.append('public_id', idImagen );
+//     const formData = new FormData();
+//     // formData.append('upload_preset','chava-pro');
+//     formData.append('public_id', idImagen );
 
-    try {
+//     try {
 
-        const resp = await fetch (cloudURL, {
-            method: 'POST',
-            body: formData
-        });
+//         const resp = await fetch (cloudURL, {
+//             method: 'POST',
+//             body: formData
+//         });
 
-        if ( resp.ok ) {
-            const cloudResp = await resp.json();
-            console.log(cloudResp);
-            // return cloudResp.secure_url;
-            return true;
-        } else {
-            throw await resp.json();
-        }
+//         if ( resp.ok ) {
+//             const cloudResp = await resp.json();
+//             console.log(cloudResp);
+//             // return cloudResp.secure_url;
+//             return true;
+//         } else {
+//             throw await resp.json();
+//         }
         
-    } catch (err) {
-        throw err;
-    }
+//     } catch (err) {
+//         throw err;
+//     }
 
-
-}
+// }
