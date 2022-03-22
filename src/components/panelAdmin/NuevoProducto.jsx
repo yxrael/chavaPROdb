@@ -7,7 +7,7 @@ import { calculaMaximoNumeroProducto } from '../../helpers/calculaMaximoNumeroPr
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
-import { subeImagenDetalles } from '../../helpers/subeImagenDetalles';
+import { subeImagenDetalles } from '../../helpers/gestionCloudinary';
 
 
 
@@ -18,8 +18,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
     const listado = useSelector( state => state.listado );
 
     let rutaIMAGENAwait = '';
-    const [ rutaImagen, SetRutaImagen ] = useState('');
-
+    const [ rutaImagen, SetRutaImagen ] = useState(['','']);
+    let fileName = '';
     let preRelleno = {};
 
     // chava-pro
@@ -49,7 +49,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 descafeinado: false,
                 infoExtra: '',
                 tipoCliente: '',
-                rutaURL: ''
+                rutaURL: '',
                 }
         }
     
@@ -86,6 +86,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     infoExtra,
                     tipoCliente,
                     rutaURL,
+                    fileName,
                     cantidad: 0
                 };
 
@@ -111,7 +112,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    rutaURL: rutaImagen,
+                    rutaURL: rutaImagen[0],
+                    fileName: rutaImagen[1],
                     cantidad: 0
                 };
 
@@ -149,17 +151,10 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
         handleInputChange( e );
         const file = e.target.files[0];
 
-        
         if(file){
 
             rutaIMAGENAwait = await subeImagenDetalles( file );
             SetRutaImagen(rutaIMAGENAwait);
-
-            // const handleFile = {
-            //     name: 'rutaURL',
-            //     value: 'file'
-            // };
-            // console.log( handleFile );
             
         }
     

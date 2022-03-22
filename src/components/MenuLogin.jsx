@@ -5,7 +5,7 @@ import { inicializaListado } from "../actions/listadosActions";
 
 const MenuLogin = () => {
 
-  const { name, uid, tipoCliente } = useSelector( state => state.auth);
+  const { name, tipoCliente } = useSelector( state => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

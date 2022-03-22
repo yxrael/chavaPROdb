@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import BotonesFiltradoPedidosAdmin from './BotonesFiltradoPedidosAdmin';
-import BotonesFiltradoProductosAdmin from './BotonesFiltradoProductosAdmin';
+// import BotonesFiltradoProductosAdmin from './BotonesFiltradoProductosAdmin';
 
 
 const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado, toggleEstado, setToggleEstado} ) => {
