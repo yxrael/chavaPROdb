@@ -69,3 +69,5 @@ borrar de cloudinary cuando se elimine un producto
 ok añadir el total de la compra al resumen del cliente y añadir el precio del transporte
 
 ok mensajes IVA
+
+ok tamaño imagen detalles y botón de cierre siempre visible

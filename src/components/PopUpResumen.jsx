@@ -15,19 +15,19 @@ const PopUpResumen = ( { muestraDetalle, setMuestraDetalle, cafeSeleccionado, se
                 
                 <div className="p-4">
                     <img 
-                        className="img-fluid"
+                        className="modal__imagen"
                         src={ cafeSeleccionado.rutaURL }>
                     </img>
-                    <div className="d-flex justify-content-end  p-4">
                     <button
-                        className='btn btn-danger btn-sm'
+                        className='btn btn-danger btn-sm rounded-circle m-2'
                         onClick={ handleCerrar }
                         type='submit'>
                         X
                     </button>
+                    <div className="d-flex justify-content-center text-light font-italic mb-1">
+                        <p>{ cafeSeleccionado.pais }{' '}-{' '}{ cafeSeleccionado.nombre }</p> 
                     </div>
-                    <p>Foto/PDF Resumen</p>
-                    <p>{ cafeSeleccionado.nombre }</p> 
+                    
                 </div>
 
             </div>
