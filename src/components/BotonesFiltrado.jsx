@@ -1,15 +1,35 @@
 import React from 'react'
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 
 const BotonesFiltrado = () => {
 
     const navigate = useNavigate();
+    const [ toggleDesca, setToggleDesca ] = useState(false);
+    const [ continente, setContinente ] = useState('TODOS');
 
     const handleClick = (e) => {
         e.preventDefault();
 
-        navigate(`/filtered?q=${ e.target.value }`);
+        setContinente(e.target.value);
+        navigate(`/filtered?q=${ continente }&q=${toggleDesca}`);
+    }
+
+    const handleClickTodos = (e) => {
+        e.preventDefault();
+
+        setToggleDesca(false);
+        setContinente(e.target.value);
+        navigate(`/filtered?q=${ continente }&q=${toggleDesca}`);
+    }
+
+    const handleClickDescafeinado = (e) => {
+        e.preventDefault();
+        console.log(continente);
+
+        setToggleDesca(!toggleDesca);
+        navigate(`/filtered?q={ continente }&q=${toggleDesca}`);
+
     }
 
     return (
@@ -34,7 +54,7 @@ const BotonesFiltrado = () => {
                         <div className='d-flex justify-content-start'>
                             <button 
                                 className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
-                                onClick={ handleClick }
+                                onClick={ handleClickTodos }
                                 value=''>
                                 TODOS
                             </button>
@@ -63,12 +83,35 @@ const BotonesFiltrado = () => {
                             </button>
                         </div>
                         <div className='d-flex justify-content-end'>
-                            <button 
+                            {/* <button 
                                 className='btn btn-secondary mt-2 btn-sm boton-filtro-cafe'
-                                onClick={ handleClick }
+                                onClick={ handleClickDescafeinado }
                                 value='DESCAFEINADO'>
                                 DESCAFEINADO
-                            </button>
+                            </button> */}
+
+                        {  toggleDesca
+                                ? (
+                                    <button 
+                                        className='btn btn-info btn-sm m-2'
+                                        onClick={ handleClickDescafeinado }
+                                    >
+                                        DESCAFEINADO{' '}
+                                        <i className="fa-solid fa-toggle-on"></i>
+                                    </button>
+                                )
+                                :
+                                (
+                                        <button 
+                                        className='btn btn-secondary btn-sm m-2'
+                                        onClick={ handleClickDescafeinado }
+                                        >
+                                            DESCAFEINADO{' '}
+                                            <i className="fa-solid fa-toggle-off"></i>   
+                                        </button>                 
+                                )
+                    }
+
                         </div>
                     </div>
         

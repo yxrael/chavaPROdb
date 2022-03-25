@@ -117,21 +117,29 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                     }
                 </div>
 
-                < div className="text-center">
                 {
-                    descafeinado
-                    ?
+                    infoExtra
+                    &&
                     (
-                        <span className='badge rounded-pill bg-info  text-light m-2'>{infoExtra}</span>
+                        < div className="text-center">
+                    {
+                        descafeinado
+                        ?
+                        (
+                            <span className='badge rounded-pill bg-info  text-light m-2'>{infoExtra}</span>
+                        )
+                        :
+                        (
+                            
+                            <span className='badge rounded-pill bg-warning mb-2  text-dark'><small>{infoExtra}</small></span>
+                            
+                        )
+                    } 
+                        </div> 
                     )
-                    :
-                    (
-                        
-                        <span className='badge rounded-pill bg-warning mb-2  text-dark'><small>{infoExtra}</small></span>
-                        
-                    )
-                } 
-                 </div> 
+                }
+
+                
 
             </div>
         </>

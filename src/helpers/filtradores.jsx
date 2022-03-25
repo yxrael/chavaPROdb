@@ -1,12 +1,18 @@
 
 
-export const filtradorPorPais = ( listado, continente, tipoCliente ) => {
+export const filtradorPorPais = ( listado, continente, descafeinado, tipoCliente ) => {
 
-    if(continente === ''){
+    if(continente === '' || continente === 'TODOS'){
         return listado.filter( cafe => cafe.tipoCliente === tipoCliente);
     };
 
-    return listado.filter( cafe => cafe.continente === continente && cafe.tipoCliente === tipoCliente);
+    if (descafeinado === true) {
+        return listado.filter( cafe => cafe.continente === continente && cafe.tipoCliente === tipoCliente && cafe.descafeinado === descafeinado );
+    } else {
+        return listado.filter( cafe => cafe.continente === continente && cafe.tipoCliente === tipoCliente );
+    }
+
+    
 
 }
 

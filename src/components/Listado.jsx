@@ -26,9 +26,10 @@ const Listado = () => {
     let listaFiltrada = filtraListadoClientesDisponible( listado, auth.tipoCliente );
     
     const { q } = queryString.parse(location.search);
+    console.log(q);
 
     if(q !== undefined) {
-        listaFiltrada = filtradorPorPais( listado, q, auth.tipoCliente);
+        listaFiltrada = filtradorPorPais( listado, q[0], q[1], auth.tipoCliente);
     }
 
     const handleSubmit = (e) => {
