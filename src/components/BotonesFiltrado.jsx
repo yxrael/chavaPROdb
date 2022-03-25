@@ -25,7 +25,6 @@ const BotonesFiltrado = () => {
 
     const handleClickDescafeinado = (e) => {
         e.preventDefault();
-        console.log(continente);
 
         setToggleDesca(!toggleDesca);
         navigate(`/filtered?q={ continente }&q=${toggleDesca}`);
