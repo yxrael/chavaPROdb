@@ -13,7 +13,7 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
-import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
+import { actualizaListadoDB, borraProducto } from '../../helpers/actualizadorDBAdmin';
 // import { borraImagenDetalles } from '../../helpers/gestionCloudinary';
 
 
@@ -59,7 +59,8 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                 dispatch( eliminaProducto(id) );
         
                 const actual = store.getState();
-                actualizaListadoDB( actual.listado );
+                // actualizaListadoDB( actual.listado );
+                borraProducto(id);
 
                 Swal.fire(
                     'Borrado!',

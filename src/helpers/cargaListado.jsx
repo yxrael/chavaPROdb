@@ -20,17 +20,46 @@ export const cargaListado = async ( dispatch ) => {
 
 export const cargaListadosinDispatch = async ( dispatch ) => {
 
-    const listadoPedidos = await db.collection('listado').get();
+    const listadoPedidos = await db.collection('listado2').orderBy('descafeinado', 'asc').get();
 
     let listado = [];
 
     listadoPedidos.forEach( snapHijo => {
 
-        listado.push(snapHijo.data().listado);
+        listado.push(snapHijo.data());
 
     });
 
-    console.log(listado);
+    // const listadoPedidos = await db.collection('listado').get();
 
-    return listado[0];
+    // let listado = [];
+
+    // listadoPedidos.forEach( snapHijo => {
+
+    //     listado.push(snapHijo.data().listado);
+
+    // });
+
+    // return listado[0];
+    return listado;
 }
+
+// export const trasladaProductos = async () => {
+
+//     const anteriores = await db.collection('listado').get();
+
+//     let listado = [];
+
+//     anteriores.forEach( snapHijo => {
+
+//         listado.push(snapHijo.data().listado);
+
+//     });
+
+//     listado[0].forEach( async producto => {
+//         console.log(producto);
+//         await db.collection(`/listado2`).doc(`${producto.id}`).set( producto );
+//     });
+
+    
+// }

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import NuevoProducto from './NuevoProducto';
+// import { trasladaProductos } from '../../helpers/cargaListado';
 // import Swal from 'sweetalert2';
-
 
 const ListadoAdmin = ( {vista, setVista }) => {
 
@@ -35,6 +35,13 @@ const ListadoAdmin = ( {vista, setVista }) => {
       setNuevoItem(true);
   }
 
+//   const traslado = (e) => {
+//     e.preventDefault();
+
+//     trasladaProductos();
+//   }
+
+
   return (
 
     <>
@@ -65,6 +72,12 @@ const ListadoAdmin = ( {vista, setVista }) => {
                     >
                         Nuevo Producto
                 </button>
+                {/* <button 
+                    className='btn btn-success btn-sm mt-4'
+                    onClick={ traslado }
+                    >
+                        TRASLADAR
+                </button> */}
                 </div>
 
 

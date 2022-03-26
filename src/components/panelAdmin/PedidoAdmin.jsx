@@ -4,6 +4,7 @@ import { actualizaPedidosDB } from '../../helpers/actualizadorDBAdmin';
 import { useDispatch } from 'react-redux';
 import { cargaPedidosSinDispatch } from '../../helpers/cargaPedidos';
 import { cargaListaPedidos } from '../../actions/listaPedidosAdmin';
+import Swal from 'sweetalert2';
 
 const PedidoAdmin = ( producto ) => {
 
@@ -19,25 +20,45 @@ const PedidoAdmin = ( producto ) => {
     const handleClick = (e) => {
         e.preventDefault();
 
-        setToogleCompletado( !toggleCompletado);
+        Swal.fire({
+            title: 'Estás seguro?',
+            text: "Luego podrás volver a cambiar el estado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Sí, cambia el estado!'
+          }).then((result) => {
+            if (result.isConfirmed) {
 
-        const nuevoEstado = {
-            ...producto.producto,
-            completado: toggleCompletado
-        }
+                setToogleCompletado( !toggleCompletado);
+
+                const nuevoEstado = {
+                    ...producto.producto,
+                    completado: toggleCompletado
+                }
 
     
-        actualizaPedidosDB( nuevoEstado )
-            .then( () => {
-                cargaPedidosSinDispatch()
-                    .then((cargaListado) => {
-                        dispatch( cargaListaPedidos(cargaListado) );})
+                actualizaPedidosDB( nuevoEstado )
+                    .then( () => {
+                        cargaPedidosSinDispatch()
+                            .then((cargaListado) => {
+                                dispatch( cargaListaPedidos(cargaListado) );})
+                            .catch((err) => {
+                                console.log(err)
+                            })})
                     .catch((err) => {
-                        console.log(err)
-                    })})
-            .catch((err) => {
-                console.log(err);
-            });
+                        console.log(err);
+                    });
+
+                Swal.fire(
+                    'Estado cambiado'
+                )
+            }
+          })
+
+        
 
     }
 
