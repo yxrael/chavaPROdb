@@ -53,7 +53,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 }
         }
     
-    const [ formValues, handleInputChange ] = useForm( preRelleno );
+    const [ formValues, handleInputChange, descafeinadoChange ] = useForm( preRelleno );
 
     const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaURL } = formValues;
 
@@ -73,7 +73,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
                 // const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
 
-                
                 const nuevoCafe = {
                     id: cafeEdicion.id,
                     pais,
@@ -128,8 +127,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
         setNuevoItem(false);
     }
 
-
-
     const handleCancel = () => {
         
         setModoEdicion('');
@@ -155,9 +152,13 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
             rutaIMAGENAwait = await subeImagenDetalles( file );
             SetRutaImagen(rutaIMAGENAwait);
-            
         }
-    
+    }
+
+    const handleInputSelector = (e) => {
+        e.preventDefault();
+
+        descafeinadoChange( e.target.checked );
     }
 
   return (
@@ -325,6 +326,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     type="checkbox" 
                                     value={descafeinado} 
                                     id="descafeinado"
+                                    checked={descafeinado}
+                                    onChange={ handleInputSelector }
                                 />
                                 <label className="form-check-label" htmlFor="descafeinado">
                                     Descafeinado

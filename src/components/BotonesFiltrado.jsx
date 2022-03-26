@@ -1,35 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BotonesFiltrado = () => {
+const BotonesFiltrado = ( ) => {
+
+    const [ toggleDesca, setToggleDesca ] = useState(false);
+    const [ paisSeleccion, setPaisSeleccion ] = useState('TODOS');
 
     const navigate = useNavigate();
-    const [ toggleDesca, setToggleDesca ] = useState(false);
-    const [ continente, setContinente ] = useState('TODOS');
-
+ 
     const handleClick = (e) => {
         e.preventDefault();
 
-        setContinente(e.target.value);
-        navigate(`/filtered?q=${ continente }&q=${toggleDesca}`);
+        // setToggleDesca(false);
+        setPaisSeleccion(e.target.value);
+        navigate(`/filtered?q=${ e.target.value }&q=${toggleDesca}`);
     }
 
     const handleClickTodos = (e) => {
         e.preventDefault();
 
         setToggleDesca(false);
-        setContinente(e.target.value);
-        navigate(`/filtered?q=${ continente }&q=${toggleDesca}`);
+        setPaisSeleccion('TODOS');
+        navigate(`/filtered`);
     }
 
     const handleClickDescafeinado = (e) => {
         e.preventDefault();
 
-        setToggleDesca(!toggleDesca);
-        navigate(`/filtered?q={ continente }&q=${toggleDesca}`);
+        setToggleDesca( !toggleDesca );
 
-    }
+    };
+
+    useEffect(() => {
+        navigate(`/filtered?q=${paisSeleccion}&q=${toggleDesca}`);
+    }, [toggleDesca])
 
     return (
 

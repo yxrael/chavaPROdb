@@ -21,7 +21,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, disponible, continente, tipoCliente } = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, descafeinado, continente, tipoCliente } = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -140,6 +140,16 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                                 <div className="">
                                                     <p><b>{continente}</b></p>       
                                                 </div>
+                                                {
+                                                    (descafeinado === true)
+                                                    &&
+                                                    (
+                                                        <div className="d-flex justify-content-center">
+                                                            <p className='badge bg-secondary'><strong>DESCAFEINADO</strong></p>
+                                                        </div>
+                                                        
+                                                    )
+                                                }
                                                 <div>
                                                     <p>{proceso}</p>
                                                 </div>

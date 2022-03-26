@@ -9,9 +9,14 @@ export const useForm = ( initialState = {} ) => {
     }
 
     const handleInputChange = ({target}) => {
+
         setValues({...values, [target.name]: target.value});
     }
 
-    return [ values, handleInputChange, reset ];
+    const descafeinadoChange = (desca) => {
+        setValues({...values, descafeinado: desca});
+    }
+
+    return [ values, handleInputChange, descafeinadoChange ];
 
 }

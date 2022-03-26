@@ -41,7 +41,20 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
             <div  className="container card bg-light mb-2 d-flex justify-content-between mxwListados">
                 <div className="d-flex justify-content-center mt-2">
                     <p><strong>{pais}, {nombre}</strong></p>
+                    
+                    
                 </div>
+
+                {
+                    (descafeinado === true)
+                    &&
+                    (
+                        <div className="d-flex justify-content-center">
+                            <p className='badge bg-secondary'><strong>DESCAFEINADO</strong></p>
+                        </div>
+                        
+                    )
+                }
 
                 <div className="d-flex justify-content-between mt-1">
                     <div className="">
@@ -96,7 +109,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                         (
                             <button
                                 // className='btn btn-primary'
-                                className='badge rounded-pill bg-info  text-light'
+                                className='badge rounded-pill bg-secondary text-light'
                                 onClick={ handleDetalle }
                                 type='submit'>
                                     Detalle
