@@ -20,6 +20,7 @@ const ListadoPedidosCliente = () => {
 
   return (
     <>
+      
 
       <section id="cont-listado" className='container-fluid m-2'>
 
@@ -31,6 +32,8 @@ const ListadoPedidosCliente = () => {
                 <div className='d-flex justify-content-center'>
                         <p>*IVA y gastos de envío no incluídos en los totales</p>
                     </div>
+
+                    <ConfirmaEnvio />
 
                 {listaFiltrada.map( producto => {
                         return (
@@ -49,7 +52,7 @@ const ListadoPedidosCliente = () => {
             </div>
         </section>
 
-        <ConfirmaEnvio />
+        
     </>
     
   )

@@ -54,7 +54,7 @@ const Seleccion = () => {
                     'success'
                   );
         
-                navigate('/confirma');
+                navigate('/mispedidos');
 
             }).catch((err) => {
                 console.log(err)

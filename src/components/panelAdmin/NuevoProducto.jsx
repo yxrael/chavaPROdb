@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch } from 'react-redux';
@@ -8,8 +8,6 @@ import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
 import { subeImagenDetalles } from '../../helpers/gestionCloudinary';
-
-
 
 const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion } ) => {
 
@@ -36,8 +34,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             descafeinado: cafeEdicion.descafeinado,
             infoExtra: cafeEdicion.infoExtra,
             tipoCliente: cafeEdicion.tipoCliente,
-            rutaURL: cafeEdicion.rutaURL
-        };
+            rutaFile: ''
+        }; 
 
     } else {
             preRelleno = {
@@ -49,13 +47,19 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 descafeinado: false,
                 infoExtra: '',
                 tipoCliente: '',
-                rutaURL: '',
+                rutaFile: '',
                 }
         }
+
+    useEffect(() => {
+        if(cafeEdicion.rutaURL !== ''){
+            SetRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
+        }
+    }, [])
     
     const [ formValues, handleInputChange, descafeinadoChange ] = useForm( preRelleno );
 
-    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaURL } = formValues;
+    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaFile } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -73,6 +77,12 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
                 // const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
 
+                // if( rutaImagen[0] === '' ){
+                //     console.log(rutaImagen);
+                //     SetRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
+                //     console.log(rutaImagen);
+                // }
+
                 const nuevoCafe = {
                     id: cafeEdicion.id,
                     pais,
@@ -84,8 +94,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    rutaURL,
-                    fileName,
+                    rutaURL: rutaImagen[0],
+                    fileName: rutaImagen[1],
                     cantidad: 0
                 };
 
@@ -275,27 +285,41 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
 
 
-                                {
+                                {/* {
                                    ( modoEdicion === '') 
                                     &&
                                     (
                                         <div>
-                                            <label htmlFor='rutaURL'>Gráfica resumen:</label>
+                                            <label htmlFor='rutaFile'>Gráfica resumen:</label>
                                             <input
                                                 type='file'
                                                 placeholder='resumen'
-                                                name='rutaURL'
+                                                name='rutaFile'
                                                 className='form-control'
                                                 autoComplete='off'
-                                                value={ rutaURL }
-                                                id='rutaURL'
+                                                value={ rutaFile }
+                                                id='rutaFile'
                                                 onChange={ handleInputFile }
                                             />
                                         </div>
 
                                     )
                                     
-                                }
+                                } */}
+
+                                        <div>
+                                            <label htmlFor='rutaFile'>Gráfica resumen:</label>
+                                            <input
+                                                type='file'
+                                                placeholder='resumen'
+                                                name='rutaFile'
+                                                className='form-control'
+                                                autoComplete='off'
+                                                value={ rutaFile }
+                                                id='rutaFile'
+                                                onChange={ handleInputFile }
+                                            />
+                                        </div>
                                 
                                 
 

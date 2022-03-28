@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { inicializaListado } from '../actions/listadosActions';
+import { cargaListaInicio, inicializaListado } from '../actions/listadosActions';
+import { cargaListadosinDispatch } from '../helpers/cargaListado';
 
 const ConfirmaEnvio = () => {
 
@@ -10,8 +11,17 @@ const ConfirmaEnvio = () => {
 
   const handleClick = () => {
 
-    dispatch( inicializaListado( ) );
-    navigate('/');
+    // dispatch( inicializaListado( ) );
+
+    cargaListadosinDispatch()
+    .then((listado) => {
+        dispatch( cargaListaInicio(listado) );
+      }).catch((err) => {
+        console.log(err)
+      });
+
+    navigate('/filtered');
+
 
 }
 
