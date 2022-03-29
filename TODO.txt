@@ -1,4 +1,8 @@
 
+***AL EDITAR UN PRODUCTO CON ENLACE LO BORRA SI NO SE MODIFICA***
+
+
+
 okVISTA USUARIOS ADMIN, listar los actuales y botón de eliminar
 ok VISTA PEDIDOS ADMIN, el filtro por fecha no muestra los pedidos antiguos
 
