@@ -1,7 +1,8 @@
+*** al borrar imagen en listado admin desaparece el producto de la lista pero no de la BD***
 
-***AL EDITAR UN PRODUCTO CON ENLACE LO BORRA SI NO SE MODIFICA***
 
-
+OK AL EDITAR UN PRODUCTO CON ENLACE LO BORRA SI NO SE MODIFICA***
+ok borrar imagen de producto en el listado de admin
 
 okVISTA USUARIOS ADMIN, listar los actuales y botón de eliminar
 ok VISTA PEDIDOS ADMIN, el filtro por fecha no muestra los pedidos antiguos

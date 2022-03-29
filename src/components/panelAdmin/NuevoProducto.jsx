@@ -79,11 +79,19 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
                 // const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
 
-                if( rutaImagen[0] === '' ){
-                    console.log('antes de comprobar:', rutaImagen[0]);
-                    setRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
-                    console.log('despues de reasignar', rutaImagen);
+                if( rutaImagen[0] !== '' ){
+                    // console.log('ruta vacia en el formulario');
+                    // console.log('antes de comprobar:', rutaImagen[0]);
+                    // console.log(cafeEdicion.rutaURL, cafeEdicion.fileName);
+                    // setRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
+                    // console.log('despues de reasignar', rutaImagen );
+                    cafeEdicion.rutaURL = rutaImagen[0];
+                    cafeEdicion.fileName = rutaImagen[1];
                 }
+                // } else {
+                //     // cafeEdicion.rutaURL = rutaImagen[0];
+                //     // cafeEdicion.fileName = rutaImagen[1];
+                // }
 
                 nuevoCafe = {
                     id: cafeEdicion.id,
@@ -96,8 +104,10 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
-                    rutaURL: rutaImagen[0],
-                    fileName: rutaImagen[1],
+                    rutaURL: cafeEdicion.rutaURL,
+                    fileName: cafeEdicion.fileName,
+                    // rutaURL: rutaImagen[0],
+                    // fileName: rutaImagen[1],
                     cantidad: 0
                 };
 
@@ -113,8 +123,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 // } else {
                 //     setRutaImagen(['','']);
                 // }
-
-
 
                 nuevoCafe = {
                     id,
@@ -137,6 +145,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
             // const actual = store.getState();
             actualizaListadoDB( nuevoCafe );
+            // console.log( nuevoCafe );
 
         } 
         
@@ -169,6 +178,8 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
             rutaIMAGENAwait = await subeImagenDetalles( file );
             setRutaImagen(rutaIMAGENAwait);
+        } else {
+            setRutaImagen(['','']);
         }
     }
 

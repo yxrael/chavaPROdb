@@ -13,7 +13,7 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
-import { actualizaListadoDB, borraProducto } from '../../helpers/actualizadorDBAdmin';
+import { actualizaListadoDB, borraProducto, borraImagenProducto } from '../../helpers/actualizadorDBAdmin';
 // import { borraImagenDetalles } from '../../helpers/gestionCloudinary';
 
 
@@ -21,7 +21,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, disponible, descafeinado, continente, tipoCliente } = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, descafeinado, continente, tipoCliente, rutaURL } = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -58,7 +58,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
                 dispatch( eliminaProducto(id) );
         
-                const actual = store.getState();
+                // const actual = store.getState();
                 // actualizaListadoDB( actual.listado );
                 borraProducto(id);
 
@@ -102,6 +102,40 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
         </TrailingActions>
       );
 
+    const handleEliminarImagen = (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Eliminar imagen?',
+            text: "La eliminación no se podrá deshacer!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Sí, bórrala!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+                // borraImagenDetalles( fileName );
+
+                dispatch( eliminaProducto(id) );
+        
+                // const actual = store.getState();
+                // actualizaListadoDB( actual.listado );
+                borraImagenProducto(id);
+
+                Swal.fire(
+                    'Borrada!',
+                    'La imagen del producto ha sido eliminada.',
+                    'success'
+                )
+            }
+          })
+
+
+    }
+
     return (
 
         <SwipeableList>
@@ -117,53 +151,55 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                         <div className='col-1 bg-warning fas fa-edit text-light d-flex align-items-center justify-content-center'>
                         </div>
 
-                            <div className='col-10'>
+                        <div className='col-10'>
 
-                                <div className="d-flex justify-content-between align-items-start">
-                                    
-                                    <div>
+                            <div className="d-flex justify-content-between align-items-start">
+                                
+                                <div>
+                                    <div className="mt-2">
+                                        <div className="">
+                                            <div className="">
+                                                <p><strong>{pais}. {nombre}</strong></p>
+                                            </div>
+                                                
+                                            <div className="">
+                                                <p>Precio: <b>{precio}€/kg</b></p>
+                                                <p>Tipo cliente: {tipoCliente}</p>
+                                            </div>
+                                                
+                                        </div>    
+                                    </div>            
+                                        
+                                    </div>
                                         <div className="mt-2">
                                             <div className="">
-                                                <div className="">
-                                                    <p><strong>{pais}. {nombre}</strong></p>
-                                                </div>
-                                                    
-                                                <div className="">
-                                                    <p>Precio: <b>{precio}€/kg</b></p>
-                                                    <p>Tipo cliente: {tipoCliente}</p>
-                                                </div>
-                                                    
-                                            </div>    
-                                        </div>            
-                                            
-                                        </div>
-                                            <div className="mt-2">
-                                                <div className="">
-                                                    <p><b>{continente}</b></p>       
-                                                </div>
-                                                {
-                                                    (descafeinado === true)
-                                                    &&
-                                                    (
-                                                        <div className="d-flex justify-content-center">
-                                                            <p className='badge bg-secondary'><strong>DESCAFEINADO</strong></p>
-                                                        </div>
-                                                        
-                                                    )
-                                                }
-                                                <div>
-                                                    <p>{proceso}</p>
-                                                </div>
+                                                <p><b>{continente}</b></p>       
                                             </div>
-                                        
-                                </div>  
-
-                                <div className="d-flex justify-content-center">
-                                    <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
-                                </div> 
+                                            {
+                                                (descafeinado === true)
+                                                &&
+                                                (
+                                                    <div className="d-flex justify-content-center">
+                                                        <p className='badge bg-secondary'><strong>DESCAFEINADO</strong></p>
+                                                    </div>
                                                     
-                                <div className=" d-flex align-items-center justify-content-between">
-                                            
+                                                )
+                                            }
+                                            <div>
+                                                <p>{proceso}</p>
+                                            </div>
+
+                                        </div>
+                                    
+                                    </div>  
+
+                            <div className="d-flex justify-content-center">
+                                <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
+                            </div> 
+                                                
+                            <div className=" d-flex align-items-center justify-content-between">
+
+                                <div>
                                     <p className='m-2'>Disponible: <strong>
                                         {
                                         disponible
@@ -177,16 +213,33 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                         }    
 
                                     </strong></p>
-                                    <button 
-                                        className='btn btn-info btn-sm m-2 d-block'
-                                        onClick={ handleCambioDispo }
-                                        >
-                                            Dispo: SI/NO
-                                    </button>
-
                                 </div>
-                                    
+
+                                {
+                                                    rutaURL
+                                                    &&
+                                                    (
+                                                        <div className='d-flex justify-content-center'>
+                                                            <button
+                                                            className='btn btn-light'
+                                                            onClick={ handleEliminarImagen }>
+                                                                <i className="fa-solid fa-image text-danger"></i>
+                                                            </button>
+                                                            
+                                                        </div>
+                                                        
+                                                    )
+                                                }
+                                <button 
+                                    className='btn btn-info btn-sm m-2 d-block'
+                                    onClick={ handleCambioDispo }
+                                    >
+                                        Dispo: SI/NO
+                                </button>
+
                             </div>
+                                
+                        </div>
 
                         <div className='col-1 bg-danger fas fa-trash-alt text-light d-flex align-items-center justify-content-center'>    
                         </div>

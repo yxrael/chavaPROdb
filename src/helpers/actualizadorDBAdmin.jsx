@@ -24,6 +24,20 @@ export const borraProducto = async (id) => {
         })
 }
 
+export const borraImagenProducto = async (id) => {
+    await db.collection('listado2').doc(`${id}`).update({ rutaURL: ''})
+        .catch((error) => {
+            console.error(error);
+        });
+    await db.collection('listado2').doc(`${id}`).update({ fileName: ''})
+        .catch((error) => {
+            console.error(error);
+        })
+}
+
+
+
+
 export const actualizaPedidosDB = async ( nuevoEstado ) => {
 
     await db.collection('/pedidos').doc(`${nuevoEstado.pedidoId}`).set( nuevoEstado );
