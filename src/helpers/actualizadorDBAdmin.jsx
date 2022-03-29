@@ -1,6 +1,6 @@
 import { db } from '../firebase/firebase-config';
 
-export const actualizaListadoDB =  async ( listado ) => {
+export const actualizaListadoDB =  async ( producto ) => {
 
     // let seleccion = {
     //     listado: []
@@ -10,9 +10,9 @@ export const actualizaListadoDB =  async ( listado ) => {
    
     // await db.collection(`/listado`).doc('lista').set( seleccion );
 
-    listado.forEach( async producto => {
+    // listado.forEach( async producto => {
         await db.collection(`/listado2`).doc(`${producto.id}`).set( producto );
-    });
+    // });
  
     
 }
