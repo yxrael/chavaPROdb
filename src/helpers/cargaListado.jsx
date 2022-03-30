@@ -18,7 +18,7 @@ export const cargaListado = async ( dispatch ) => {
 
 }
 
-export const cargaListadosinDispatch = async ( dispatch ) => {
+export const cargaListadosinDispatch = async () => {
 
     const listadoPedidos = await db.collection('listado2').orderBy('descafeinado', 'asc').get();
 
@@ -41,6 +41,24 @@ export const cargaListadosinDispatch = async ( dispatch ) => {
     // });
 
     // return listado[0];
+    return listado;
+}
+export const cargaListadosinDispatchTipoCliente = async ( filtroCliente ) => {
+
+    
+
+    const listadoPedidos = await db.collection('listado2').orderBy('descafeinado', 'asc').get();
+
+    let listado = [];
+
+    listadoPedidos.forEach( snapHijo => {
+
+        if(snapHijo.data().tipoCliente === filtroCliente ){
+            listado.push(snapHijo.data());
+        }
+
+    });
+    
     return listado;
 }
 

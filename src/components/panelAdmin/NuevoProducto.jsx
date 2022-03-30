@@ -245,7 +245,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                         <option value='AMERICA'>América</option>
                                         <option value='AFRICA'>África</option>
                                         <option value='ASIA'>Asia</option>
-                                        <option value='DESCAFEINADO'>*descafeinado*</option>
                                     </select>
                                 </div>
                                     

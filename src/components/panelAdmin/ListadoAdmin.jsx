@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import NuevoProducto from './NuevoProducto';
+import { cargaListadosinDispatchTipoCliente } from '../../helpers/cargaListado';
+import { cargaListaInicio } from '../../actions/listadosActions';
+
+
 // import { trasladaProductos } from '../../helpers/cargaListado';
 // import Swal from 'sweetalert2';
 
@@ -10,13 +14,32 @@ const ListadoAdmin = ( {vista, setVista }) => {
   const [nuevoItem, setNuevoItem] = useState(false);
   const [modoEdicion, setModoEdicion] = useState('');
   const [cafeEdicion, setCafeEdicion] = useState({});
+  const [filtroCliente, setFiltroCliente] = useState('verde');
+  const dispatch = useDispatch();
 
   const { listado } = useSelector( state => state );
 
   useEffect(() => {
+    cargaListadosinDispatchTipoCliente(filtroCliente)
+    .then((listadoActual) => {
+        dispatch( cargaListaInicio(listadoActual) );
+      }).catch((err) => {
+        console.log(err)
+      });
+  }, [listado])
+
+
+  useEffect(() => {
     setVista('productos');
   }, [ setVista ]);
-  
+
+  const handleClickTostado = () => {
+    setFiltroCliente('tostado');
+  };
+  const handleClickVerde = () => {
+    setFiltroCliente('verde');
+  };
+
 
 //   const guardarCambios = (e) => {
 //     e.preventDefault();
@@ -67,11 +90,49 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
                 <div className='d-flex justify-content-center'>
                 <button 
-                    className='btn btn-success btn-sm mt-4'
+                    className='btn btn-info btn-sm m-3'
                     onClick={ abreVentana }
                     >
                         Nuevo Producto
                 </button>
+                
+                {
+                    (filtroCliente === 'tostado')
+                    ?
+                    <button
+                    className='btn btn-success btn-sm m-3'
+                    onClick={ handleClickTostado }
+                    >
+                        Tostado
+                    </button>
+                    :
+                    <button
+                    className='btn btn-secondary btn-sm m-3'
+                    onClick={ handleClickTostado }
+                    >
+                        Tostado
+                    </button>
+                }
+                {
+                    (filtroCliente === 'verde')
+                    ?
+                    <button
+                    className='btn btn-success btn-sm m-3'
+                    onClick={ handleClickVerde }
+                    >
+                        Verde
+                    </button>
+                    :
+                    <button
+                    className='btn btn-secondary btn-sm m-3'
+                    onClick={ handleClickVerde }
+                    >
+                        Verde
+                    </button>
+                }
+                    
+                    
+    
                 {/* <button 
                     className='btn btn-success btn-sm mt-4'
                     onClick={ traslado }

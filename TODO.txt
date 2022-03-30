@@ -1,12 +1,12 @@
-*** al borrar imagen en listado admin desaparece el producto de la lista pero no de la BD***
-
+OK al borrar imagen en listado admin desaparece el producto de la lista pero no de la BD
+OK **** boton disponible no funciona y da error en firebase***
+OK*** filtrar por tostado o verde en listado admin ***
 
 OK AL EDITAR UN PRODUCTO CON ENLACE LO BORRA SI NO SE MODIFICA***
 ok borrar imagen de producto en el listado de admin
 
 okVISTA USUARIOS ADMIN, listar los actuales y botón de eliminar
 ok VISTA PEDIDOS ADMIN, el filtro por fecha no muestra los pedidos antiguos
-
 
 AUTH, el usuario debe caducar, ahora mismo recuerda el usuario y la última pantalla
 

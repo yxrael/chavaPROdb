@@ -13,8 +13,7 @@ export const actualizaListadoDB =  async ( producto ) => {
     // listado.forEach( async producto => {
         await db.collection(`/listado2`).doc(`${producto.id}`).set( producto );
     // });
- 
-    
+   
 }
 
 export const borraProducto = async (id) => {

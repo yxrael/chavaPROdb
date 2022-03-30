@@ -35,8 +35,14 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
         dispatch( modificaProducto( id, cambioCafe ) );
 
-        const actual = store.getState();
-        actualizaListadoDB( actual.listado );
+        // const actual = store.getState();
+        actualizaListadoDB( cambioCafe );
+
+        Swal.fire(
+            'Hecho!',
+            'Disponibilidad cambiada.',
+            'success'
+        )
 
     }
 
@@ -133,7 +139,6 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
             }
           })
 
-
     }
 
     return (
@@ -164,7 +169,17 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                                 
                                             <div className="">
                                                 <p>Precio: <b>{precio}€/kg</b></p>
-                                                <p>Tipo cliente: {tipoCliente}</p>
+
+                                                <div className="d-flex justify-content-start">
+                                                    {
+                                                        tipoCliente === 'tostado'
+                                                        ?
+                                                        <p className='badge bg-secondary'><strong>{tipoCliente}</strong></p>
+                                                        :
+                                                        <p className='badge bg-success'><strong>{tipoCliente}</strong></p>
+                                                    }
+                                                    
+                                                </div>
                                             </div>
                                                 
                                         </div>    
