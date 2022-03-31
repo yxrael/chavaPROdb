@@ -92,8 +92,8 @@ const Seleccion = () => {
                     <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
 
                     {
-                        (granTotal !== 0)
-                        ?
+                        (granTotal !== 0 && tipoCliente === 'tostado')
+                        &&
                         (
                             <div className="container card bg-light mb-3 p-3 w-50">
                                 <p>Pedidos menos de 10kg</p>
@@ -102,14 +102,15 @@ const Seleccion = () => {
                             </div>
                             
                         )
-                        :
+                    }
+                    {
+                        (granTotal === 0 && tipoCliente === 'tostado')
+                        &&
                         (
                             <div className="container card bg-light mb-3 p-3 w-50">
                                 <p>Envío gratuito a partir de 10kg. Resto de envíos 6€</p>
                                 <p className='d-flex justify-content-center'><b>El envío de este pedido es gratuíto</b></p>
                             </div>
-                            
-                            
                         )
                     }
 
