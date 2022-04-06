@@ -45,17 +45,6 @@ export const filtraListadoClientesDisponible = ( listado, tipoCliente ) => {
    return listado.filter( producto => producto.disponible === true && producto.tipoCliente === tipoCliente );
 }
 
-// export const cambiaDisponibilidad = ( id, cafe ) =>{ 
-
-//    return {
-//       type: types.toggleDispo,
-//       payload: {
-//          id,
-//          cafe
-//       }
-// }
-// }
-
 export const cargaListaInicio = ( listado ) => {
    
    return {

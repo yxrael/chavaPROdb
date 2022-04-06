@@ -11,8 +11,6 @@ import Producto from './Producto';
 import queryString from 'query-string';
 import { filtraListadoClientesDisponible } from '../actions/listadosActions';
 
-
-
 const Listado = () => {
 
     const dispatch = useDispatch();
@@ -23,7 +21,6 @@ const Listado = () => {
     const { listado, auth } = useSelector( state => state );
     const [ muestraDetalle, setMuestraDetalle ] = useState(false);
     const [ cafeSeleccionado, setCafeSeleccionado ] = useState('');
-    // const [ toggleDesca, setToggleDesca ] = useState(false);
 
     let listaFiltrada = filtraListadoClientesDisponible( listado, auth.tipoCliente );
     
@@ -48,10 +45,7 @@ const Listado = () => {
     return (
         <section id="cont-listado" className='container-fluid m-2'>
 
-            <BotonesFiltrado
-                // toggleDesca={toggleDesca}
-                // setToggleDesca={setToggleDesca}
-            />
+            <BotonesFiltrado />
 
             <form 
                 onSubmit={ handleSubmit }

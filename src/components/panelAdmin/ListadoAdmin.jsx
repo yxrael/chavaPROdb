@@ -8,7 +8,7 @@ import { cargaListaInicio } from '../../actions/listadosActions';
 // import { trasladaProductos } from '../../helpers/cargaListado';
 // import Swal from 'sweetalert2';
 
-const ListadoAdmin = ( {vista, setVista }) => {
+const ListadoAdmin = ( { setVista }) => {
 
   const [nuevoItem, setNuevoItem] = useState(false);
   const [modoEdicion, setModoEdicion] = useState('');
@@ -37,8 +37,6 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
     setListadoFiltrado(filtraPorTipoClienteAdmin( listado, filtroCliente ));
 
-    console.log( listadoFiltrado );
-
   }, [ setListadoFiltrado, filtroCliente ]);
 
 
@@ -52,7 +50,6 @@ const ListadoAdmin = ( {vista, setVista }) => {
   const handleClickVerde = () => {
     setFiltroCliente('verde');
   };
-
 
 //   const guardarCambios = (e) => {
 //     e.preventDefault();
@@ -76,7 +73,6 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
 //     trasladaProductos();
 //   }
-
 
   return (
 
