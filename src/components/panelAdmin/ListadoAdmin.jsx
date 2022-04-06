@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import NuevoProducto from './NuevoProducto';
-import { cargaListadosinDispatchTipoCliente } from '../../helpers/cargaListado';
+import { cargaListadosinDispatchTipoCliente, filtraPorTipoClienteAdmin } from '../../helpers/cargaListado';
 import { cargaListaInicio } from '../../actions/listadosActions';
-
 
 // import { trasladaProductos } from '../../helpers/cargaListado';
 // import Swal from 'sweetalert2';
@@ -15,18 +14,32 @@ const ListadoAdmin = ( {vista, setVista }) => {
   const [modoEdicion, setModoEdicion] = useState('');
   const [cafeEdicion, setCafeEdicion] = useState({});
   const [filtroCliente, setFiltroCliente] = useState('verde');
+   
   const dispatch = useDispatch();
 
   const { listado } = useSelector( state => state );
+  const  [listadoFiltrado, setListadoFiltrado] = useState(listado);
 
-  useEffect(() => {
-    cargaListadosinDispatchTipoCliente(filtroCliente)
-    .then((listadoActual) => {
-        dispatch( cargaListaInicio(listadoActual) );
-      }).catch((err) => {
-        console.log(err)
-      });
-  }, [listado])
+//   useEffect( () => {
+
+//   }, []);
+
+//   useEffect(() => {
+//     cargaListadosinDispatchTipoCliente(filtroCliente)
+//     .then((listadoActual) => {
+//         dispatch( cargaListaInicio(listadoActual) );
+//       }).catch((err) => {
+//         console.log(err)
+//       });
+//   }, [listado])
+
+  useEffect( () => {
+
+    setListadoFiltrado(filtraPorTipoClienteAdmin( listado, filtroCliente ));
+
+    console.log( listadoFiltrado );
+
+  }, [ setListadoFiltrado, filtroCliente ]);
 
 
   useEffect(() => {
@@ -34,7 +47,7 @@ const ListadoAdmin = ( {vista, setVista }) => {
   }, [ setVista ]);
 
   const handleClickTostado = () => {
-    setFiltroCliente('tostado');
+    setFiltroCliente('tostado');    
   };
   const handleClickVerde = () => {
     setFiltroCliente('verde');
@@ -148,7 +161,7 @@ const ListadoAdmin = ( {vista, setVista }) => {
 
                     <h2 id="foco-listado" className="text-center m-3">Listado productos:</h2>
 
-                    {listado.map( producto => {
+                    {listadoFiltrado.map( producto => {
                             return (
                                 <ProductoStockAdmin
                                     key={producto.id}
