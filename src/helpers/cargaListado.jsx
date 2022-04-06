@@ -3,18 +3,19 @@ import { db } from '../firebase/firebase-config'
 
 export const cargaListado = async ( dispatch ) => {
 
-        const listadoPedidos = await db.collection('listado').get();
+        const listadoPedidos = await db.collection('listado2').orderBy('descafeinado', 'asc').get();
+
         let listado = [];
 
         listadoPedidos.forEach( snapHijo => {
 
-            listado.push(snapHijo.data().listado);
+            listado.push(snapHijo.data());
 
         });
 
-        dispatch( cargaListaInicio( listado[0] ) );
+        dispatch( cargaListaInicio( listado ) );
 
-        return listado[0];
+        return listado;
 
 }
 
