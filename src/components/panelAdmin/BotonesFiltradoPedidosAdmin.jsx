@@ -26,7 +26,7 @@ const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, toggleEstado, setToggleE
             navigate(`/pedidos?q=${ date1 }&q=${ date2 }&q=${ toggleEstado }`);
         }
 
-    }, [ inicioFecha, finFecha, toggleEstado]);
+    }, [ inicioFecha, finFecha, toggleEstado, dateActual]);
 
     const handleEstado = (e) => {
         e.preventDefault();

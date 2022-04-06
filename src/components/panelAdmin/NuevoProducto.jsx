@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch } from 'react-redux';
 import { modificaProducto, nuevoProductoLista } from '../../actions/listadosActions';
 import { calculaMaximoNumeroProducto } from '../../helpers/calculaMaximoNumeroProducto';
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
-import { store } from '../../store/store';
 import { removeError, setError } from '../../actions/ui';
 import { subeImagenDetalles } from '../../helpers/gestionCloudinary';
 
@@ -17,12 +16,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
     let rutaIMAGENAwait = '';
     const [ rutaImagen, setRutaImagen ] = useState(['','']);
-    // let fileName = '';
     let preRelleno = {};
-
-    // chava-pro
-    // https://api.cloudinary.com/v1_1/dtm3z7jee/upload
-    // https://<API_KEY>:<API_SECRET>@api.cloudinary.com/v1_1/<CLOUD_NAME>/upload
 
     if(modoEdicion !== '' ) {
         preRelleno = {
@@ -50,12 +44,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 rutaFile: '',
                 }
         }
-
-    // useEffect(() => {
-    //     if(cafeEdicion.rutaURL !== '' ){
-    //         setRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
-    //     }
-    // }, [])
     
     const [ formValues, handleInputChange, descafeinadoChange ] = useForm( preRelleno );
 
@@ -70,28 +58,13 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
 
             let nuevoCafe = {};
 
-            // sube la imagen a cloud y devuelve la url
-            // subeImagenDetalles( resumenURL );
-
-            // mete la url de la imagen en resumenURL
-
             if(modoEdicion !== ''){
 
-                // const enlace = await subeImagenDetalles( resumenURL, cafeEdicion.id, nombre );
-
                 if( rutaImagen[0] !== '' ){
-                    // console.log('ruta vacia en el formulario');
-                    // console.log('antes de comprobar:', rutaImagen[0]);
-                    // console.log(cafeEdicion.rutaURL, cafeEdicion.fileName);
-                    // setRutaImagen([cafeEdicion.rutaURL, cafeEdicion.fileName]);
-                    // console.log('despues de reasignar', rutaImagen );
+
                     cafeEdicion.rutaURL = rutaImagen[0];
                     cafeEdicion.fileName = rutaImagen[1];
-                }
-                // } else {
-                //     // cafeEdicion.rutaURL = rutaImagen[0];
-                //     // cafeEdicion.fileName = rutaImagen[1];
-                // }
+                };
 
                 nuevoCafe = {
                     id: cafeEdicion.id,
@@ -106,8 +79,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     tipoCliente,
                     rutaURL: cafeEdicion.rutaURL,
                     fileName: cafeEdicion.fileName,
-                    // rutaURL: rutaImagen[0],
-                    // fileName: rutaImagen[1],
                     cantidad: 0
                 };
 
@@ -116,13 +87,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             } else {
         
                 id = calculaMaximoNumeroProducto( listado );
-
-                // if( cafeEdicion.rutaURL) {
-                //     setRutaImagen(subeImagenDetalles( cafeEdicion.rutaURL ));
-                //     console.log( rutaImagen );
-                // } else {
-                //     setRutaImagen(['','']);
-                // }
 
                 nuevoCafe = {
                     id,
@@ -143,10 +107,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 dispatch( nuevoProductoLista( nuevoCafe ));
             };
 
-            // const actual = store.getState();
             actualizaListadoDB( nuevoCafe );
-            // console.log( nuevoCafe );
-
         } 
         
         setModoEdicion('');
@@ -262,20 +223,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
     
                             </div>
 
-                            <div className='form-group col-md-6'>
-
-                                {/* <label htmlFor='continente'>Continente:</label>
-                                <input
-                                    type='text'
-                                    placeholder='continente'
-                                    name='continente'
-                                    className='form-control'
-                                    autoComplete='off'
-                                    value={ continente }
-                                    id='continente'
-                                    onChange={ handleInputChange }
-                                /> */}
-                                
+                            <div className='form-group col-md-6'>           
 
                                 <label htmlFor='precio'>Precio:</label>
                                 <input
@@ -292,7 +240,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     <label htmlFor='tipoCliente'>Tarifa:</label>
                                     <select name='tipoCliente'
                                         className='custom-select form-control'
-                                        // value={ password2 }
                                         onChange={ handleInputChange } >
                                         <option defaultValue={ tipoCliente }>{ tipoCliente }</option>
                                         <option value='tostado'>Tostado</option>
@@ -300,12 +247,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                     </select>
                                 </div>
 
-
-
-                                {/* {
-                                   ( modoEdicion === '') 
-                                    &&
-                                    (
                                         <div>
                                             <label htmlFor='rutaFile'>Gráfica resumen:</label>
                                             <input
@@ -319,27 +260,6 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                                 onChange={ handleInputFile }
                                             />
                                         </div>
-
-                                    )
-                                    
-                                } */}
-
-                                        <div>
-                                            <label htmlFor='rutaFile'>Gráfica resumen:</label>
-                                            <input
-                                                type='file'
-                                                placeholder='resumen'
-                                                name='rutaFile'
-                                                className='form-control'
-                                                autoComplete='off'
-                                                value={ rutaFile }
-                                                id='rutaFile'
-                                                onChange={ handleInputFile }
-                                            />
-                                        </div>
-                                
-                                
-
                             </div>
 
                         </div>

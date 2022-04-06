@@ -16,7 +16,8 @@ const PopUpResumen = ( { muestraDetalle, setMuestraDetalle, cafeSeleccionado, se
                 <div className="p-4">
                     <img 
                         className="modal__imagen"
-                        src={ cafeSeleccionado.rutaURL }>
+                        src={ cafeSeleccionado.rutaURL }
+                        alt='Ficha producto'>
                     </img>
                     <button
                         className='btn btn-danger btn-sm rounded-circle m-2'

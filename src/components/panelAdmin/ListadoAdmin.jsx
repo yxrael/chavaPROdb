@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import ProductoStockAdmin from './ProductoStockAdmin';
 import NuevoProducto from './NuevoProducto';
-import { cargaListadosinDispatchTipoCliente, filtraPorTipoClienteAdmin } from '../../helpers/cargaListado';
-import { cargaListaInicio } from '../../actions/listadosActions';
-
-// import { trasladaProductos } from '../../helpers/cargaListado';
-// import Swal from 'sweetalert2';
+import { filtraPorTipoClienteAdmin } from '../../helpers/cargaListado';
 
 const ListadoAdmin = ( { setVista }) => {
 
@@ -14,30 +10,15 @@ const ListadoAdmin = ( { setVista }) => {
   const [modoEdicion, setModoEdicion] = useState('');
   const [cafeEdicion, setCafeEdicion] = useState({});
   const [filtroCliente, setFiltroCliente] = useState('verde');
-   
-  const dispatch = useDispatch();
 
   const { listado } = useSelector( state => state );
   const  [listadoFiltrado, setListadoFiltrado] = useState(listado);
-
-//   useEffect( () => {
-
-//   }, []);
-
-//   useEffect(() => {
-//     cargaListadosinDispatchTipoCliente(filtroCliente)
-//     .then((listadoActual) => {
-//         dispatch( cargaListaInicio(listadoActual) );
-//       }).catch((err) => {
-//         console.log(err)
-//       });
-//   }, [listado])
 
   useEffect( () => {
 
     setListadoFiltrado(filtraPorTipoClienteAdmin( listado, filtroCliente ));
 
-  }, [ setListadoFiltrado, filtroCliente ]);
+  }, [ setListadoFiltrado, listado, filtroCliente ]);
 
 
   useEffect(() => {
@@ -51,28 +32,9 @@ const ListadoAdmin = ( { setVista }) => {
     setFiltroCliente('verde');
   };
 
-//   const guardarCambios = (e) => {
-//     e.preventDefault();
-
-//     Swal.fire({
-//         icon: 'success',
-//         title: 'Cambios guardados',
-//         showConfirmButton: false,
-//         timer: 1000
-//       })
-
-//     actualizaListadoDB( listado );
-//   }
-
   const abreVentana = () => {
       setNuevoItem(true);
   }
-
-//   const traslado = (e) => {
-//     e.preventDefault();
-
-//     trasladaProductos();
-//   }
 
   return (
 
@@ -140,19 +102,10 @@ const ListadoAdmin = ( { setVista }) => {
                     </button>
                 }
                     
-                    
-    
-                {/* <button 
-                    className='btn btn-success btn-sm mt-4'
-                    onClick={ traslado }
-                    >
-                        TRASLADAR
-                </button> */}
                 </div>
 
 
                 <div 
-                    // onSubmit={ handleSubmit }
                     className="contenido primario">
 
                     <h2 id="foco-listado" className="text-center m-3">Listado productos:</h2>
@@ -173,34 +126,16 @@ const ListadoAdmin = ( { setVista }) => {
 
                     <div className='d-flex justify-content-center m-3'>
 
-                        {/* <button 
-                            className='btn btn-primary '>
-                            Enviar
-                        </button> */}
                     </div>
                     
 
                 </div>
 
-                {/* <div className='d-flex justify-content-center'>
-                <button 
-                    className='btn btn-success btn-sm m-2'
-                    onClick={ guardarCambios }
-                    >
-                        Guardar cambios
-                </button>
-                </div> */}
-
-
                 </div>
             )
 
-
         }
-          
-
-      
-
+        
     </>
   )
 }

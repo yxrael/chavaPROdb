@@ -1,6 +1,5 @@
 import React from 'react'
 import Swal from 'sweetalert2';
-import { store } from '../../store/store';
 
 import {
     LeadingActions,
@@ -14,8 +13,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
 import { actualizaListadoDB, borraProducto, borraImagenProducto } from '../../helpers/actualizadorDBAdmin';
-// import { borraImagenDetalles } from '../../helpers/gestionCloudinary';
-
 
 const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdicion } ) => {
 
@@ -34,8 +31,6 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
         };
 
         dispatch( modificaProducto( id, cambioCafe ) );
-
-        // const actual = store.getState();
         actualizaListadoDB( cambioCafe );
 
         Swal.fire(
@@ -60,12 +55,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
           }).then((result) => {
             if (result.isConfirmed) {
 
-                // borraImagenDetalles( fileName );
-
                 dispatch( eliminaProducto(id) );
-        
-                // const actual = store.getState();
-                // actualizaListadoDB( actual.listado );
                 borraProducto(id);
 
                 Swal.fire(
@@ -75,14 +65,12 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                 )
             }
           })
-
     }
 
     const handleEditar = (e) => {
 
         setModoEdicion(producto.id);
         setCafeEdicion(producto);
-        
         setNuevoItem(true);
     }
 
@@ -123,12 +111,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
           }).then((result) => {
             if (result.isConfirmed) {
 
-                // borraImagenDetalles( fileName );
-
                 dispatch( eliminaProducto(id) );
-        
-                // const actual = store.getState();
-                // actualizaListadoDB( actual.listado );
                 borraImagenProducto(id);
 
                 Swal.fire(
@@ -138,7 +121,6 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                 )
             }
           })
-
     }
 
     return (
@@ -231,20 +213,20 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                 </div>
 
                                 {
-                                                    rutaURL
-                                                    &&
-                                                    (
-                                                        <div className='d-flex justify-content-center'>
-                                                            <button
-                                                            className='btn btn-light'
-                                                            onClick={ handleEliminarImagen }>
-                                                                <i className="fa-solid fa-image text-danger"></i>
-                                                            </button>
-                                                            
-                                                        </div>
-                                                        
-                                                    )
-                                                }
+                                    rutaURL
+                                    &&
+                                    (
+                                        <div className='d-flex justify-content-center'>
+                                            <button
+                                            className='btn btn-light'
+                                            onClick={ handleEliminarImagen }>
+                                                <i className="fa-solid fa-image text-danger"></i>
+                                            </button>
+                                            
+                                        </div>
+                                        
+                                    )
+                                }
                                 <button 
                                     className='btn btn-info btn-sm m-2 d-block'
                                     onClick={ handleCambioDispo }
