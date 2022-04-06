@@ -46,8 +46,6 @@ export const cargaListadosinDispatch = async () => {
 }
 export const cargaListadosinDispatchTipoCliente = async ( filtroCliente ) => {
 
-    
-
     const listadoPedidos = await db.collection('listado2').orderBy('descafeinado', 'asc').get();
 
     let listado = [];
@@ -61,6 +59,21 @@ export const cargaListadosinDispatchTipoCliente = async ( filtroCliente ) => {
     });
     
     return listado;
+}
+
+export const filtraPorTipoClienteAdmin = ( listado, filtroCliente ) => {
+
+    let filtrado = [];
+
+    listado.forEach( producto => {
+        if( producto.tipoCliente === filtroCliente ){
+            filtrado.push( producto );
+        }
+    });
+
+    return filtrado;
+
+
 }
 
 // export const trasladaProductos = async () => {
