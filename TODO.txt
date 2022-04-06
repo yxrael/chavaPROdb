@@ -1,3 +1,6 @@
+***INCLUÍR MENSAJES DE ERROR EN LAS PROMESAS PARA CONTACTAR CON SOPORTE***
+
+
 incluir:
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 o solo: <meta charset="UTF-8">  en el <head>
