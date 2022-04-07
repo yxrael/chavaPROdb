@@ -17,6 +17,7 @@ import { cargaListadosinDispatch } from '../helpers/cargaListado'
 import { cargaListaPedidos } from '../actions/listaPedidosAdmin'
 import { cargaListaInicio } from '../actions/listadosActions'
 import RegisterScreen from '../auth/RegisterScreen'
+import { muestraError } from '../helpers/muestraError'
 
 const DashBoard = () => {
 
@@ -46,6 +47,7 @@ const DashBoard = () => {
       .then((listado) => {
         dispatch( cargaListaPedidos(listado) );
       }).catch((err) => {
+        muestraError( 'Error cargando el listado de pedidos', 'Contacta con soporte@mrchava.es' );
         console.log(err)
       });
     // cargaPedidos( dispatch );
@@ -54,6 +56,7 @@ const DashBoard = () => {
     .then((listado) => {
         dispatch( cargaListaInicio(listado) );
       }).catch((err) => {
+        muestraError( 'Error cargando el listado de productos', 'Contacta con soporte@mrchava.es' );
         console.log(err)
       });
     // cargaListado( dispatch );

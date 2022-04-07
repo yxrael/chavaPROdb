@@ -7,6 +7,7 @@ import { calculaMaximoNumeroProducto } from '../../helpers/calculaMaximoNumeroPr
 import { actualizaListadoDB } from '../../helpers/actualizadorDBAdmin';
 import { removeError, setError } from '../../actions/ui';
 import { subeImagenDetalles } from '../../helpers/gestionCloudinary';
+import { muestraError } from '../../helpers/muestraError';
 
 const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion } ) => {
 
@@ -107,7 +108,11 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 dispatch( nuevoProductoLista( nuevoCafe ));
             };
 
-            actualizaListadoDB( nuevoCafe );
+            actualizaListadoDB( nuevoCafe )
+                .catch((err) => {
+                    muestraError( 'Error al crear o modificar', 'Contacta con soporte@mrchava.es' );
+                    console.log(err)
+                });
         } 
         
         setModoEdicion('');

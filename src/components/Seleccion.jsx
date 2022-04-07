@@ -7,6 +7,7 @@ import moment from 'moment';
 import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
 import { useForm } from '../hooks/useForm';
+import { muestraError } from '../helpers/muestraError';
 
 const Seleccion = () => {
 
@@ -57,6 +58,7 @@ const Seleccion = () => {
                 navigate('/mispedidos');
 
             }).catch((err) => {
+                muestraError( 'Error al enviar el pedido', 'Contacta con soporte@mrchava.es' );
                 console.log(err)
             });
 
