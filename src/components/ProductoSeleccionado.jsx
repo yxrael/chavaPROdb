@@ -2,7 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { borrarSeleccion } from '../actions/seleccionActions';
 
-const ProductoSeleccionado = ( {producto } ) => {
+
+const ProductoSeleccionado = ( {producto, setPrecioTotal, setUnidadesTotal } ) => {
 
     const { id, pais, nombre, proceso, precio, cantidad} = producto;
 
@@ -11,6 +12,7 @@ const ProductoSeleccionado = ( {producto } ) => {
     const handleClick = (id) => {
 
         dispatch( borrarSeleccion( id ));
+
     }
 
     return (

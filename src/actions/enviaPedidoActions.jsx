@@ -12,7 +12,7 @@ export const enviaPedido = ( pedido ) => (
 
 export const enviaPedidoDB = async (pedidoObj) => {
 
-        const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones, tipoCliente } = pedidoObj;
+        const { date, pedidoId, uid, name, seleccion, precioTotal, observaciones, tipoCliente, bolsas } = pedidoObj;
 
         let seleccionShort = [];
         
@@ -46,7 +46,8 @@ export const enviaPedidoDB = async (pedidoObj) => {
             observaciones,
             tipoCliente,
             completado: false,
-            seleccionShort
+            seleccionShort,
+            bolsas
         };
 
         // const pedido = await db.collection(`pedidos`).add( pedidoDB );

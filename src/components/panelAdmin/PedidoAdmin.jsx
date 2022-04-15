@@ -10,7 +10,7 @@ const PedidoAdmin = ( producto ) => {
 
     const dispatch = useDispatch();
 
-    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones, tipoCliente } = producto.producto;
+    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones, tipoCliente, bolsas } = producto.producto;
     const unidades = seleccionShort.length;
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
@@ -109,7 +109,13 @@ const PedidoAdmin = ( producto ) => {
                         </div>
                     
                         <div>
-                            <p>Unidades: <b>{unidades}</b></p>
+                            <p>Productos: <b>{unidades}</b></p>
+                            { 
+                                bolsas
+                                &&
+                                <p className='badge bg-secondary p-2'>Bolsas: <b>{bolsas}</b></p>
+                            
+                            }
                             <p><b>Total: { total }€</b></p>
                         </div>
                         

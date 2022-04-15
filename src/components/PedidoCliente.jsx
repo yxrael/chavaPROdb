@@ -3,7 +3,7 @@ import DetallePedido from './../components/panelAdmin/DetallePedido';
 
 const PedidoCliente = ( producto ) => {
 
-    const {pedidoId, date, seleccionShort, completado, total } = producto.producto;
+    const {pedidoId, date, seleccionShort, completado, total, bolsas } = producto.producto;
     const unidades = seleccionShort.length;
 
     const [ toggleDetalle, setToggleDetalle ] = useState(false);
@@ -32,6 +32,9 @@ const PedidoCliente = ( producto ) => {
 
                                 <div>
                                     <p>Fecha: {date}</p>
+                                </div>
+                                <div>
+                                    <p>Bolsas: {bolsas}</p>
                                 </div>
                                 
                             </div>    

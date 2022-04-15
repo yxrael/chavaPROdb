@@ -8,7 +8,7 @@ import PedidoAdmin from './PedidoAdmin';
 import queryString from 'query-string';
 import { filtradorPedidosPorFecha } from '../../helpers/filtradores';
 
-const AdministradorPedidos = ( {vista, setVista, fechasFiltrado, toggleEstado, setToggleEstado} ) => {
+const AdministradorPedidos = ( {setVista, fechasFiltrado, toggleEstado, setToggleEstado} ) => {
 
   const dispatch = useDispatch();
   const location = useLocation();

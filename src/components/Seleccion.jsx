@@ -8,6 +8,7 @@ import { enviaPedido, enviaPedidoDB } from '../actions/enviaPedidoActions';
 import { uniqueId } from '../helpers/creaIdAleatorio';
 import { useForm } from '../hooks/useForm';
 import { muestraError } from '../helpers/muestraError';
+import { useEffect, useState } from 'react';
 
 const Seleccion = () => {
 
@@ -20,15 +21,18 @@ const Seleccion = () => {
     const date = moment( new Date() ).format('DD/MM/YYYY');
 
     const observacionesInit = {
-        observaciones: ''
+        observaciones: '',
+        bolsas: 0
     }
 
     const [ formValues, handleInputChange ] = useForm( observacionesInit);
-    const { observaciones } = formValues;
+    const { observaciones, bolsas } = formValues;
+
+    const [ precioTotal , setPrecioTotal ] = useState( actualizadorLista( seleccion, bolsas ) );
+    const [ unidadesTotal, setUnidadesTotal ] = useState( actualizadorUnidadesLista( seleccion ) );
   
     const handleClick = () => {
         navigate('/filtered');
-        
     }
 
     const enviarPedido = () => {
@@ -42,7 +46,8 @@ const Seleccion = () => {
             tipoCliente,
             observaciones,
             completado: false,
-            seleccion
+            seleccion,
+            bolsas
           };
 
         enviaPedido( pedidoObj );
@@ -61,20 +66,21 @@ const Seleccion = () => {
                 muestraError( 'Error al enviar el pedido', 'Contacta con soporte@mrchava.es' );
                 console.log(err)
             });
-
     }
     
     let granTotal = 0;
-    const precioTotal = actualizadorLista( seleccion );
-    const unidadesTotal = actualizadorUnidadesLista( seleccion );
+    // const unidadesTotal = actualizadorUnidadesLista( seleccion );
     
-
     if(unidadesTotal < 6){
         granTotal = precioTotal + 6;
     }
-    
-    
 
+    useEffect(() => {
+      
+        setPrecioTotal( actualizadorLista( seleccion, bolsas ) );
+
+    }, [bolsas, seleccion ])
+    
     return (
 
         <>
@@ -88,8 +94,31 @@ const Seleccion = () => {
                                             <ProductoSeleccionado
                                                 key={producto.id}
                                                 producto={producto}
+                                                setUnidadesTotal={setUnidadesTotal}
+
                                             />
                         ) )} 
+
+                    <div  className="container card bg-light mb-3">
+                        <div className="mb-2">
+                                <div className="mt-1 d-flex justify-content-start">
+                                    <label className="mb-2" htmlFor="cantidad"><b>¿Quieres añadir bolsas al pedido?</b> (0,50€ / unidad)</label>
+                                </div>
+                                    
+                                    <input
+                                        name='bolsas'
+                                        type="number"
+                                        className="form-control"
+                                        min="0"
+                                        max="1000"
+                                        placeholder="Cantidad de bolsas:"
+                                        value={ bolsas }
+                                        id='bolsas'
+                                        autoFocus={true}
+                                        onChange={ handleInputChange }
+                                    />
+                            </div>
+                    </div>
 
                     <p className='d-flex justify-content-center m-3'>Total: &nbsp; <b>{precioTotal}€</b></p>
 
@@ -125,9 +154,7 @@ const Seleccion = () => {
                                     <p>No tienes ningún producto seleccionado</p>
                                 </div>
                                 )
-                    }
-
-                    
+                    }                    
 
                     {
                         (seleccion.length > 0)
@@ -145,7 +172,6 @@ const Seleccion = () => {
                                                 autoComplete='off'
                                                 value={ observaciones }
                                                 id='observaciones'
-                                                autoFocus={true}
                                                 onChange={ handleInputChange }
                                             />
                                         </div>
