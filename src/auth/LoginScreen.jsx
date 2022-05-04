@@ -24,7 +24,7 @@ const LoginScreen = () => {
     if ( isFormValid() ) {
 
       // buscar en BD por uid y añadir tipo de cliente
-      dispatch( startLoginEmailPassword(email.toLowerCase() , password));
+      dispatch( startLoginEmailPassword( email.trim().toLowerCase() , password.trim() ));
     }
 
   };
@@ -39,7 +39,7 @@ const LoginScreen = () => {
     if(password.trim().length === 0 ) {
       dispatch( setError('introduce tu contraseña'));
       return false;
-    } else if( !isEmail(email)) {
+    } else if( !isEmail( email.trim() ) ) {
 
       dispatch( setError('introduce un email existente'));
       return false;
