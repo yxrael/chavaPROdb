@@ -50,8 +50,7 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='modal'>
-      <div className='container card mt-5 mb-5 p-4 mxwListados'> 
+    <>
         <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         {
@@ -64,47 +63,60 @@ const LoginScreen = () => {
         <form
           onSubmit={ handleLogin }
         >
-          <div className='form-group'>
-            <label htmlFor='email'>email:</label>
-              <input
-                type='text'
-                placeholder='email'
-                name='email'
-                className='form-control m-2'
-                autoComplete='off'
-                value={ email }
-                onChange={ handleInputChange }
-              />
-          </div>
 
-          <div className='form-group'>
-            <label htmlFor='password'>contraseña:</label>
-              <input
-                type='password'
-                placeholder='contraseña'
-                name='password'
-                className='form-control m-2'
-                value={ password }
-                onChange={ handleInputChange }
-              />
-          </div>
+          <input
+            type='text'
+            placeholder='email'
+            name='email'
+            className='auth__input'
+            autoComplete='off'
+            value={ email}
+            onChange={ handleInputChange }
+          />
+
+          <input
+            type='password'
+            placeholder='contraseña'
+            name='password'
+            className='auth__input'
+            value={ password }
+            onChange={ handleInputChange }
+          />
           
             <button
               type='submit'
-              className='btn btn-primary btn-block m-2'
+              className='btn btn-primary btn-block'
               disabled={loading}
             > 
             Entrar
           </button>
           
           <hr />
+          {/* <div className='auth__social-networks'>
+            <p>Entrar con redes sociales:</p>
+            <div 
+              className="google-btn"
+              onClick={ handleGoogleLogin }
+            >
+              <div className="google-icon-wrapper">
+                <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                </div>
+                <p className="btn-text">
+                <b>Entrar con Google</b>
+                </p>
+              </div>
+          </div> */}
+
+            {/* <Link to='/auth/register'
+                  className='enlace'>
+              Crear cuenta nueva
+            </Link> */}
 
             <p><b>Solicita tu cuenta:</b></p>
             <p>mrchavamicrotostador@gmail.com</p>
             
         </form>
-      </div>
-    </div>
+    </>
   )
 }
 
