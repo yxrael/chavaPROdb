@@ -1,4 +1,5 @@
 ***INCLUÍR MENSAJES DE ERROR EN LAS PROMESAS PARA CONTACTAR CON SOPORTE***
+https://www.npmjs.com/package/react-rating
 
 
 incluir:

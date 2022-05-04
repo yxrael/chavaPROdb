@@ -1,5 +1,6 @@
 import React from 'react'
 import Swal from 'sweetalert2';
+import Rating from 'react-rating';
 
 import {
     LeadingActions,
@@ -18,7 +19,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     const dispatch = useDispatch();
     
-    const { id, pais, nombre, proceso, precio, infoExtra, disponible, descafeinado, continente, tipoCliente, rutaURL } = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, disponible, descafeinado, continente, tipoCliente, puntos, rutaURL } = producto;
 
     const handleCambioDispo = (e) => {
         e.preventDefault();
@@ -140,34 +141,51 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
                         <div className='col-10'>
 
-                            <div className="d-flex justify-content-between align-items-start">
-                                
-                                <div>
-                                    <div className="mt-2">
-                                        <div className="">
-                                            <div className="">
-                                                <p><strong>{pais}. {nombre}</strong></p>
-                                            </div>
-                                                
-                                            <div className="">
-                                                <p>Precio: <b>{precio}€/kg</b></p>
+                            <div className="d-flex justify-content-center">
+                                <p><strong>{pais}. {nombre}</strong></p>
+                            </div>
 
-                                                <div className="d-flex justify-content-start">
-                                                    {
-                                                        tipoCliente === 'tostado'
-                                                        ?
-                                                        <p className='badge bg-secondary'><strong>{tipoCliente}</strong></p>
-                                                        :
-                                                        <p className='badge bg-success'><strong>{tipoCliente}</strong></p>
-                                                    }
-                                                    
+                            <div className="d-flex justify-content-around align-items-start align-items-center">
+                                 
+                                        <div className="mt-2">
+                                            <div className="">
+                                                    <p>Precio: <b>{precio}€/kg</b></p>
+
+                                                    <div className="d-flex justify-content-start">
+                                                        {
+                                                            tipoCliente === 'tostado'
+                                                            ?
+                                                            <p className='badge bg-secondary'><strong>{tipoCliente}</strong></p>
+                                                            :
+                                                            <p className='badge bg-success'><strong>{tipoCliente}</strong></p>
+                                                        }
+                                                    </div>
+                                            </div>    
+                                        </div>
+
+                                        {/* {
+                                            puntos
+                                            &&
+                                            (
+                                                <div className="m-2 d-flex flex-column align-items-center justify-content-center bg-secondary text-white p-2 card">
+                                                        <div>
+                                                            <p className=''>PUNTOS:</p>
+                                                            <div className='d-flex justify-content-center'>
+                                                                <b>{ puntos }</b> 
+                                                            </div>
+                                                        </div> 
+                                                        <Rating
+                                                            start='0'
+                                                            stop='5'
+                                                            fractions='20'
+                                                            initialRating={ puntos / 20 }
+                                                            readonly='true'
+                                                        />
                                                 </div>
-                                            </div>
-                                                
-                                        </div>    
-                                    </div>            
+                                            )
+                                        } */}
                                         
-                                    </div>
+                                        
                                         <div className="mt-2">
                                             <div className="">
                                                 <p><b>{continente}</b></p>       
@@ -189,6 +207,25 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                         </div>
                                     
                                     </div>  
+
+                                    {
+                                        puntos
+                                        &&
+                                        (
+                                            <div className="m-2 d-flex flex-column align-items-center justify-content-center p-2 card">
+                                                    <div>
+                                                        <p className=''>PUNTOS: <b>{ puntos }</b> </p>
+                                                    </div> 
+                                                    <Rating
+                                                        start='0'
+                                                        stop='5'
+                                                        fractions='20'
+                                                        initialRating={ puntos / 20 }
+                                                        readonly='true'
+                                                    />
+                                            </div>
+                                        )
+                                    }
 
                             <div className="d-flex justify-content-center">
                                 <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>

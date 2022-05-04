@@ -1,5 +1,6 @@
-import React from 'react'
-import { useState} from 'react'
+import React from 'react';
+import { useState} from 'react';
+import Rating from 'react-rating';
 
 import { useDispatch } from 'react-redux';
 import { modificaProducto } from '../actions/listadosActions';
@@ -11,7 +12,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
 
     
     
-    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado, rutaURL } = producto;
+    const { id, pais, nombre, proceso, precio, infoExtra, cantidad, descafeinado, puntos, rutaURL } = producto;
 
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
     const [ precioPorProducto, setPrecioPorProducto ] = useState(0);
@@ -57,7 +58,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                 }
 
                 <div className="d-flex justify-content-between mt-1">
-                    <div className="">
+                    <div className="d-flex flex-column justify-content-center">
                                                   
                             <div>
                                 <p>{proceso}</p>
@@ -67,18 +68,26 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                             </div>
                                
                     </div>
-                    <div>
-                        
 
-                    </div>
-                    <div className="">
-                        <div className="">
-                                      
-                        </div>
-                    </div>
-                    <div>
-                        
-                        <div className="mb-2">
+      
+                    {/* {
+                        puntos
+                        &&
+                        (
+                            <div className="m-2 d-flex flex-column align-items-center justify-content-center bg-secondary text-white p-2 card">
+                                    <div>
+                                        <p className=''>PUNTOS:</p>
+                                        <div className='d-flex justify-content-center'>
+                                            <b>{ puntos }</b> 
+                                        </div>
+                                    </div> 
+                            </div>
+                        )
+                    } */}
+
+
+                    <div className='d-flex flex-column justify-content-center align-items-center mt-1'>
+                        {/* <div className="mb-2"> */}
                             <div className="mt-1 d-flex justify-content-end">
                                 <label className="" htmlFor="cantidad">Cantidad:</label>
                             </div>
@@ -93,13 +102,15 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                                     value={cantidadElegida}
                                     onChange={ handleCambioCantidad }
                                 />
-                        </div>
+                        {/* </div> */}
                         <div className="mt-2 d-flex justify-content-end">
                         <p>Total: <b>{precioPorProducto}€/kg</b></p>
                         </div>
                         
                     </div>
                 </div>
+
+                
 
                 <div className="text-center mb-2">
                     
@@ -129,6 +140,25 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
                         />
                     }
                 </div>
+
+                {
+                    puntos
+                    &&
+                    (
+                        <div className="m-2 d-flex flex-column align-items-center justify-content-center p-2 card">
+                                <div>
+                                    <p className=''>PUNTOS: <b>{ puntos }</b> </p>
+                                </div> 
+                                <Rating
+                                    start='0'
+                                    stop='5'
+                                    fractions='20'
+                                    initialRating={ puntos / 20 }
+                                    readonly='true'
+                                />
+                        </div>
+                    )
+                }
 
                 {
                     infoExtra

@@ -29,6 +29,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
             descafeinado: cafeEdicion.descafeinado,
             infoExtra: cafeEdicion.infoExtra,
             tipoCliente: cafeEdicion.tipoCliente,
+            puntos: cafeEdicion.puntos,
             rutaFile: ''
         }; 
 
@@ -42,13 +43,14 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                 descafeinado: false,
                 infoExtra: '',
                 tipoCliente: '',
+                puntos: 0,
                 rutaFile: '',
                 }
         }
     
     const [ formValues, handleInputChange, descafeinadoChange ] = useForm( preRelleno );
 
-    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaFile } = formValues;
+    const { pais, nombre, continente, precio, proceso, descafeinado, infoExtra, tipoCliente, rutaFile, puntos } = formValues;
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -78,6 +80,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
+                    puntos,
                     rutaURL: cafeEdicion.rutaURL,
                     fileName: cafeEdicion.fileName,
                     cantidad: 0
@@ -100,6 +103,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                     descafeinado,
                     infoExtra,
                     tipoCliente,
+                    puntos,
                     rutaURL: rutaImagen[0],
                     fileName: rutaImagen[1],
                     cantidad: 0
@@ -251,22 +255,37 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
                                         <option value='verde'>Verde</option>
                                     </select>
                                 </div>
+                                <label htmlFor='puntos'>Puntos:</label>
+                                <input
+                                    type='number'
+                                    placeholder='puntos'
+                                    name='puntos'
+                                    className='form-control'
+                                    autoComplete='off'
+                                    value={ puntos }
+                                    id='puntos'
+                                    min='0'
+                                    max='100'
+                                    step='0.1'
+                                    onChange={ handleInputChange }
+                                />
 
-                                        <div>
-                                            <label htmlFor='rutaFile'>Gráfica resumen:</label>
-                                            <input
-                                                type='file'
-                                                placeholder='resumen'
-                                                name='rutaFile'
-                                                className='form-control'
-                                                autoComplete='off'
-                                                value={ rutaFile }
-                                                id='rutaFile'
-                                                onChange={ handleInputFile }
-                                            />
-                                        </div>
                             </div>
 
+                        </div>
+
+                        <div>
+                            <label htmlFor='rutaFile'>Gráfica resumen:</label>
+                            <input
+                                type='file'
+                                placeholder='resumen'
+                                name='rutaFile'
+                                className='form-control'
+                                autoComplete='off'
+                                value={ rutaFile }
+                                id='rutaFile'
+                                onChange={ handleInputFile }
+                            />
                         </div>
                         
                         <div className='form-group'>
