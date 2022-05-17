@@ -18,6 +18,7 @@ import { cargaListaPedidos } from '../actions/listaPedidosAdmin'
 import { cargaListaInicio } from '../actions/listadosActions'
 import RegisterScreen from '../auth/RegisterScreen'
 import { muestraError } from '../helpers/muestraError'
+import Swal from 'sweetalert2'
 
 const DashBoard = () => {
 
@@ -26,6 +27,7 @@ const DashBoard = () => {
     const { tipoCliente } = useSelector( state => state.auth );
     const [ vista, setVista ] = useState ('');
     const [ toggleEstado, setToggleEstado ] = useState(false);
+    
     
     const date = moment( new Date() ).format('YYYY-MM-DD');
     // const inicioDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
@@ -39,6 +41,13 @@ const DashBoard = () => {
 
     } else {
         isAdmin = false;
+
+        Swal.fire(
+            'Importante:',
+            'Esta aplicación está en desarrollo. Si no puedes realizar tu pedido, por favor realiza una captura de pantalla para facilitar la resolución de la incidencia y envíala a Mr.Chava',
+            'info'
+          );
+
     };
 
     const dispatch = useDispatch();

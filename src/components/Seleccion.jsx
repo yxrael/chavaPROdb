@@ -103,6 +103,7 @@ const Seleccion = () => {
                         <div className="mb-2">
                                 <div className="mt-1 d-flex justify-content-start">
                                     <label className="mb-2" htmlFor="cantidad"><b>¿Quieres añadir bolsas al pedido?</b> (0,50€ / unidad)</label>
+                                    <span className="mb-2"><b>Nota: cada unidad es una bolsa.</b></span>
                                 </div>
                                     
                                     <input

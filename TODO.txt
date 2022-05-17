@@ -1,3 +1,7 @@
+OK: POPUP en login avisando captura pantalla a SOPORTE
+OK: BOLSAS: aviso de que es x unidad
+
+
 ***INCLUÍR MENSAJES DE ERROR EN LAS PROMESAS PARA CONTACTAR CON SOPORTE***
 https://www.npmjs.com/package/react-rating
 
