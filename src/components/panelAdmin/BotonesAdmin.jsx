@@ -9,7 +9,7 @@ const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado, togg
     const navigate = useNavigate();
 
     return (
-        <>
+        <div className='container-fluid auth_anchoMax'>
             <div className='container d-flex justify-content-between mxwListados'>
                 <button 
                     className='btn btn-secondary mt-2 btn-sm'
@@ -47,7 +47,7 @@ const BotonesAdmin = ( {vista, setVista, fechasFiltrado, setFechasFiltrado, togg
                 <BotonesFiltradoProductosAdmin />      
             } */}
 
-        </>
+        </div>
     )
 }
 
