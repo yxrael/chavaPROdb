@@ -41,7 +41,7 @@ const BotonesFiltrado = ( ) => {
         <>
         
             {/* <div className='container d-flex justify-content-around mxwListados'> */}
-            <div className='container mxwListados'>
+            <div className='container anchoProducto mxwListados'>
 
             
                 <div className='row'>
@@ -96,22 +96,28 @@ const BotonesFiltrado = ( ) => {
 
                         {  toggleDesca
                                 ? (
-                                    <button 
-                                        className='btn btn-info btn-sm m-2'
-                                        onClick={ handleClickDescafeinado }
-                                    >
-                                        DESCAFEINADO{' '}
-                                        <i className="fa-solid fa-toggle-on"></i>
-                                    </button>
+                                    
+
+                                        <button 
+                                            className='btn btn-info btn-sm m-2 boton-filtro-cafe boton-desca'
+                                            onClick={ handleClickDescafeinado }
+                                        >
+                                            <div className='d-flex flex-row justify-content-center align-items-center'>
+                                            DESCAFEINADO{'   '}&nbsp;&nbsp;
+                                            <i className="fa-solid fa-toggle-on"></i>
+                                            </div>
+                                        </button>                                    
                                 )
                                 :
                                 (
                                         <button 
-                                        className='btn btn-secondary btn-sm m-2'
+                                        className='btn btn-secondary btn-sm m-2 boton-filtro-cafe boton-desca'
                                         onClick={ handleClickDescafeinado }
                                         >
-                                            DESCAFEINADO{' '}
-                                            <i className="fa-solid fa-toggle-off"></i>   
+                                            <div className='d-flex flex-row justify-content-center align-items-center'>
+                                            DESCAFEINADO{'   '}&nbsp;&nbsp;
+                                            <i className="fa-solid fa-toggle-off"></i>
+                                            </div>
                                         </button>                 
                                 )
                     }

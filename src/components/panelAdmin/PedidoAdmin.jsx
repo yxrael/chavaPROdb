@@ -10,7 +10,7 @@ const PedidoAdmin = ( producto ) => {
 
     const dispatch = useDispatch();
 
-    const {pedidoId, date, uid, name, seleccionShort, completado, total, observaciones, tipoCliente, bolsas } = producto.producto;
+    const {pedidoId, date, name, seleccionShort, completado, total, observaciones, tipoCliente, bolsas } = producto.producto;
     const unidades = seleccionShort.length;
 
     const [ toggleCompletado, setToogleCompletado ] = useState(completado);
@@ -86,21 +86,18 @@ const PedidoAdmin = ( producto ) => {
   return (
     <>
     
-        <div  className="container card bg-light mb-3 d-flex justify-content-between mxwListados">
+        <div  className="container-fluid card bg-light mb-3 d-flex justify-content-between ">
                     
                     <div className="d-flex justify-content-between">
                         <div className="">
                             <div className="mt-2">
-                                <div className="">
-                                    <p><strong>Pedido: {pedidoId}</strong></p>
-                                </div>
+                                
 
                                 <div>
-                                    <p>Fecha: {date}</p>
+                                    <h>Fecha: {date}</h>
                                 </div>
 
                                 <div className="">
-                                    <p>ID Cliente: {uid}</p>
                                     <p>Nombre cliente:{' '} {name} </p>
                                     <p>Tarifa: {' '}{ tipoCliente}</p>
                                 </div>
@@ -111,9 +108,9 @@ const PedidoAdmin = ( producto ) => {
                         <div>
                             <p>Productos: <b>{unidades}</b></p>
                             { 
-                                bolsas
+                                (bolsas)
                                 &&
-                                <p className='badge bg-secondary p-2'>Bolsas: <b>{bolsas}</b></p>
+                                (<p className='badge bg-secondary p-2'>Bolsas: <b>{bolsas}</b></p>)
                             
                             }
                             <p><b>Total: { total }€</b></p>
@@ -192,9 +189,9 @@ const PedidoAdmin = ( producto ) => {
                         )
                     }   
 
-                    <div className='d-flex justify-content-end'>
-
-                    </div>        
+                    <div>
+                        <h6 className=''><small>Pedido: {pedidoId}</small></h6>
+                    </div>      
 
         </div>
         

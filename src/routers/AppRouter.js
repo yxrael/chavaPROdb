@@ -41,7 +41,7 @@ const AppRouter = () => {
     
     return (
 
-        <>
+        <div className='mxwListados container-fluid'>
         <Header />
 
             <Routes>
@@ -74,7 +74,7 @@ const AppRouter = () => {
 
             </Routes>
 
-        </>
+        </div>
             
     )
 }

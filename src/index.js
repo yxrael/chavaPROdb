@@ -6,7 +6,7 @@ import App from './App';
 import './styles/styles.scss';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter className='auth_anchoMax container-fluid'>
       <App />
     </BrowserRouter>
     

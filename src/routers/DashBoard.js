@@ -89,7 +89,7 @@ const DashBoard = () => {
                     setToggleEstado={setToggleEstado}
                 />
 
-                <div className='container'>
+                <div className='container-fluid anchoProducto'>
 
                     <Routes>
                         
@@ -131,7 +131,7 @@ const DashBoard = () => {
 
                     <MenuLogin />
         
-                    <div className='container'>
+                    <div className='container-fluid anchoProducto'>
         
                         <Routes>
                             

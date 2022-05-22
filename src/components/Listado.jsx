@@ -43,7 +43,7 @@ const Listado = () => {
     };
 
     return (
-        <section id="cont-listado" className='container-fluid m-2'>
+        <section id="cont-listado" className='container-fluid m-2 anchoProducto'>
 
             <BotonesFiltrado />
 
@@ -70,9 +70,12 @@ const Listado = () => {
                 <div className='d-flex justify-content-center m-3'>
 
                     <button 
-                        className='btn btn-primary '>
+                        className='btn btn-primary'>
                         Enviar
                     </button>
+                </div>
+
+                <div className='boton-safe'>
                 </div>
                 
             </form>

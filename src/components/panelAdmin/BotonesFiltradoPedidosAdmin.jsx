@@ -41,7 +41,7 @@ const BotonesFiltradoPedidosAdmin = ( { fechasFiltrado, toggleEstado, setToggleE
         {/* <div className='container  justify-content-start'> */}
 
             
-            <div className='form card bg-light m-3 mt-4 p-3 w-50'>
+            <div className='form card bg-light m-3 mt-4 p-3'>
 
                 <div className=''>
                     <div className='d-flex justify-content-start mt-2'>

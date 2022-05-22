@@ -199,7 +199,10 @@ const Seleccion = () => {
                                     </button>
                                 )
                         }
-                        
+
+                    </div>
+
+                    <div className='boton-safe'>
                     </div>
     
             </div>

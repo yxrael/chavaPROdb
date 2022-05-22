@@ -7,7 +7,7 @@ const DetallePedido = ( producto ) => {
   return (
     <>
     
-        <div  className="container card bg-light mb-2 mxwListados">
+        <div  className="container-fluid card bg-light mb-2">
                     
                     <div className="row mt-2">
                         

@@ -50,8 +50,8 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='modal'>
-      <div className='container card mt-5 mb-5 p-4 mxwListados'> 
+    <div className='auth_anchoMax'>
+      <div className='container card mt-5 mb-5 p-4'> 
         <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         {
@@ -64,26 +64,26 @@ const LoginScreen = () => {
         <form
           onSubmit={ handleLogin }
         >
-          <div className='form-group'>
+          <div className='form-group mb-3'>
             <label htmlFor='email'>email:</label>
               <input
                 type='text'
                 placeholder='email'
                 name='email'
-                className='form-control m-2'
+                className='form-control mt-2'
                 autoComplete='off'
                 value={ email }
                 onChange={ handleInputChange }
               />
           </div>
 
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <label htmlFor='password'>contraseña:</label>
               <input
                 type='password'
                 placeholder='contraseña'
                 name='password'
-                className='form-control m-2'
+                className='form-control mt-2'
                 value={ password }
                 onChange={ handleInputChange }
               />

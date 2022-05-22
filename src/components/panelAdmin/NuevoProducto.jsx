@@ -164,7 +164,7 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
     <div 
         className='modal'>
 
-        <div className='container card bg-light mt-5 mb-5 p-4 mxwListados'> 
+        <div className='container-fluid card bg-light mt-5 mb-5 p-1 mxwListados'> 
                 
                 <form>
 

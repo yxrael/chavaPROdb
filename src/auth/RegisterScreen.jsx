@@ -66,8 +66,8 @@ const RegisterScreen = ( {setVista} ) => {
   }
 
   return (
-    <div className='container d-flex justify-content-center'>
-      <div className='container-fluid card m-5 p-5 w-50'>
+    <div className='container-fluid d-flex '>
+      <div className='container-fluid justify-content-center card mt-5 pb-5 pt-3'>
     
           {/* <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img> */}
 

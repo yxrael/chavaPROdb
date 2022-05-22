@@ -6,11 +6,11 @@ const Producto= ( { key, producto, listadoSeleccion} ) => {
     const { id, pais, nombre, proceso, precio, infoExtra, cantidad, disponible} = producto;
     const [cantidadElegida, setCantidadElegida] = useState(cantidad);
 
-    }
+    
 
     return (
 
-        <div  className="container card bg-light mb-3">
+        <div  className="container-fluid card bg-light mb-3">
             <div className="row">
                 <div className="col-sm-6">
                     <div className="row mt-2">
@@ -35,5 +35,6 @@ const Producto= ( { key, producto, listadoSeleccion} ) => {
             </div>
         </div>
     )
+}
 
 export default Producto

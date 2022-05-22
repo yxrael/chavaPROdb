@@ -2,14 +2,14 @@ import React from 'react'
 import Swal from 'sweetalert2';
 import Rating from 'react-rating';
 
-import {
-    LeadingActions,
-    SwipeableList,
-    SwipeableListItem,
-    SwipeAction,
-    TrailingActions,
-  } from 'react-swipeable-list';
-  import 'react-swipeable-list/dist/styles.css';
+// import {
+//     LeadingActions,
+//     SwipeableList,
+//     SwipeableListItem,
+//     SwipeAction,
+//     TrailingActions,
+//   } from 'react-swipeable-list';
+//   import 'react-swipeable-list/dist/styles.css';
 
 import { useDispatch } from 'react-redux';
 import { eliminaProducto, modificaProducto } from '../../actions/listadosActions';
@@ -75,27 +75,27 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
         setNuevoItem(true);
     }
 
-    const leadingActions = () => (
-        <LeadingActions>
-          <SwipeAction onClick={handleEditar}>
-            <div className='swipes__leading font-weight-bold'>
-                <p>EDITAR</p>
-            </div>
-          </SwipeAction>
-        </LeadingActions>
-      );
+    // const leadingActions = () => (
+    //     <LeadingActions>
+    //       <SwipeAction onClick={handleEditar}>
+    //         <div className='swipes__leading font-weight-bold'>
+    //             <p>EDITAR</p>
+    //         </div>
+    //       </SwipeAction>
+    //     </LeadingActions>
+    //   );
       
-      const trailingActions = () => (
-        <TrailingActions>
-          <SwipeAction
-            onClick={handleEliminar}
-          >
-              <div className='swipes__trail font-weight-bold'>
-                <p>BORRAR</p>
-              </div>
-          </SwipeAction>
-        </TrailingActions>
-      );
+    //   const trailingActions = () => (
+    //     <TrailingActions>
+    //       <SwipeAction
+    //         onClick={handleEliminar}
+    //       >
+    //           <div className='swipes__trail font-weight-bold'>
+    //             <p>BORRAR</p>
+    //           </div>
+    //       </SwipeAction>
+    //     </TrailingActions>
+    //   );
 
     const handleEliminarImagen = (e) => {
         e.preventDefault();
@@ -126,26 +126,26 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     return (
 
-        <SwipeableList>
+        <div className=''>
+
+        {/* <SwipeableList>
             <SwipeableListItem
             leadingActions={leadingActions()}
             trailingActions={trailingActions()}
-            >
+            > */}
 
-                <div  className="container card bg-light mb-3 d-flex justify-content-between mxwListados">
+                <div  className="container-fluid card bg-light mb-3 mxwListados">
+                {/* <div  className=" card bg-light mb-3 d-flex justify-content-between"> */}
 
-                    <div className='row'>
+                    <div className='row'>                     
 
-                        <div className='col-1 bg-warning fas fa-edit text-light d-flex align-items-center justify-content-center'>
-                        </div>
-
-                        <div className='col-10'>
+                        <div className='col-12'>
 
                             <div className="d-flex justify-content-center">
                                 <p><strong>{pais}. {nombre}</strong></p>
                             </div>
 
-                            <div className="d-flex justify-content-around align-items-start align-items-center">
+                            <div className="d-flex justify-content-around align-items-center">
                                  
                                         <div className="mt-2">
                                             <div className="">
@@ -228,7 +228,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                     }
 
                             <div className="d-flex justify-content-center">
-                                <span className='badge rounded-pill bg-warning  text-dark m-2'>{infoExtra}</span>
+                                <span className='badge rounded-pill bg-warning  text-dark m-2'><small>{infoExtra}</small></span>
                             </div> 
                                                 
                             <div className=" d-flex align-items-center justify-content-between">
@@ -265,27 +265,41 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
                                     )
                                 }
                                 <button 
-                                    className='btn btn-info btn-sm m-2 d-block'
+                                    className='btn btn-info btn-sm m-2 d-block mb-3'
                                     onClick={ handleCambioDispo }
                                     >
                                         Dispo: SI/NO
                                 </button>
 
                             </div>
+
+                            
                                 
                         </div>
 
-                        <div className='col-1 bg-danger fas fa-trash-alt text-light d-flex align-items-center justify-content-center'>    
+                        <div className=' d-flex col '>
+                            <div
+                                onClick={ handleEditar }
+                                className='col m-2 bg-warning fas fa-edit text-light d-flex align-items-center justify-content-center p-2'>
+                            </div>
+                            <div
+                                onClick={ handleEliminar }
+                                className='col m-2 bg-danger fas fa-trash-alt text-light d-flex align-items-center justify-content-center p-2'>    
+                            </div>
                         </div>
 
                     </div>
 
                 </div>
                           
-            </SwipeableListItem>
-        </SwipeableList>
+            {/* </SwipeableListItem>
+        </SwipeableList> */}
+
+        </div>
 
     )
+
+    
 
 }
 

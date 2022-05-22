@@ -42,7 +42,7 @@ const AdministradorPedidos = ( {setVista, fechasFiltrado, toggleEstado, setToggl
       <section id="cont-listado" className='container-fluid m-2'>
 
             <div 
-                className="contenido primario">
+                className="container-fluid contenido primario">
 
                 <h2 id="foco-listado" className="text-center m-3">Administrador de pedidos:</h2>
 

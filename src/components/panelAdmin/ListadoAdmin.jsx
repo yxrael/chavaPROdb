@@ -38,7 +38,7 @@ const ListadoAdmin = ( { setVista }) => {
 
   return (
 
-    <>
+    <div className=''>
         
         { 
             nuevoItem
@@ -106,7 +106,7 @@ const ListadoAdmin = ( { setVista }) => {
 
 
                 <div 
-                    className="contenido primario">
+                    className="">
 
                     <h2 id="foco-listado" className="text-center m-3">Listado productos:</h2>
 
@@ -136,7 +136,7 @@ const ListadoAdmin = ( { setVista }) => {
 
         }
         
-    </>
+    </div>
   )
 }
 

@@ -31,7 +31,7 @@ const MenuLogin = () => {
 
   return (
       
-    <div className='bg-light auth_anchoMax container-fluid'>
+    <div className='bg-light mxwListados container-fluid'>
         <ul className="nav justify-content-end">
 
             <li className="nav-item">

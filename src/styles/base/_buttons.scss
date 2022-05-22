@@ -46,14 +46,24 @@
 
 
 .boton-filtro-cafe {
-    min-width: 100px;
+    // min-width: 100px;
+    width: 5rem;
     font-size: x-small;
     margin-bottom: 0.3rem;
 }
 
-@media only screen and (min-width: 800px) {
-    .boton-filtro-cafe {
-        min-width: 150px;
-        font-size: medium;
-    }
+.boton-desca {
+    width: 10rem;
 }
+
+.boton-safe {
+    margin-bottom: 150px;
+    // width: 500px;
+}
+
+// @media only screen and (min-width: 800px) {
+//     .boton-filtro-cafe {
+//         min-width: 150px;
+//         font-size: medium;
+//     }
+// }

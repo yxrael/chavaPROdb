@@ -5,8 +5,8 @@ import LoginScreen from '../auth/LoginScreen'
 const AuthRouter = () => {
 
   return (
-    <div className='auth__main'>
-        <div className='auth__box-container'>
+    <div className='container-fluid'>
+        <div className='mxwListados'>
         
             <Routes >
                 
