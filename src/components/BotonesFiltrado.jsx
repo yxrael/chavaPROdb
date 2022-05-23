@@ -41,7 +41,7 @@ const BotonesFiltrado = ( ) => {
         <>
         
             {/* <div className='container d-flex justify-content-around mxwListados'> */}
-            <div className='container anchoProducto mxwListados'>
+            <div className='container-fluid'>
 
             
                 <div className='row'>

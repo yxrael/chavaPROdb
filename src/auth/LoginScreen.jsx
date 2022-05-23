@@ -50,8 +50,8 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='auth_anchoMax'>
-      <div className='container card mt-5 mb-5 p-4'> 
+    // <div className='auth_anchoMax'>
+      <div className='container-fluid card mt-5 mb-5 p-4'> 
         <img src="../images/logo.png" alt="logo Mr Chava" className='img-fluid mb-3'></img>
 
         {
@@ -104,7 +104,7 @@ const LoginScreen = () => {
             
         </form>
       </div>
-    </div>
+    // </div>
   )
 }
 

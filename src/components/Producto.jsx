@@ -39,7 +39,7 @@ const Producto = ( {producto, muestraDetalle, setMuestraDetalle, cafeSeleccionad
 
     return (
         <>            
-            <div  className="container card bg-light mb-2 d-flex justify-content-between mxwListados">
+            <div  className="container-fluid card bg-light mb-2 d-flex justify-content-between">
                 <div className="d-flex justify-content-center mt-2">
                     <p><strong>{pais}, {nombre}</strong></p>
                     

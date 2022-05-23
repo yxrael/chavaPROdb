@@ -162,9 +162,9 @@ const NuevoProducto = ( {setNuevoItem, modoEdicion, setModoEdicion, cafeEdicion 
   return (
 
     <div 
-        className='modal'>
+        className=''>
 
-        <div className='container-fluid card bg-light mt-5 mb-5 p-1 mxwListados'> 
+        <div className='container-fluid card bg-light mt-5 mb-5 p-1'> 
                 
                 <form>
 

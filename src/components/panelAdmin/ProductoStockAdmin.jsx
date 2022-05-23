@@ -126,7 +126,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
 
     return (
 
-        <div className=''>
+        <div>
 
         {/* <SwipeableList>
             <SwipeableListItem
@@ -134,7 +134,7 @@ const ProductoStockAdmin = ( {producto, setNuevoItem, setModoEdicion, setCafeEdi
             trailingActions={trailingActions()}
             > */}
 
-                <div  className="container-fluid card bg-light mb-3 mxwListados">
+                <div  className="container-fluid card bg-light mb-3">
                 {/* <div  className=" card bg-light mb-3 d-flex justify-content-between"> */}
 
                     <div className='row'>                     

@@ -21,7 +21,6 @@ const ListadoPedidosCliente = () => {
   return (
     <>
       
-
       <section id="cont-listado" className='container-fluid m-2'>
 
             <div 
@@ -29,11 +28,19 @@ const ListadoPedidosCliente = () => {
 
                 <h2 id="foco-listado" className="text-center m-3">Mis pedidos:</h2>
 
-                <div className='d-flex justify-content-center'>
-                        <p>*IVA y gastos de envío no incluídos en los totales</p>
+                {
+                  ( listaFiltrada.length === 0 ) &&
+                  ( <div className='d-flex justify-content-center'>
+                      <h6>Todavía no tienes pedidos</h6>
                     </div>
+                  )
+                }
 
-                    <ConfirmaEnvio />
+                <div className='d-flex justify-content-center'>
+                    <p>*IVA y gastos de envío no incluídos en los totales</p>
+                </div>
+
+                <ConfirmaEnvio />                
 
                 {listaFiltrada.map( producto => {
                         return (

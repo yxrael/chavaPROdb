@@ -5,7 +5,7 @@ import LoginScreen from '../auth/LoginScreen'
 const AuthRouter = () => {
 
   return (
-    <div className='container-fluid'>
+    // <div className='container-fluid'>
         <div className='mxwListados'>
         
             <Routes >
@@ -18,7 +18,7 @@ const AuthRouter = () => {
             </Routes>
 
         </div>
-    </div>
+    // </div>
   )
 }
 

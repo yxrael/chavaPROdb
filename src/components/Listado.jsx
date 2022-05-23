@@ -43,7 +43,7 @@ const Listado = () => {
     };
 
     return (
-        <section id="cont-listado" className='container-fluid m-2 anchoProducto'>
+        <section id="cont-listado" className='container-fluid m-2'>
 
             <BotonesFiltrado />
 
